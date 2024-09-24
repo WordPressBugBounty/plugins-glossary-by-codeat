@@ -77,7 +77,7 @@ class A2Z_Archive extends Engine\Base {
 	 */
 	public function modify_query_where( string $where ) {
 		global $wp_query, $wpdb;
-		$where = " AND $wpdb->posts.post_type = 'glossary' AND substring( TRIM( LEADING 'A ' FROM TRIM( LEADING 'AN ' FROM TRIM( LEADING 'THE ' FROM UPPER( $wpdb->posts.post_title ) ) ) ), 1, 1) = '" . $wp_query->query_vars[ 'az' ] . "'";
+		$where .= " AND $wpdb->posts.post_type = 'glossary' AND substring( TRIM( LEADING 'A ' FROM TRIM( LEADING 'AN ' FROM TRIM( LEADING 'THE ' FROM UPPER( $wpdb->posts.post_title ) ) ) ), 1, 1) = '" . $wp_query->query_vars[ 'az' ] . "'";
 		\remove_filter( 'posts_where', array( $this, 'modify_query_where' ) );
 
 		return $where;
