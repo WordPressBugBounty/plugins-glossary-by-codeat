@@ -1,0 +1,40 @@
+{
+  "name": "codeatcode/wp-review-me",
+  "description": "A lightweight library to help you get more reviews for your WordPress theme/plugin",
+  "homepage": "https://github.com/codeatcode/WP-Review-Me",
+  "license": "GNU GPL",
+  "authors": [
+    {
+      "name": "Julien Liabeuf",
+      "email": "julien@liabeuf.fr",
+      "homepage": "https://julienliabeuf.com",
+      "role": "Lead Developer"
+    }
+  ],
+  "require": {
+    "mte90/wp-dismissible-notices-handler": "1.2.2"
+  },
+  "repositories": [
+      {
+          "type": "package",
+          "package": {
+            "name": "mte90\/wp-dismissible-notices-handler",
+            "version": "1.2.2",
+            "autoload": {
+                "files": [
+                  "handler.php",
+                  "includes\/helper-functions.php"
+                ]
+            },
+            "source": {
+                "type": "git",
+                "url": "https:\/\/github.com\/mte90\/WP-Dismissible-Notices-Handler.git",
+                "reference": "patch-1"
+            }
+          }
+      }
+  ],
+  "autoload": {
+    "files": ["review.php"]
+  }
+}
