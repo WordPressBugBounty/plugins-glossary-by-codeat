@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit8f6a6e342221bfb8b703a5bd8d249192
+class ComposerStaticInitcf76e95fafb85e69400c845e3e27c54b
 {
     public static $files = array (
         '578496d7ba8c55447964d725c8448309' => __DIR__ . '/..' . '/codeatcode/wp-review-me/review.php',
@@ -246,6 +246,7 @@ class ComposerStaticInit8f6a6e342221bfb8b703a5bd8d249192
         'Glossary\\Integrations\\CMB_Fields\\CMB2_OpenAI_Prompt' => __DIR__ . '/../..' . '/integrations/CMB_Fields/CMB2_OpenAI_Prompt.php',
         'Glossary\\Integrations\\CMB_Metabox' => __DIR__ . '/../..' . '/integrations/CMB_Metabox.php',
         'Glossary\\Integrations\\Cron' => __DIR__ . '/../..' . '/integrations/Cron.php',
+        'Glossary\\Integrations\\Polylang' => __DIR__ . '/../..' . '/integrations/Polylang.php',
         'Glossary\\Integrations\\Widgets\\A2Z' => __DIR__ . '/../..' . '/integrations/Widgets/A2Z.php',
         'Glossary\\Integrations\\Widgets\\Categories' => __DIR__ . '/../..' . '/integrations/Widgets/Categories.php',
         'Glossary\\Integrations\\Widgets\\Last_Glossaries' => __DIR__ . '/../..' . '/integrations/Widgets/Last_Glossaries.php',
@@ -305,9 +306,9 @@ class ComposerStaticInit8f6a6e342221bfb8b703a5bd8d249192
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit8f6a6e342221bfb8b703a5bd8d249192::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit8f6a6e342221bfb8b703a5bd8d249192::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit8f6a6e342221bfb8b703a5bd8d249192::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitcf76e95fafb85e69400c845e3e27c54b::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitcf76e95fafb85e69400c845e3e27c54b::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitcf76e95fafb85e69400c845e3e27c54b::$classMap;
 
         }, null, ClassLoader::class);
     }

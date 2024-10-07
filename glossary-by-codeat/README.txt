@@ -4,7 +4,7 @@ Tags: glossary, vocabulary, dictionary, tooltip, lexicon
 Requires at least: 6.0
 Requires PHP: 7.4
 Tested up to: 6.6.2
-Stable tag: 2.2.31
+Stable tag: 2.2.32
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -194,6 +194,11 @@ The most common problem you might encounter with Visual Composer is the truncati
 7. Glossary Index Block Editor (Pro)
 
 == Changelog ==
+
+= 2.2.32 =
+
+* Fix: Improved Polylang integration
+* Fix: WPML integration
 
 = 2.2.31 =
 

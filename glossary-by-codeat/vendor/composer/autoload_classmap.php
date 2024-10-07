@@ -138,6 +138,7 @@ return array(
     'Glossary\\Integrations\\CMB_Fields\\CMB2_OpenAI_Prompt' => $baseDir . '/integrations/CMB_Fields/CMB2_OpenAI_Prompt.php',
     'Glossary\\Integrations\\CMB_Metabox' => $baseDir . '/integrations/CMB_Metabox.php',
     'Glossary\\Integrations\\Cron' => $baseDir . '/integrations/Cron.php',
+    'Glossary\\Integrations\\Polylang' => $baseDir . '/integrations/Polylang.php',
     'Glossary\\Integrations\\Widgets\\A2Z' => $baseDir . '/integrations/Widgets/A2Z.php',
     'Glossary\\Integrations\\Widgets\\Categories' => $baseDir . '/integrations/Widgets/Categories.php',
     'Glossary\\Integrations\\Widgets\\Last_Glossaries' => $baseDir . '/integrations/Widgets/Last_Glossaries.php',

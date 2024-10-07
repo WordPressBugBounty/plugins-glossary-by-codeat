@@ -118,9 +118,13 @@ class Generate_Excerpt extends Engine\Base {
         if ( (bool) $atts['noreadmore'] ) {
             return '';
         }
+        $wrap_on = '';
+        $wrap_off = '';
         $text_readmore = \__( 'More', GT_TEXTDOMAIN );
-        $readmore = ' <a href="' . $atts['link'] . '">' . $text_readmore . '</a>';
-        return $readmore;
+        if ( function_exists( 'pll__' ) ) {
+            $text_readmore = pll__( 'More' );
+        }
+        return ' ' . $wrap_on . '<a href="' . $atts['link'] . '">' . $text_readmore . '</a>' . $wrap_off;
     }
 
     /**

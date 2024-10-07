@@ -76,6 +76,11 @@ class PostTypes extends Engine\Base {
 			$multi = $this->settings[ 'label_multi' ];
 		}
 
+		if ( function_exists( 'pll__' ) ) {
+			$single = pll__( 'Glossary Term' );
+			$multi  = pll__( 'Glossary Terms' );
+		}
+
 		$this->labels = array(
 			'singular' => $single,
 			'plural'   => $multi,
