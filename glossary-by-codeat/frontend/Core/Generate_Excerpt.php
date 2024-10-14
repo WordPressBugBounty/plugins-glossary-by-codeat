@@ -49,8 +49,8 @@ class Generate_Excerpt extends Engine\Base {
         $excerpt = \str_replace( '<ul>', '<br>', $excerpt );
         $excerpt = \str_replace( '</li>', '<br>', $excerpt );
         // Code extracted from wp_strip_all_tags
-        $excerpt = \preg_replace( '@<(script|style)[^>]*?>.*?</\\1>@si', '', $excerpt );
-        $excerpt = \strip_tags( (string) $excerpt, '<br><sup>' );
+        $excerpt = \preg_replace( '@<(script|style|sup)[^>]*?>.*?</\\1>@si', '', $excerpt );
+        $excerpt = \strip_tags( (string) $excerpt, '<br>' );
         $excerpt = \preg_replace( '/[\\r\\n\\t ]+/', ' ', \trim( $excerpt ) );
         /**
          * Filter the excerpt before printing

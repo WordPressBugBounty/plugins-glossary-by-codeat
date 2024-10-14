@@ -255,7 +255,7 @@ class Is_Methods extends Engine\Base {
         if ( empty( $text ) ) {
             return true;
         }
-        return false !== \strpos( $text, '"glossary-' ) && false !== \strpos( $text, ' glossary-' );
+        return false !== \strpos( $text, '"glossary-tooltip' );
     }
 
 }
