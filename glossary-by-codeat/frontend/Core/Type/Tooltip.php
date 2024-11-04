@@ -70,9 +70,13 @@ class Tooltip extends Engine\Base {
             }
         }
         $html['before'] = '<span class="' . $tooltip_class . '" tabindex="0">' . '<span class="' . $class . '">';
-        $tooltip = '</span><span class="hidden ' . $this->default_parameters['css_class_prefix'] . '-tooltip-content clearfix">';
-        $tooltip .= $photo;
-        $tooltip .= '<span class="' . $this->default_parameters['css_class_prefix'] . '-tooltip-text">' . $this->excerpt . '</span></span></span>';
+        $tooltip_html = '</span><span class="hidden ' . $this->default_parameters['css_class_prefix'] . '-tooltip-content clearfix">';
+        $tooltip_html .= $photo;
+        $tooltip_html .= '<span class="' . $this->default_parameters['css_class_prefix'] . '-tooltip-text">';
+        $tooltip = $tooltip_html;
+        $tooltip_html_close = '</span></span></span>';
+        $tooltip_html .= '{{content}}' . $tooltip_html_close;
+        $tooltip .= $this->excerpt . $tooltip_html_close;
         /**
          * Filter the HTML generated
          *
@@ -81,6 +85,7 @@ class Tooltip extends Engine\Base {
          * @param string $photo   Photo.
          * @param string $post    The post object.
          * @param string $noreadmore The internal html link.
+         * @param string $tooltip_html The tooltip's HTML content wrapper.
          * @since 1.2.0
          * @return string $html The tooltip filtered.
          */
@@ -90,7 +95,8 @@ class Tooltip extends Engine\Base {
             $this->excerpt,
             $photo,
             $this->atts['term_ID'],
-            $this->atts['noreadmore']
+            $this->atts['noreadmore'],
+            $tooltip_html
         );
         return $html;
     }
