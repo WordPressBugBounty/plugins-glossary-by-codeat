@@ -68,11 +68,6 @@ class ChatGPT extends Engine\Base {
 
 		if ( !\wp_verify_nonce( \strval( $request['nonce'] ), 'generate_nonce' ) ) {
 			$response = \rest_ensure_response( __( 'Invalid nonce', GT_TEXTDOMAIN ) );
-
-			if ( \is_wp_error( $response ) ) {
-				return $response;
-			}
-
 			$response->set_status( 500 );
 
 			return $response;
@@ -100,22 +95,18 @@ class ChatGPT extends Engine\Base {
 			$message = json_decode( \strval( $message ) );
 
 			if ( is_object( $message ) ) {
-				if ( isset( $message->error ) ) {
+				if ( isset( $message->error ) && is_object( $message->error ) ) {
 					$error = $message->error->message;
 				}
 
-				if ( is_array( $message->choices ) ) {
-					return \rest_ensure_response( $message->choices[0]->message->content );
+				if ( is_array( $message->choices )
+					&& is_object( $message->choices[0]->message ) ) { // @phpstan-ignore property.nonObject
+					return \rest_ensure_response( $message->choices[0]->message->content ); // @phpstan-ignore property.nonObject
 				}
 			}
 		}
 
 		$response = \rest_ensure_response( __( 'Request not accepted: ', GT_TEXTDOMAIN ) . $error );
-
-		if ( \is_wp_error( $response ) ) {
-			return $response;
-		}
-
 		$response->set_status( 500 );
 
 		return $response;

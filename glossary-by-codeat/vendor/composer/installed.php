@@ -130,7 +130,7 @@
         'roave/security-advisories' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'e3b44e38648ef5386687032582759f9c616c8d19',
+            'reference' => 'fff26f7a91a7458bf6eea5afdd71b4aba1f1d3ea',
             'type' => 'metapackage',
             'install_path' => null,
             'aliases' => array(),
@@ -187,9 +187,9 @@
             'dev_requirement' => false,
         ),
         'wpdesk/wp-builder' => array(
-            'pretty_version' => '2.1.1',
-            'version' => '2.1.1.0',
-            'reference' => 'bf30b1ac6f94f39654a29552cb26d8dad5dda085',
+            'pretty_version' => '2.1.2',
+            'version' => '2.1.2.0',
+            'reference' => '66c383153208b478e0fd9d80169001390914a064',
             'type' => 'library',
             'install_path' => __DIR__ . '/../wpdesk/wp-builder',
             'aliases' => array(),

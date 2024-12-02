@@ -45,7 +45,9 @@ class Notices extends Engine\Base {
         }
         if ( \is_array( $this->settings ) && !isset( $this->settings['archive'] ) ) {
             if ( isset( $this->settings['slug'] ) && !\is_null( \get_page_by_path( $this->settings['slug'], OBJECT ) ) ) {
+                // @phpstan-ignore argument.type
                 $page = \get_page_by_path( $this->settings['slug'], OBJECT );
+                // @phpstan-ignore argument.type
                 new Notice(
                     \sprintf( 
                         /* translators: the link to the documentation */

@@ -1,3 +1,7 @@
+## [2.1.2] - 2024-11-19
+### Removed
+- Do not load translations from plugin hook. Leave it to other libraries and processes.
+
 ## [2.1.1] - 2023-12-12
 ### Fixed
 - fixed deprecated load_plugin_textdomain function required by the WordPress repository checker. False is no longer a valid option at position 2  

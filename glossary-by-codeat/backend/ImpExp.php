@@ -48,14 +48,14 @@ class ImpExp extends Engine\Base {
 	public function settings_export() {
 		if ( empty( $_POST[ 'g_action' ] ) ||
 			'export_settings' !== \sanitize_text_field(
-				\wp_unslash( $_POST[ 'g_action' ] ) //phpcs:ignore WordPress.Security.NonceVerification
+				\wp_unslash( \strval( $_POST[ 'g_action' ] ) ) //phpcs:ignore WordPress.Security.NonceVerification, WordPress.Security.ValidatedSanitizedInput.MissingUnslash, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 		) ) {
 			return;
 		}
 
 		if ( !\wp_verify_nonce(
 			\sanitize_text_field(
-				\wp_unslash( $_POST[ 'g_export_nonce' ] )//phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+				\wp_unslash( \strval( $_POST[ 'g_export_nonce' ] ) ) //phpcs:ignore WordPress.Security.ValidatedSanitizedInput
 			),
 			'g_export_nonce'
 		) ) {
@@ -86,12 +86,12 @@ class ImpExp extends Engine\Base {
 	public function settings_import() {
 		if (
 			empty( $_POST[ 'g_action' ] )
-			|| 'import_settings' !== \sanitize_text_field( \wp_unslash( $_POST[ 'g_action' ] ) )
+			|| 'import_settings' !== \sanitize_text_field( \wp_unslash( \strval( $_POST[ 'g_action' ] ) ) ) //phpcs:ignore WordPress.Security.ValidatedSanitizedInput.MissingUnslash, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized, WordPress.Security.NonceVerification.Missing
 		) {
 			return;
 		}
 
-		if ( ! \wp_verify_nonce( \sanitize_text_field( \wp_unslash( $_POST[ 'g_import_nonce' ] ) ), 'g_import_nonce' ) ) { //phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+		if ( ! \wp_verify_nonce( \sanitize_text_field( \wp_unslash( \strval( $_POST[ 'g_import_nonce' ] ) ) ), 'g_import_nonce' ) ) { //phpcs:ignore WordPress.Security.ValidatedSanitizedInput
 			return;
 		}
 
@@ -99,14 +99,14 @@ class ImpExp extends Engine\Base {
 			return;
 		}
 
-		$exploded  = \explode( '.', $_FILES[ 'g_import_file' ][ 'name' ] ); //phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+		$exploded  = \explode( '.', \strval( $_FILES[ 'g_import_file' ][ 'name' ] ) ); //phpcs:ignore WordPress.Security.ValidatedSanitizedInput
 		$extension = \end( $exploded );
 
 		if ( 'json' !== $extension ) {
 			\wp_die( \esc_html__( 'Please upload a valid .json file', GT_SETTINGS ) );
 		}
 
-		$import_file = $_FILES[ 'g_import_file' ][ 'tmp_name' ]; //phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+		$import_file = \strval( $_FILES[ 'g_import_file' ][ 'tmp_name' ] ); //phpcs:ignore WordPress.Security.ValidatedSanitizedInput
 
 		if ( empty( $import_file ) ) {
 			\wp_die( \esc_html__( 'Please upload a file to import', GT_SETTINGS ) );
@@ -118,7 +118,7 @@ class ImpExp extends Engine\Base {
 		if ( $settings_file !== false ) {
 			$settings = \json_decode( (string) $settings_file );
 
-			if ( \is_array( $settings ) ) {
+			if ( \is_array( $settings ) && is_object( $settings[ 0 ] ) ) {
 				\update_option( GT_SETTINGS . '-settings', \get_object_vars( $settings[ 0 ] ) );
 
 				\wp_safe_redirect( \admin_url( 'edit.php?post_type=glossary&page=glossary#tabs-impexp' ) );

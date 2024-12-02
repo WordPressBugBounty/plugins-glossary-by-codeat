@@ -98,7 +98,7 @@ class Is_Methods extends Engine\Base {
      * @return bool
      */
     public function is_rest() {
-        if ( \defined( 'REST_REQUEST' ) && REST_REQUEST || isset( $_GET['rest_route'] ) && \strpos( wp_unslash( $_GET['rest_route'] ), '/', 0 ) === 0 ) {
+        if ( \defined( 'REST_REQUEST' ) && REST_REQUEST || isset( $_GET['rest_route'] ) && \strpos( wp_unslash( \strval( $_GET['rest_route'] ) ), '/', 0 ) === 0 ) {
             // phpcs:ignore
             return true;
         }
