@@ -43,7 +43,6 @@
         "ergebnis\/composer-normalize": "^2.42",
         "lucatume\/function-mocker": "^1.0",
         "lucatume\/wp-browser": "^3.0",
-        "pcov\/clobber": "^2.0",
         "php-stubs\/acf-pro-stubs": "^6.2",
         "php-stubs\/genesis-stubs": "^3.4",
         "php-stubs\/wordpress-stubs": "^6.6",
