@@ -172,7 +172,7 @@ class Search_Engine extends Engine\Base {
      */
     public function bricks_settings( $settings, $element ) {
         if ( \apply_filters( $this->default_parameters['filter_prefix'] . '_is_page_to_parse', $this->content->is_page_type_to_check() ) ) {
-            if ( strpos( $element->name, 'text' ) !== false ) {
+            if ( in_array( $element->name, array('text', 'text-basic', 'post-content'), true ) ) {
                 $settings['text'] = $this->auto_link( $settings['text'] );
             }
         }

@@ -10,7 +10,7 @@
  * Plugin Name:    Glossary
  * Plugin URI:     https://glossary.codeat.co/
  * Description:    Easily add and manage a glossary with auto-link, tooltips and more. Improve your internal link building for a better SEO.
- * Version:        2.2.36
+ * Version:        2.2.37
  * Author:         Codeat
  * Author URI:     https://docs.codeat.co/glossary/
  * Text Domain:    glossary-by-codeat
@@ -25,7 +25,7 @@ if ( !defined( 'ABSPATH' ) ) {
     die( 'We\'re sorry, but you can not directly access this file.' );
     //phpcs:ignore
 }
-define( 'GT_VERSION', '2.2.36' );
+define( 'GT_VERSION', '2.2.37' );
 define( 'GT_SETTINGS', 'glossary' );
 define( 'GT_TEXTDOMAIN', 'glossary-by-codeat' );
 define( 'GT_NAME', 'Glossary' );
@@ -36,7 +36,7 @@ require_once GT_PLUGIN_ROOT . 'functions/functions.php';
 $requirements = new \Micropackage\Requirements\Requirements('Glossary', array(
     'php'            => '7.4',
     'php_extensions' => array('mbstring', 'iconv'),
-    'wp'             => '5.9',
+    'wp'             => '6.2',
 ));
 if ( !$requirements->satisfied() ) {
     $requirements->print_notice();

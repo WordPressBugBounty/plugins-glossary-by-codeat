@@ -73,7 +73,7 @@ class Notices extends Engine\Base {
      */
     public function alerts_by_libraries() {
         if ( \is_multisite() ) {
-            $this->dismissable( \__( 'Hey, we noticed that you are in a multi-site network. Glossary now supports WordPress multi-site feature!<br>Please, read our <a href="http://docs.codeat.co/glossary/faq/#are-you-compatible-with-wordpress-multisite">documentation</a>.', GT_TEXTDOMAIN ), '_pro_multisite', 'updated' );
+            $this->dismissable( \__( 'Hey, we noticed that you are in a multi-site network. Glossary Premium now supports WordPress multi-site feature!<br>Please, read our <a href="http://docs.codeat.co/glossary/faq/#are-you-compatible-with-wordpress-multisite">documentation</a>.', GT_TEXTDOMAIN ), '_pro_multisite', 'updated' );
         }
         new \WP_Review_Me(array(
             'days_after' => 15,
