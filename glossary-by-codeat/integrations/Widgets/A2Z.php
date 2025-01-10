@@ -129,6 +129,12 @@ class A2Z extends \WPH_Widget {
                 $base_url = \get_bloginfo( 'url' ) . '/' . $posttype->rewrite['slug'];
             }
         }
+        if ( !empty( $instance['tax'] ) ) {
+            $_url = get_term_link( $instance['tax'], 'glossary-cat' );
+            if ( !is_wp_error( $_url ) ) {
+                $base_url = $_url;
+            }
+        }
         foreach ( $pt_initials as $pt_rec ) {
             $link = \add_query_arg( 'az', $pt_rec['initial'], $base_url );
             $item = '<li><a href="' . $link . '">' . $pt_rec['initial'] . '</a></li>';
@@ -161,9 +167,7 @@ class A2Z extends \WPH_Widget {
      * @return void
      */
     public function initialize() {
-        \add_action( 'widgets_init', static function () {
-            \register_widget( 'Glossary\\Integrations\\Widgets\\A2Z' );
-        } );
+        \register_widget( 'Glossary\\Integrations\\Widgets\\A2Z' );
     }
 
     /**

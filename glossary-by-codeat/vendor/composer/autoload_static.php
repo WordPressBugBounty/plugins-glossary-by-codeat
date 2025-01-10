@@ -4,10 +4,11 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit7f92bd37903453ec2d1cefeddbadc8dc
+class ComposerStaticInit9a18976aa035047bdfaca50b28f1c896
 {
     public static $files = array (
         '578496d7ba8c55447964d725c8448309' => __DIR__ . '/..' . '/codeatcode/wp-review-me/review.php',
+        '8d50dc88e56bace65e1e72f6017983ed' => __DIR__ . '/..' . '/freemius/wordpress-sdk/start.php',
         'a2c48002d05f7782d8b603bd2bcb5252' => __DIR__ . '/..' . '/johnbillion/extended-cpts/extended-cpts.php',
         'c7a55a0e93fe86ca032cc0161206670a' => __DIR__ . '/..' . '/mte90/cmb2-field-ajax-search/cmb2-field-ajax-search.php',
         '13ffc7b37af3f0937efe725fbe5f8dbf' => __DIR__ . '/..' . '/mte90/wp-dismissible-notices-handler/handler.php',
@@ -306,9 +307,9 @@ class ComposerStaticInit7f92bd37903453ec2d1cefeddbadc8dc
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit7f92bd37903453ec2d1cefeddbadc8dc::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit7f92bd37903453ec2d1cefeddbadc8dc::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit7f92bd37903453ec2d1cefeddbadc8dc::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit9a18976aa035047bdfaca50b28f1c896::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit9a18976aa035047bdfaca50b28f1c896::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit9a18976aa035047bdfaca50b28f1c896::$classMap;
 
         }, null, ClassLoader::class);
     }

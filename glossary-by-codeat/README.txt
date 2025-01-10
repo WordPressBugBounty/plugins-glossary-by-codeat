@@ -4,7 +4,7 @@ Tags: glossary, vocabulary, dictionary, tooltip, lexicon
 Requires at least: 6.2
 Requires PHP: 7.4
 Tested up to: 6.7.1
-Stable tag: 2.2.37
+Stable tag: 2.2.38
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -195,7 +195,12 @@ The most common problem you might encounter with Visual Composer is the truncati
 
 == Changelog ==
 
-= 2.2.36 =
+= 2.2.38 =
+
+* Fix: Improved textdomain loading for widgets
+* Fix: Archive widget now use category configured for links
+
+= 2.2.37 =
 
 * Enhancement: Improved Bricks Builder integration
 

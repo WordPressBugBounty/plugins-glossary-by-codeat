@@ -133,12 +133,7 @@ class Last_Glossaries extends \WPH_Widget {
 	 * @return void
 	 */
 	public function initialize() {
-		\add_action(
-		'widgets_init',
-		static function () {
-			\register_widget( 'Glossary\Integrations\Widgets\Last_Glossaries' );
-		}
-		);
+		\register_widget( 'Glossary\Integrations\Widgets\Last_Glossaries' );
 	}
 
 }

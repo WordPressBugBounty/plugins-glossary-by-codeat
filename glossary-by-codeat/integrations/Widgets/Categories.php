@@ -91,12 +91,7 @@ class Categories extends \WPH_Widget {
 	 * @return void
 	 */
 	public function initialize() {
-		\add_action(
-		'widgets_init',
-		static function () {
-			\register_widget( 'Glossary\Integrations\Widgets\Categories' );
-		}
-		);
+		\register_widget( 'Glossary\Integrations\Widgets\Categories' );
 	}
 
 }

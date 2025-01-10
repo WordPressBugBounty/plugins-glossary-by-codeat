@@ -34,7 +34,7 @@ class PostTypes extends Engine\Base {
 	public function initialize() {
 		parent::initialize();
 
-		$this->generate_labels();
+		\add_action( 'init', array( $this, 'generate_labels' ) );
 		\add_action( 'init', array( $this, 'load_cpts' ) );
 		\add_action( 'init', array( $this, 'load_taxs' ) );
 		\add_filter( 'posts_orderby', array( $this, 'orderby_whitespace' ), 9999, 2 );

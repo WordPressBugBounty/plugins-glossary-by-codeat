@@ -86,14 +86,29 @@ class Initialize {
 
 		foreach ( $this->classes as $class ) {
 			try {
-				$temp = new $class;
-				$temp->initialize();
-				\add_filter(
-					'glossary_instance_' . $class,
-					function() use ( $temp ) {
-						return $temp;
-					}
-				);
+				if (strpos($class, 'Widgets') !== false ) {
+					\add_action(
+						'widgets_init',
+						function() use ( $class ) {
+							$temp = new $class;
+							$temp->initialize();
+							\add_filter(
+								'glossary_instance_' . $class,
+								function() use ( $temp ) {
+									return $temp;
+								}
+							);
+						});
+				} else {
+					$temp = new $class;
+					$temp->initialize();
+					\add_filter(
+						'glossary_instance_' . $class,
+						function() use ( $temp ) {
+							return $temp;
+						}
+					);
+				}
 			} catch ( \Throwable $err ) {
 				\do_action( 'glossary_initialize_failed', $err );
 
