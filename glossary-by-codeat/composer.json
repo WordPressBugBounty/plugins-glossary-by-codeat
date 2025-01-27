@@ -15,7 +15,7 @@
         "codeatcode\/wp-review-me": "dev-develop",
         "composer\/installers": "^1.0",
         "devaloka\/network-wp-query": "^0.2.0",
-        "freemius\/wordpress-sdk": "^2.10",
+        "freemius\/wordpress-sdk": "^2.11",
         "johnbillion\/extended-cpts": "^4.5.2",
         "micropackage\/requirements": "^1.1",
         "mte90\/cmb2-field-ajax-search": "dev-master",
@@ -130,6 +130,17 @@
                     "type": "git",
                     "url": "https:\/\/github.com\/mte90\/wp-super-duper.git",
                     "reference": "fork"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "freemius/wordpress-sdk",
+                "version": "2.11.0",
+                "dist": {
+                    "type": "zip",
+                    "url": "/tmp/sdk.zip"
                 }
             }
         }

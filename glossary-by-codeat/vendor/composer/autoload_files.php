@@ -7,7 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     '578496d7ba8c55447964d725c8448309' => $vendorDir . '/codeatcode/wp-review-me/review.php',
-    '8d50dc88e56bace65e1e72f6017983ed' => $vendorDir . '/freemius/wordpress-sdk/start.php',
     'a2c48002d05f7782d8b603bd2bcb5252' => $vendorDir . '/johnbillion/extended-cpts/extended-cpts.php',
     'c7a55a0e93fe86ca032cc0161206670a' => $vendorDir . '/mte90/cmb2-field-ajax-search/cmb2-field-ajax-search.php',
     '13ffc7b37af3f0937efe725fbe5f8dbf' => $vendorDir . '/mte90/wp-dismissible-notices-handler/handler.php',
