@@ -171,7 +171,7 @@ class Terms_List extends Engine\Base {
         $this->parameters['nofollow'] = \get_post_meta( $this->id_term, GT_SETTINGS . '_nofollow', true );
         $this->parameters['sponsored'] = \get_post_meta( $this->id_term, GT_SETTINGS . '_sponsored', true );
         $this->parameters['noreadmore'] = false;
-        if ( empty( $this->parameters['url'] ) && empty( $this->parameters['type'] ) || 'external' === $this->parameters['type'] && empty( $this->parameters['url'] ) ) {
+        if ( empty( $this->parameters['url'] ) && empty( $this->parameters['type'] ) || 'external' === $this->parameters['type'] && !empty( $this->parameters['url'] ) ) {
             $this->parameters['noreadmore'] = true;
         }
         $this->parameters = \apply_filters( $this->default_parameters['filter_prefix'] . '_default_term_parameters', $this->parameters, $this->id_term );

@@ -104,6 +104,16 @@ class CMB2_MultiCheck_PostType extends Engine\Base {
 		unset( $cpts[ 'etheme_mega_menus' ] );
 		unset( $cpts[ 'etheme_slides' ] );
 		unset( $cpts[ 'ils_customlinks' ] );
+		unset( $cpts[ 'mc4wp-form' ] );
+		unset( $cpts[ 'dlm_download' ] );
+		unset( $cpts[ 'dlm_download_version' ] );
+		unset( $cpts[ 'et_theme_options' ] );
+		unset( $cpts[ 'et_code_snippet' ] );
+		unset( $cpts[ 'et_template' ] );
+		unset( $cpts[ 'et_tb_item' ] );
+		unset( $cpts[ 'wpdiscuz_form' ] );
+		unset( $cpts[ 'wpcf7r_action' ] );
+		unset( $cpts[ 'wpcf7r_leads' ] );
 
 		$cpts    = \apply_filters( 'multicheck_posttype_' . $field->args[ '_id' ], $cpts );
 		$options = '';

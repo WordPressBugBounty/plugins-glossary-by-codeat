@@ -58,7 +58,7 @@
         'freemius/wordpress-sdk' => array(
             'pretty_version' => '2.11.0',
             'version' => '2.11.0.0',
-            'reference' => null,
+            'reference' => '9ad5477e4f0a39999b96bb21d0327bc6841d4590',
             'type' => 'library',
             'install_path' => __DIR__ . '/../freemius/wordpress-sdk',
             'aliases' => array(),
@@ -130,7 +130,7 @@
         'roave/security-advisories' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'fa05b1cdeb1d38692aea5d34bed226b682403a6d',
+            'reference' => 'b3b8e9af2f66bf476ec0c4bbaf5ca069488c643e',
             'type' => 'metapackage',
             'install_path' => null,
             'aliases' => array(),
