@@ -46,11 +46,15 @@ class Search extends Engine\Base {
 	 */
 	public function filter_search( $query ) {
 		if ( $query->is_search && !\is_admin() ) {
-			$post_types = $query->get( 'post_type' );
+			$post_types   = array();
+			$post_types[] = $query->get( 'post_type' );
+			if ( empty( $post_types[0] ) ) {
+				$post_types[0] = "post";
+			}
 
-			if ( 'post' === $post_types ) {
-				$post_types = array();
-				$query->set( 'post_type', \array_push( $post_types, $this->default_parameters['post_type'] ) );
+			if ( 'post' === $post_types[0] ) {
+				$post_types[] = $this->default_parameters['post_type'];
+				$query->set( 'post_type', $post_types );
 			}
 		}
 
