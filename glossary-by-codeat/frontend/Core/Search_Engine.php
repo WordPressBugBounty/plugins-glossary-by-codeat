@@ -72,7 +72,7 @@ class Search_Engine extends Engine\Base {
         }
         // Support on Elementor for the Text Widget
         if ( \defined( 'ELEMENTOR_VERSION' ) ) {
-            \add_filter( 'widget_text', array($this, 'check_auto_link'), $priority );
+            \add_filter( 'widget_text', array($this, 'exec_shortcode'), $priority );
         }
         // Support on Divi on shortcode flow execution
         if ( \function_exists( 'et_setup_theme' ) ) {
@@ -127,6 +127,17 @@ class Search_Engine extends Engine\Base {
             return $this->auto_link( $text );
         }
         return $text;
+    }
+
+    /**
+     * Execute shortcodes inside
+     *
+     * @param string $text The content.
+     * @return string
+     */
+    public function exec_shortcode( $text ) {
+        // phpcs:ignore
+        return $this->check_auto_link( \do_shortcode( $text ) );
     }
 
     /**
