@@ -449,7 +449,7 @@ function gl_get_base_url() {
             $base_url = esc_url( (string) get_permalink( intval( get_option( 'page_for_posts' ) ) ) );
         }
     }
-    return $base_url;
+    return apply_filters( 'glossary_base_url', $base_url );
 }
 
 /**

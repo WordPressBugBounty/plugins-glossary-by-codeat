@@ -49,7 +49,7 @@ class Footnote extends Engine\Base {
 	 * @return string
 	 */
 	public function append_content( array $terms_to_inject ) { //phpcs:ignore SlevomatCodingStandard.Complexity.Cognitive.ComplexityTooHigh
-		if ( !\is_type_inject_set_as( 'footnote' ) ) {
+		if ( !\gl_get_bool_settings( 'append_terms' ) && !\is_type_inject_set_as( 'footnote' ) ) {
 			return '';
 		}
 

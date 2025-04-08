@@ -11,9 +11,9 @@
     ],
     "require": {
         "php": ">=7.4",
-        "cmb2\/cmb2": "~2.11.0",
+        "cmb2\/cmb2": "~2.10.0",
         "codeatcode\/wp-review-me": "dev-develop",
-        "composer\/installers": "^1.0",
+        "composer\/installers": "^2.3",
         "devaloka\/network-wp-query": "^0.2.0",
         "freemius\/wordpress-sdk": "^2.11",
         "johnbillion\/extended-cpts": "^4.5.2",
@@ -29,23 +29,17 @@
         "wpdesk\/wp-notice": "^3.2"
     },
     "require-dev": {
-        "ampproject\/amp-wp": "2.5.3",
+        "ampproject\/amp-wp": "2.5.5",
         "codeatcode\/codeatcs": "^1.0",
-        "codeception\/codeception": "~4.1.0",
-        "codeception\/module-asserts": "^1.0",
-        "codeception\/module-cli": "^1.0",
-        "codeception\/module-db": "^1.0",
-        "codeception\/module-filesystem": "^1.0",
-        "codeception\/module-phpbrowser": "^1.0",
         "codeception\/module-rest": "^1.2",
-        "codeception\/module-webdriver": "^1.0",
         "dealerdirect\/phpcodesniffer-composer-installer": "^1.0",
         "ergebnis\/composer-normalize": "^2.42",
         "lucatume\/function-mocker": "^1.0",
-        "lucatume\/wp-browser": "^3.0",
-        "php-stubs\/acf-pro-stubs": "^6.2",
+        "lucatume\/wp-browser": "^3.7",
+        "php-stubs\/acf-pro-stubs": "^6.3",
         "php-stubs\/genesis-stubs": "^3.4",
-        "php-stubs\/wordpress-stubs": "^6.6",
+        "php-stubs\/wordpress-stubs": "^6.7",
+        "phpmetrics\/phpmetrics": "^0.0.2",
         "phpro\/grumphp": "^2.9",
         "phpunit\/php-code-coverage": "^9.2",
         "szepeviktor\/phpstan-wordpress": "^2.0.1",
@@ -56,7 +50,7 @@
             "type": "package",
             "package": {
                 "name": "ampproject\/amp-wp",
-                "version": "2.5.3",
+                "version": "2.5.5",
                 "source": {
                     "type": "git",
                     "url": "https:\/\/github.com\/ampproject\/amp-wp.git",
@@ -130,6 +124,23 @@
                     "type": "git",
                     "url": "https:\/\/github.com\/mte90\/wp-super-duper.git",
                     "reference": "fork"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "devaloka\/network-wp-query",
+                "version": "0.2.0",
+                "autoload": {
+                    "files": [
+                        "network-wp-query.php"
+                    ]
+                },
+                "source": {
+                    "type": "git",
+                    "url": "https:\/\/github.com\/WPBP\/network-wp-query.git",
+                    "reference": "master"
                 }
             }
         }

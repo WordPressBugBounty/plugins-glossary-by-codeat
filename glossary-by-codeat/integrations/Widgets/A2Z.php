@@ -27,7 +27,7 @@ class A2Z extends \WPH_Widget {
         );
         $args['fields'] = array(
             array(
-                'desc'  => '<span style="color:red">' . \__( 'The content of this widget is cached.', GT_TEXTDOMAIN ) . '</span> [<a href="https://docs.codeat.co/glossary/faq/#how-can-i-clean-up-plugin-transients" target="_blank">' . \__( 'Documentation', GT_TEXTDOMAIN ) . '</a>]',
+                'desc'  => '<span style="color:red">' . \__( 'The content of this widget is cached and only for the Glossary post type archive.', GT_TEXTDOMAIN ) . '</span> [<a href="https://docs.codeat.co/glossary/faq/#how-can-i-clean-up-plugin-transients" target="_blank">' . \__( 'Documentation', GT_TEXTDOMAIN ) . '</a>]',
                 'id'    => 'label',
                 'type'  => 'html',
                 'class' => 'widefat',
@@ -106,6 +106,30 @@ class A2Z extends \WPH_Widget {
     }
 
     /**
+     * Generate the base URL.
+     *
+     * @param array $instance Widget settings.
+     * @return string
+     */
+    public function get_base_url( $instance ) {
+        $base_url = \gl_get_base_url();
+        $settings = \gl_get_settings();
+        if ( !isset( $settings['archive'] ) || empty( $settings['archive'] ) ) {
+            $posttype = \get_post_type_object( 'glossary' );
+            if ( is_object( $posttype ) && is_array( $posttype->rewrite ) ) {
+                $base_url = \get_bloginfo( 'url' ) . '/' . $posttype->rewrite['slug'];
+            }
+        }
+        if ( !empty( $instance['tax'] ) ) {
+            $_url = get_term_link( $instance['tax'], 'glossary-cat' );
+            if ( !is_wp_error( $_url ) ) {
+                $base_url = $_url;
+            }
+        }
+        return $base_url;
+    }
+
+    /**
      * Output the list
      *
      * @param array $instance Fields of the widget.
@@ -121,20 +145,7 @@ class A2Z extends \WPH_Widget {
             'taxonomy'    => $instance['tax'],
         ) );
         $initial_arr = array();
-        $base_url = \gl_get_base_url();
-        $settings = \gl_get_settings();
-        if ( !isset( $settings['archive'] ) || empty( $settings['archive'] ) ) {
-            $posttype = \get_post_type_object( 'glossary' );
-            if ( is_object( $posttype ) && is_array( $posttype->rewrite ) ) {
-                $base_url = \get_bloginfo( 'url' ) . '/' . $posttype->rewrite['slug'];
-            }
-        }
-        if ( !empty( $instance['tax'] ) ) {
-            $_url = get_term_link( $instance['tax'], 'glossary-cat' );
-            if ( !is_wp_error( $_url ) ) {
-                $base_url = $_url;
-            }
-        }
+        $base_url = $this->get_base_url( $instance );
         foreach ( $pt_initials as $pt_rec ) {
             $link = \add_query_arg( 'az', $pt_rec['initial'], $base_url );
             $item = '<li><a href="' . $link . '">' . $pt_rec['initial'] . '</a></li>';

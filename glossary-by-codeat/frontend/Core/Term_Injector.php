@@ -99,6 +99,7 @@ class Term_Injector extends Engine\Base {
             }
             $this->regex_match();
             $this->replace_with_utf_8();
+            add_action( 'wp_footer', array($this, 'json_ld') );
             if ( !empty( $this->terms_to_inject ) ) {
                 // This eventually remove broken UTF-8
                 return (string) \iconv( 'UTF-8', 'UTF-8//IGNORE', $this->text );
@@ -261,6 +262,29 @@ class Term_Injector extends Engine\Base {
             return $length;
         }
         return $length + $length;
+    }
+
+    /**
+     * Print the JSON-LD schema for the terms found in the page
+     *
+     * @return void
+     */
+    public function json_ld() {
+        $json_ld = array();
+        foreach ( $this->terms_to_inject as $term ) {
+            $json_ld[] = array(
+                '@context'         => 'https://schema.org/',
+                '@type'            => 'DefinedTerm',
+                'name'             => \get_the_title( $term[3] ),
+                'description'      => \get_the_excerpt( (int) $term[3] ),
+                'inDefinedTermSet' => \get_glossary_term_url( $term[3] ),
+            );
+        }
+        if ( empty( $json_ld ) ) {
+            return;
+        }
+        $json_ld = \apply_filters( 'glossary_json_ld', $json_ld );
+        echo '<script type="application/ld+json">' . wp_json_encode( $json_ld ) . '</script>';
     }
 
 }

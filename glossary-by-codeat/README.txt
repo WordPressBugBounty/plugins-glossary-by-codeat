@@ -4,11 +4,11 @@ Tags: glossary, vocabulary, dictionary, tooltip, lexicon
 Requires at least: 6.2
 Requires PHP: 7.4
 Tested up to: 6.7.2
-Stable tag: 2.2.42
+Stable tag: 2.3.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Improve your UX & SEO with Codeat's Glossary: a powerful auto-link engine; customizable styled tooltips, mobile settings, ChatGPT and much more!
+Boost your SEO & UX with Codeat's Glossary: powerful auto-link engine; customizable tooltips, mobile settings, ChatGPT and much more!
 
 == Description ==
 
@@ -16,14 +16,14 @@ Adding a glossary to your website can be a smart move to improve your users' rea
 If you’re looking for the ultimate glossary plugin for your WordPress site, look no further: you’ve found it!
 
 Glossary by Codeat is the freemium WordPress plugin that allows you to create a glossary for your website and turn your content into a complete and navigable resource. It comes with a free and a PRO version.
- == What is the superpower of Glossary by Codeat? ===
+=== What is the superpower of Glossary by Codeat? ===
 
-The Glossary plugin automatically creates word lists from your content and generates the corresponding styled tooltips.
+Glossary by Codeat automatically generates word lists from your content and creates styled tooltips, enhancing user engagement without manual effort.
 The terms and definitions will be grouped in a glossary or dictionary section and automatically linked to the corresponding words within your posts and pages.
 
 You can use Glossary by Codeat with the classic WordPress editor or with Gutenberg: it’s 100% compatible.
 
-==== Need some examples? ====
+=== Real-World Applications ===
 
 Let’s say you have a food blog.
 How great would it be to show your readers a tooltip (and a direct link) to the description of an ingredient (or kitchen utensil) without them having to leave your website?
@@ -32,6 +32,7 @@ And what if you run an online store selling fishing gear?
 With the Glossary plugin, you can provide detailed descriptions of your merchandise and suggest related products directly from your store's pages.
 
 Are you a big fan of Back to the Future and want to create a digital encyclopedia that covers all aspects of your favorite saga?
+
 With Glossary by Codeat, it's a piece of cake! [See this demo](https://demo.codeat.co/glossary/).
 
 ==== Are you an affiliate marketing specialist? ====
@@ -50,41 +51,45 @@ Here are some of the things you can do with the free version of Glossary by Code
 * Group your terms by category and create vertical archives of terms through the shortcodes: Lists of Terms and Lists of Categories.
 * Choose where to activate its features: in all pages or only some of them, in archives, taxonomies, custom post types, etc.
 * Apply a highlight to your linked terms or a highlight and a tooltip on hover.
-* Style your tooltips by choosing one of the three free templates.
+* Style your tooltips by choosing one of the four free templates.
 * Link terms to internal or external locations.
+* Related/additional terms or synonyms are supported for the same term.
 * Add a dedicated icon to highlight external links.
 * Use it with your favorite plugins: Yoast SEO, Ninja Forms, Elementor, Bricks Builder, Fixed TOC, Easy Table of Contents, YARPP, role management plugins like User Role Editor, or multi-language plugins such as WPML and Polylang.
+* Custom integration for themes: Bricks, Divi and Genesis.
 * Smooth migration from the CM Glossary Tooltip plugin.
 * Play with the widgets: Glossary Search Bar, Latest Terms, and Glossary Categories.
 * Hassle-free integration with Gutenberg blocks.
-* ChatGPT integration (requires an OpenAI API Key)
+* ChatGPT integration (requires an OpenAI API Key) for term content generation
+* CSV term imports
+* Schema.org support for DefinedTerm
 
 The free version of Glossary by Codeat doesn’t include dedicated support.
 If you need help, take a look at our [demo site](https://demo.codeat.co/glossary/), read our [documentation](https://docs.codeat.co/glossary/), or [head over to the dedicated WordPress support forum](https://wordpress.org/support/plugin/glossary-by-codeat).
 
 The PRO version tops all the fantastic features of Codeat Glossary Free with a set of useful extras that extend styling and customization opportunities. Let’s see them all in detail:
 
-=== PRO FEATURES ===
+=== 🚀 PRO FEATURES ===
 
 The [PRO version of Glossary by Codeat](https://glossary.codeat.co/) includes all the free features plus several behavior-controlling tools to enhance your reader’s experience.
 
 Here are some of the things you can do with the PRO version of Glossary by Codeat:
 
 * Advanced customization and styling of your tooltips.
-* Automatically generates glossary terms footnotes for your content.
+* Automatically generates glossary terms footnotes for your content. [Demo](https://demo.codeat.co/glossary/wiki/back-to-the-future/)
 * Full control of your tooltips behavior on mobile.
 * Match case-sensitive terms.
-* Link only the first occurrence of the same key term.
-* Link only the first occurrence of any key term.
+* Link only the first occurrence of the same/any key key term.
 * Prevent term links from appearing on their own description page.
-* Add an alphabetically ordered list of your Glossary terms.
+* Add an alphabetically ordered list of your Glossary terms. [Demo](https://demo.codeat.co/glossary/)
 * Fully customizable glossary index block for visual editors (Gutenberg, Elementor, Fusion Bulder, Divi, Beaver Builder, SiteOrigin)
 * Add Custom Fields to your key terms, and use the integration with the ACF Custom Fields plugin.
-* Use the PRO shortcode to create a Glossary Index.
+* Use the PRO shortcode/block to create a Glossary Index.
 * Advanced shortcodes to parse the content when using Visual Composer or Page Builder.
 
-**The PRO version of Glossary by Codeat includes dedicated support.**
+**The PRO version of Glossary by Codeat includes dedicated [support](https://support.codeat.co/).**
 If you have any doubts or questions, our friendly support team will assist you as quickly as possible.
+[Our documentation covers the premium features with screenshots](https://docs.codeat.co/glossary/premium-features/).
 
 Not happy with the plugin?
 Take advantage of our **14 days money-back guarantee**!
@@ -122,9 +127,9 @@ Of course!
 
 = Does it support all languages and alphabets? =
 
-Yes, Glossary is designed to work in any language. It currently supports RTL and LTR alphabets as well as non-latin fonts.
+Glossary by Codeat is designed to work seamlessly in any language, supporting both RTL (right-to-left) and LTR (left-to-right) alphabets, as well as non-Latin fonts. We have extensively tested the plugin with the most common languages worldwide, ensuring broad accessibility and reliability.
 
-At the time of writing, we have tested it internally with Hebrew, Arabic, German, Japanese, Cherokee, Russian, and Greek.
+Beyond the most common languages, we have rigorously tested Glossary with the following to ensure optimal performance: Hebrew, Arabic, German, Japanese, Cherokee, Russian and Greek.
 We welcome all feedback on these and other languages.
 
 = Can I use it with ACF? =
@@ -135,11 +140,7 @@ Glossary will add a checkbox on ACF labeled as Add support for Glossary in your 
 
 This way, you will be able to activate the filtering in ACF for customizing your fields.
 
-= Is it compatible with Genesis? =
-
-Yes, we love the Genesis Framework, and we care about Genesis fans.
-
-The SEO, Layout, and Archive sections are fully integrated.
+[Read our documentation for more details](https://docs.codeat.co/glossary/faq/#can-i-use-glossary-with-acf).
 
 = Is it compatible with cache plugins? =
 
@@ -162,7 +163,7 @@ To work in this environment, the Glossary plugin requires two elements:
 * One license per domain (or one license for the subdomain).
 * Multisite with a shared database.
 
-[Read our documentation for more details](http://docs.codeat.co/glossary/faq/).
+[Read our documentation for more details](https://docs.codeat.co/glossary/faq/#are-you-compatible-with-wordpress-multisite).
 
 = Is it compatible with translation plugins? =
 
@@ -171,17 +172,15 @@ Yes, Glossary is 100% compatible with **WPML** and **Polylang**.
 To make them work together, you will have to set the language in each post type where you wish to execute Glossary.
 In this way, our plugin will recognize the terms and will manage the respective descriptions accordingly.
 
-[Read our documentation for more details](http://docs.codeat.co/glossary/faq/).
+[Read our documentation for more details](https://docs.codeat.co/glossary/faq/#are-you-compatible-with-translation-plugins).
 
-= Does it support Visual Composer? =
+= Does it support Visual Composer/Elementor? =
 
 Most of the time, yes, it does.
 
-On the other hand, there are dozens of Visual Composer plugins in the WordPress ecosystem, and a large amount of them don’t behave in a standard way, which can represent an issue.
+On the other hand, there are dozens of Visual Composer/Page Builders plugins in the WordPress ecosystem, and a large amount of them don’t behave in a standard way, which can represent an issue.
 
-The most common problem you might encounter with Visual Composer is the truncation of your tooltips.
-
-[Read our documentation for more details](http://docs.codeat.co/glossary/faq/).
+[Read our documentation for more details](https://docs.codeat.co/glossary/faq/#do-you-support-visual-composer).
 
 == Screenshots ==
 
@@ -194,6 +193,21 @@ The most common problem you might encounter with Visual Composer is the truncati
 7. Glossary Index Block Editor (Pro)
 
 == Changelog ==
+
+= 2.3.0 =
+
+* Enhancement: `glossary_base_url` filter to change the base URL
+* Enhancement: Schema.org support for DefinedTerm in Glossary term page
+* Enhancement: `glossary_json_ld` filter to change the JSON-LD content for Schema.org
+* [PRO]Enhancement: `glossary-a2z-list` shortcode to generate a alphabetical letter list
+* [PRO]Enhancement: option to append at the content bottom the list of terms found
+* [PRO]Enhancement: option to use only accordion (also on desktop) instead of tooltips
+* [PRO]Enhancement: `glossary-list` accordion parameter has option term to enable it on terms instead of the whole letter
+* [PRO]Enhancement: `glossary-list` microdata for Schema.org out the box
+
+= 2.2.43 =
+
+* [PRO]Fix: Black and Light tooltip's theme had issues with copying text
 
 = 2.2.42 =
 
@@ -696,94 +710,3 @@ The most common problem you might encounter with Visual Composer is the truncati
 * Enhancement: New `theme` parameter in Last Glossaries Terms and Categories widgets and shortcodes
 * Fix: Not show taxonomy picker inside post types to enable filtering if there aren't glossary taxonomies
 * [PRO] Fix: Fancy theme arrow now has the color configured in Customizer
-
-= 1.8.18 =
-* Fix: Import feature wasn't working
-* [PRO] Enhancement: A2Z search support enter key press
-* [PRO] Fix: Glossary list shortcode support internal/external links
-
-= 1.8.17 =
-
-* Enhancement: Tested Up WordPress version updated
-* [PRO] Enhancement: Fixed typo of previous version that broke the Glossary list shortcode
-
-= 1.8.16 =
-
-* [PRO] Enhancement: Glossary list shortcode improved sorting with php-intl for the alphabet generation
-* [PRO] Enhancement: Glossary list shortcode with parameter search now support `no-fixed` to disable the field scroll
-* Enhancement: Filter `glossary_alert_localization` to disable the Translation message, require to return false
-
-= 1.8.15 =
-
-* [PRO] Enhancement: Glossary list shortcode new parameter `customurl` to use the external/internal link of the term
-
-= 1.8.14 =
-
-* Enhancement: Add taxonomy filter in A2Z widget
-* Enhancement: Tooltip's excerpt could include shortcode content
-
-= 1.8.13 =
-
-* Enhancement: Avoid PHP error if A2Z widget theme is not defined
-
-= 1.8.12 =
-
-* Fix: Fix Freemius integration of the previous release
-
-= 1.8.11 =
-
-* Enhancements: Remove Yoast specific code for metadesc as not needed anymore
-
-= 1.8.10 =
-
-* Fix: Remove warning with PHP 7.4
-* Fix: In a paragraph with links the term also if avalaible wasn't injected
-* Fix: Support for shortcodes in missing Yoast metadesc
-
-= 1.8.9 =
-
-* Enhancement: php-mbstring module detection improved to support better WordPress >= 5.0
-
-= 1.8.8 =
-
-* [PRO] Enhancement: Detect for off screen tooltips is executed for any resolution on screens that have mouse
-* [PRO] Enhancement: Updated i18n-module and shows only to free users
-
-= 1.8.7 =
-
-* Fix: Latest Glossary terms widget now order them by date and not alphabetically.
-
-= 1.8.6 =
-
-* [PRO] Enhancement: Mobile devices are detected by missing presence of a mouse and not by resolution to be more accurate
-
-= 1.8.5 =
-
-* Feature: New option to disable '...' on tooltip excerpt
-
-= 1.8.4 =
-
-* Fix: Use the right CSS selectors to avoid conflicts in the tooltip themes
-* [PRO] Fix: Getting work again the live preview of the Tooltip Customizer
-
-= 1.8.3 =
-
-* Fix: Improved CSS code for tooltip with no link but only tooltip
-* Fix: Admin's checkbox not rendered rightly
-
-= 1.8.2 =
-
-* [PRO] Fix: Missing CSS for search widget
-
-= 1.8.1 =
-
-* [PRO] Fix: Better calculation with Fancy theme for the tooltip position
-* [PRO] Enhancement: The field on `glossary-list` require to be enabled with a parameter
-* Fix: Images in tooltips works again
-
-= 1.8.0 =
-
-* Feature: New option to open external links globally in a new tab
-* [PRO] Feature: Select Glossary taxonomies in every post to filter terms
-* [PRO] Improvement: Better tooltip position on the left offscreen
-* Refactoring: Less complexity in the code to improve readability

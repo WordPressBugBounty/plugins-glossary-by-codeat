@@ -34,6 +34,15 @@ class Enqueue extends Engine\Base {
     }
 
     /**
+     * Check if mobile tooltips are enabled
+     *
+     * @return int
+     */
+    public function use_mobile_tooltips() {
+        return 0;
+    }
+
+    /**
      * Add the path to the themes
      *
      * @param array $themes List of themes.
@@ -153,6 +162,9 @@ class Enqueue extends Engine\Base {
      * @return void
      */
     public function enqueue_scripts() {
+        if ( $this->use_mobile_tooltips() === 2 ) {
+            return;
+        }
         \wp_enqueue_script(
             GT_SETTINGS . '-off-screen',
             \plugins_url( 'assets/js/off-screen.js', GT_PLUGIN_ABSOLUTE ),

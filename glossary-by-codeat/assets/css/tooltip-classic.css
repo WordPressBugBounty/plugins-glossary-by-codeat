@@ -16,7 +16,7 @@
 	border: 0px !important;
 }
 
-.glossary-tooltip-text a {
+.glossary-tooltip-text a, .glossary-tooltip-text-mobile a {
 	background: none;
 }
 

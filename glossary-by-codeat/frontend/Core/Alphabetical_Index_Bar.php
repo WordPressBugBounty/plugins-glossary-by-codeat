@@ -4,7 +4,7 @@
  * Glossary
  *
  * @package   Glossary
- * @author    Codeat <support@codeat.co>
+ * @author  Codeat <support@codeat.co>
  * @copyright 2020
  * @license   GPL 3.0+
  * @link      https://codeat.co
@@ -49,7 +49,7 @@ class Alphabetical_Index_Bar extends Engine\Base {
 	public function generate_index( array $atts ) {
 		$this->atts = $atts;
 
-		if ( !in_array( $this->atts[ 'theme' ], array( 'grid', 'summary' ), true ) ) {
+		if ( isset( $this->atts[ 'theme' ] ) && !in_array( $this->atts[ 'theme' ], array( 'grid', 'summary' ), true ) ) {
 			$this->atts[ 'theme' ] = '';
 		}
 
@@ -165,7 +165,13 @@ class Alphabetical_Index_Bar extends Engine\Base {
 			) {
 				$link = \add_query_arg( 'az', $initial_index, \gl_get_base_url() );
 
-				if ( !isset( $this->settings[ 'archive' ] ) || empty( $this->settings[ 'archive' ] ) ) {
+				if (
+					!isset( $this->atts[ 'url' ] )
+					&& (
+						!isset( $this->settings[ 'archive' ] )
+						|| empty( $this->settings[ 'archive' ] )
+					)
+				) {
 					$posttype = \get_post_type_object( 'glossary' );
 
 					if ( is_object( $posttype ) && is_array( $posttype->rewrite ) ) {
@@ -191,7 +197,7 @@ class Alphabetical_Index_Bar extends Engine\Base {
 
 		foreach ( $terms as $id => $title ) {
 			$html .= '<li>';
-			$html .= '<span class="glossary-link-item">';
+			$html .= '<span class="glossary-link-item" itemscope itemtype="https://schema.org/DefinedTerm">';
 			$html .= $this->get_anchor( $id, $title );
 			$html .= $this->get_anchor( $id, $this->get_featured_image( $id ) );
 			$html .= $this->get_text( $id );
@@ -208,17 +214,21 @@ class Alphabetical_Index_Bar extends Engine\Base {
 	 * @return string
 	 */
 	public function generate_html_content() {
-		$accordion = '';
+		$accordion = $li_accordion = '';
 
-		if ( 'false' !== $this->atts[ 'accordion' ] ) {
+		if ( 'true' === $this->atts[ 'accordion' ] ) {
 			$accordion = ' glossary-accordion';
+		}
+
+		if ( 'term' === $this->atts[ 'accordion' ] ) {
+			$li_accordion = ' glossary-li-accordion';
 		}
 
 		$html       = '<div class="glossary-term-list ' . $this->atts[ 'theme' ] . $accordion . '">';
 		$letter_tag = \apply_filters( $this->default_parameters[ 'filter_prefix' ] . '_a2z_letter_tag', 'span' );
 
 		foreach ( $this->alpha_terms as $letter => $terms ) {
-			$html .= '<div class="glossary-block glossary-block-' . $letter . '">';
+			$html .= '<div class="glossary-block glossary-block-' . $letter . $li_accordion . '">';
 			$html .= '<' . $letter_tag . ' class="glossary-letter" id="glossary-' . $letter . '">' . $letter . '</' . $letter_tag . '>';
 			$html .= '<ul>';
 			$html .= $this->generate_li( $terms );
@@ -241,6 +251,7 @@ class Alphabetical_Index_Bar extends Engine\Base {
 		$anchor = $title;
 
 		if ( !empty( $anchor ) ) {
+			$title  = '<span itemprop="name">' . $title . '</span>';
 			$target = '';
 
 			if ( 'true' === $this->atts[ 'term-anchor-target' ] ) {
@@ -248,11 +259,11 @@ class Alphabetical_Index_Bar extends Engine\Base {
 			}
 
 			if ( 'true' === $this->atts[ 'term-anchor' ] ) {
-				$anchor    = '<a href="' . \get_permalink( (int) $post_id ) . '"' . $target . '>' . $title . '</a>';
+				$anchor    = '<a itemprop="inDefinedTermSet" href="' . \get_permalink( (int) $post_id ) . '"' . $target . '>' . $title . '</a>';
 				$customurl = \get_glossary_term_url( $post_id );
 
 				if ( 'true' === $this->atts[ 'custom-url' ] && !empty( $customurl ) ) {
-					$anchor = '<a href="' . $customurl . '"' . $target . '>' . $title . '</a>';
+					$anchor = '<a itemprop="inDefinedTermSet" href="' . $customurl . '"' . $target . '>' . $title . '</a>';
 				}
 			}
 		}
@@ -270,16 +281,16 @@ class Alphabetical_Index_Bar extends Engine\Base {
 		$text = '';
 
 		if ( 'true' === $this->atts[ 'excerpt' ] ) {
-			$text = '<span class="glossary-list-term-excerpt">' . \get_the_excerpt( $post_id ) . '</span>';
+			$text = '<span itemprop="description" class="glossary-list-term-excerpt">' . \get_the_excerpt( $post_id ) . '</span>';
 		}
 
 		if ( 'true' === $this->atts[ 'content' ] ) {
-			$text = '<span class="glossary-list-term-content">' . \get_post_field( 'post_content', $post_id ) . '</span>';
+			$text = '<span itemprop="description" class="glossary-list-term-content">' . \get_post_field( 'post_content', $post_id ) . '</span>';
 		}
 
 		if ( 'true' === $this->atts[ 'custom-fields' ] ) {
 			$term_content = new \Glossary\Frontend\Term_Content( true );
-			$text        .= '<span class="glossary-list-term-content">' . $term_content->custom_fields( $post_id, '' ) . '</span>';
+			$text        .= '<span itemprop="description" class="glossary-list-term-content">' . $term_content->custom_fields( $post_id, '' ) . '</span>';
 		}
 
 		return $text;
@@ -314,6 +325,10 @@ class Alphabetical_Index_Bar extends Engine\Base {
 	public function get_text( int $post_id ) {
 		$separator = \apply_filters( 'glossary_list_excerpt_separator', ' - ' );
 
+		if ( 'term' === $this->atts[ 'accordion' ] ) {
+			$separator = '';
+		}
+
 		$text = $this->get_atts_content( $post_id );
 
 		if ( !empty( $text ) ) {
@@ -326,9 +341,10 @@ class Alphabetical_Index_Bar extends Engine\Base {
 	/**
 	 * Generate HTML index
 	 *
+	 * @param string $css_class Container CSS class.
 	 * @return string
 	 */
-	public function generate_html_index() {
+	public function generate_html_index( $css_class = 'term-bar' ) {
 		$this->remap_search_attribute();
 		$accordion = '';
 
@@ -336,7 +352,7 @@ class Alphabetical_Index_Bar extends Engine\Base {
 			$accordion = ' glossary-accordion';
 		}
 
-		$bar  = '<div class="glossary-term-bar' . $accordion . '">';
+		$bar  = '<div class="glossary-' . $css_class . $accordion . '">';
 		$bar .= \implode( '', $this->alpha_index );
 		$bar .= '</div>';
 

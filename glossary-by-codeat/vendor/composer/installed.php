@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         'cmb2/cmb2' => array(
-            'pretty_version' => 'v2.11.0',
-            'version' => '2.11.0.0',
-            'reference' => '2847828b5cce1b48d09427ee13e6f7c752704468',
+            'pretty_version' => 'v2.10.1',
+            'version' => '2.10.1.0',
+            'reference' => '4afc4bb7b92ab6d93aac2247c9a84af773e42532',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../cmb2',
             'aliases' => array(),
@@ -38,20 +38,20 @@
             'dev_requirement' => false,
         ),
         'composer/installers' => array(
-            'pretty_version' => 'v1.12.0',
-            'version' => '1.12.0.0',
-            'reference' => 'd20a64ed3c94748397ff5973488761b22f6d3f19',
+            'pretty_version' => 'v2.3.0',
+            'version' => '2.3.0.0',
+            'reference' => '12fb2dfe5e16183de69e784a7b84046c43d97e8e',
             'type' => 'composer-plugin',
             'install_path' => __DIR__ . '/./installers',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
         'devaloka/network-wp-query' => array(
-            'pretty_version' => 'v0.2.0',
+            'pretty_version' => '0.2.0',
             'version' => '0.2.0.0',
-            'reference' => '58b347179b8dcd5c0d54a9c67076d8e4c1f1b739',
-            'type' => 'wordpress-plugin',
-            'install_path' => __DIR__ . '/../network-wp-query',
+            'reference' => 'master',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../devaloka/network-wp-query',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
@@ -126,27 +126,6 @@
             'install_path' => __DIR__ . '/../orhanerday/open-ai',
             'aliases' => array(),
             'dev_requirement' => false,
-        ),
-        'roave/security-advisories' => array(
-            'pretty_version' => 'dev-master',
-            'version' => 'dev-master',
-            'reference' => '74f7ebd1c51cf5a6682c4fad1697cb1fab3c17cf',
-            'type' => 'metapackage',
-            'install_path' => null,
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
-        'roundcube/plugin-installer' => array(
-            'dev_requirement' => false,
-            'replaced' => array(
-                0 => '*',
-            ),
-        ),
-        'shama/baton' => array(
-            'dev_requirement' => false,
-            'replaced' => array(
-                0 => '*',
-            ),
         ),
         'wpbp/cronplus' => array(
             'pretty_version' => '1.0.6',

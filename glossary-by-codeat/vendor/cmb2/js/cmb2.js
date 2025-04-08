@@ -19,12 +19,6 @@ window.CMB2 = window.CMB2 || {};
 	var $id = function( selector ) {
 		return $( document.getElementById( selector ) );
 	};
-	var getRowId = function( id, newIterator ) {
-		id = id.split('-');
-		id.splice(id.length - 1, 1);
-		id.push( newIterator );
-		return id.join('-');
-	};
 	cmb.$id = $id;
 	var defaults = {
 		idNumber        : false,
@@ -198,19 +192,9 @@ window.CMB2 = window.CMB2 || {};
 		// Loop repeatable group table rows
 		$table.find( '.cmb-repeatable-grouping' ).each( function( rowindex ) {
 			var $row = $( this );
-			var prevIterator = parseInt( $row.data( 'iterator' ), 10 );
-			if ( prevIterator === rowindex ) {
-				return;
-			}
 
 			// Reset rows iterator
-			$row
-				.attr( 'data-iterator', rowindex )
-				.data( 'iterator', rowindex )
-				.attr('id', getRowId( $row.attr('id'), rowindex ) )
-				.find( cmb.repeatEls ).each( function() {
-					cmb.updateNameAttr( $( this ), prevIterator, rowindex );
-				});
+			$row.attr( 'data-iterator', rowindex ).data( 'iterator', rowindex );
 
 			cmb.resetGroupTitles( $row, rowindex, groupTitle );
 		});
@@ -237,9 +221,17 @@ window.CMB2 = window.CMB2 || {};
 		var $this = $( this );
 		var $multicheck = $this.closest( '.cmb-td' ).find( 'input[type=checkbox]:not([disabled])' );
 
-		var $toggled = ! $this.data( 'checked' );
-		$multicheck.prop( 'checked', $toggled ).trigger( 'change' );
-		$this.data( 'checked', $toggled );
+		// If the button has already been clicked once...
+		if ( $this.data( 'checked' ) ) {
+			// clear the checkboxes and remove the flag
+			$multicheck.prop( 'checked', false );
+			$this.data( 'checked', false );
+		}
+		// Otherwise mark the checkboxes and add a flag
+		else {
+			$multicheck.prop( 'checked', true );
+			$this.data( 'checked', true );
+		}
 	};
 
 	cmb.handleMedia = function( evt ) {
@@ -250,7 +242,7 @@ window.CMB2 = window.CMB2 || {};
 		// Clean up default 0 value
 		cmb.attach_id = '0' !== cmb.attach_id ? cmb.attach_id : false;
 
-		cmb.handleFieldMedia( $el.prev('input.cmb2-upload-file'), $el.hasClass( 'cmb2-upload-list' ) );
+		cmb._handleMedia( $el.prev('input.cmb2-upload-file').attr('id'), $el.hasClass( 'cmb2-upload-list' ) );
 	};
 
 	cmb.handleFileClick = function( evt ) {
@@ -266,50 +258,34 @@ window.CMB2 = window.CMB2 || {};
 		cmb.attach_id = isList ? $el.find( 'input[type="hidden"]' ).data( 'id' ) : $td.find( '.cmb2-upload-file-id' ).val();
 
 		if ( cmb.attach_id ) {
-			cmb.handleFieldMedia( $td.find( 'input.cmb2-upload-file' ), isList );
+			cmb._handleMedia( $td.find( 'input.cmb2-upload-file' ).attr( 'id' ), isList, cmb.attach_id );
 		}
 	};
 
-	// Leaving this in for back-compat...
 	cmb._handleMedia = function( id, isList ) {
-		return cmb.handleFieldMedia( $id( id ), isList );
-	};
-
-	cmb.handleFieldMedia = function( $field, isList ) {
 		if ( ! wp ) {
 			return;
 		}
 
-		var id  = $field.attr('id');
-		var fieldData = $field.data();
 		var media, handlers;
-
-		// Get/set unique id since actual id cold _not_ be unique due to bad replacements, etc...
-		var uid = fieldData.mediaid;
-		if ( ! uid ) {
-			uid = _.uniqueId();
-			$field.attr('data-mediaid', uid).data('mediaid', uid);
-			fieldData.mediaid = uid;
-		}
 
 		handlers          = cmb.mediaHandlers;
 		media             = cmb.media;
-		media.mediaid     = uid;
 		media.field       = id;
-		media.$field      = $field;
-		media.fieldData   = fieldData;
+		media.$field      = $id( media.field );
+		media.fieldData   = media.$field.data();
 		media.previewSize = media.fieldData.previewsize;
 		media.sizeName    = media.fieldData.sizename;
-		media.fieldName   = $field.attr('name');
+		media.fieldName   = media.$field.attr('name');
 		media.isList      = isList;
 
 		// If this field's media frame already exists, reopen it.
-		if ( uid in media.frames ) {
-			return media.frames[ uid ].open();
+		if ( id in media.frames ) {
+			return media.frames[ id ].open();
 		}
 
 		// Create the media frame.
-		media.frames[ uid ] = wp.media( {
+		media.frames[ id ] = wp.media( {
 			title: cmb.metabox().find('label[for="' + id + '"]').text(),
 			library : media.fieldData.queryargs || {},
 			button: {
@@ -319,7 +295,7 @@ window.CMB2 = window.CMB2 || {};
 		} );
 
 		// Enable the additional media filters: https://github.com/CMB2/CMB2/issues/873
-		media.frames[ uid ].states.first().set( 'filterable', 'all' );
+		media.frames[ id ].states.first().set( 'filterable', 'all' );
 
 		cmb.trigger( 'cmb_media_modal_init', media );
 
@@ -367,8 +343,7 @@ window.CMB2 = window.CMB2 || {};
 			var attachment = selection.first();
 
 			media.$field.val( attachment.get( 'url' ) );
-			media.$field.closest( '.cmb-td' ).find('.cmb2-upload-file-id')
-				.val( attachment.get( 'id' ) );
+			$id( media.field +'_id' ).val( attachment.get( 'id' ) );
 
 			// Image preview or standard generic output if it's not an image.
 			var attachmentHtml = handlers.getAttachmentHtml( attachment, 'single' );
@@ -455,7 +430,7 @@ window.CMB2 = window.CMB2 || {};
 		};
 
 		handlers.selectFile = function() {
-			var selection = media.frames[ uid ].state().get( 'selection' );
+			var selection = media.frames[ id ].state().get( 'selection' );
 			var type = isList ? 'list' : 'single';
 
 			if ( cmb.attach_id && isList ) {
@@ -468,7 +443,7 @@ window.CMB2 = window.CMB2 || {};
 		};
 
 		handlers.openModal = function() {
-			var selection = media.frames[ uid ].state().get( 'selection' );
+			var selection = media.frames[ id ].state().get( 'selection' );
 			var attach;
 
 			if ( ! cmb.attach_id ) {
@@ -483,12 +458,12 @@ window.CMB2 = window.CMB2 || {};
 		};
 
 		// When a file is selected, run a callback.
-		media.frames[ uid ]
+		media.frames[ id ]
 			.on( 'select', handlers.selectFile )
 			.on( 'open', handlers.openModal );
 
 		// Finally, open the modal
-		media.frames[ uid ].open();
+		media.frames[ id ].open();
 	};
 
 	cmb.handleRemoveMedia = function( evt ) {
@@ -499,12 +474,10 @@ window.CMB2 = window.CMB2 || {};
 			return false;
 		}
 
-		var $cell        = $this.closest( '.cmb-td' );
-		cmb.media.$field = $cell.find('.cmb2-upload-file');
-		cmb.media.field  = cmb.media.$field.attr('id');
+		cmb.media.field = $this.attr('rel');
 
-		cmb.media.$field.val('');
-		$cell.find('.cmb2-upload-file-id').val('');
+		cmb.metabox().find( document.getElementById( cmb.media.field ) ).val('');
+		cmb.metabox().find( document.getElementById( cmb.media.field + '_id' ) ).val('');
 		$this.parents('.cmb2-media-status').html('');
 
 		return false;
@@ -687,6 +660,12 @@ window.CMB2 = window.CMB2 || {};
 		cmb.idNumber = parseInt( prevNum, 10 ) + 1;
 		var $row     = $oldRow.clone();
 		var nodeName = $row.prop('nodeName') || 'div';
+		var getRowId = function( id ) {
+			id = id.split('-');
+			id.splice(id.length - 1, 1);
+			id.push( cmb.idNumber );
+			return id.join('-');
+		};
 
 		// Make sure the next number doesn't exist.
 		while ( $table.find( '.cmb-repeatable-grouping[data-iterator="'+ cmb.idNumber +'"]' ).length > 0 ) {
@@ -696,7 +675,7 @@ window.CMB2 = window.CMB2 || {};
 		cmb.newRowHousekeeping( $row.data( 'title', $this.data( 'grouptitle' ) ) ).cleanRow( $row, prevNum, true );
 		$row.find( '.cmb-add-row-button' ).prop( 'disabled', false );
 
-		var $newRow = $( '<' + nodeName + ' id="'+ getRowId( $oldRow.attr('id'), cmb.idNumber ) +'" class="postbox cmb-row cmb-repeatable-grouping" data-iterator="'+ cmb.idNumber +'">'+ $row.html() +'</' + nodeName + '>' );
+		var $newRow = $( '<' + nodeName + ' id="'+ getRowId( $oldRow.attr('id') ) +'" class="postbox cmb-row cmb-repeatable-grouping" data-iterator="'+ cmb.idNumber +'">'+ $row.html() +'</' + nodeName + '>' );
 		$oldRow.after( $newRow );
 
 		cmb.afterRowInsert( $newRow );
@@ -745,6 +724,15 @@ window.CMB2 = window.CMB2 || {};
 		}
 
 		cmb.triggerElement( $table, 'cmb2_remove_group_row_start', $this );
+
+		// When a group is removed, loop through all next groups and update fields names.
+		$parent.nextAll( '.cmb-repeatable-grouping' ).find( cmb.repeatEls ).each( function() {
+			var $el     = $( this );
+			var prevNum = parseInt( $el.parents( '.cmb-repeatable-grouping' ).data( 'iterator' ), 10 );
+			var newNum  = prevNum - 1; // Subtract 1 to get new iterator number
+
+			cmb.updateNameAttr( $el, prevNum, newNum );
+		} );
 
 		$parent.remove();
 

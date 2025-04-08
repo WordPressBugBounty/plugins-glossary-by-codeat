@@ -59,6 +59,12 @@ $temp = array(
     'id'   => 'archive_alphabetical_bar',
     'type' => 'checkbox',
 );
+$cmb->add_field( array(
+    'name' => __( 'Append at the end of the content a list of terms found', GT_TEXTDOMAIN ),
+    'desc' => __( 'To not use with the Footnote type!<br>', GT_TEXTDOMAIN ) . sprintf( $doc, 'http://docs.codeat.co/glossary/' ) . $pro,
+    'id'   => 'append_terms',
+    'type' => 'checkbox',
+) );
 if ( !empty( $pro ) ) {
     $temp['attributes'] = array(
         'readonly' => 'readonly',

@@ -32,12 +32,12 @@ class CMB2_Type_Text_Datetime_Timestamp_Timezone extends CMB2_Type_Base {
 			$args['value'] = '';
 		}
 
-		$datetime = CMB2_Utils::get_datetime_from_value( $args['value'] );
-		$value    = '';
-		$tzstring = '';
+		$datetime = maybe_unserialize( $args['value'] );
+		$value = $tzstring = '';
 
 		if ( $datetime && $datetime instanceof DateTime ) {
-			$tzstring = $datetime->getTimezone()->getName();
+			$tz       = $datetime->getTimezone();
+			$tzstring = $tz->getName();
 			$value    = $datetime->getTimestamp();
 		}
 
@@ -62,4 +62,5 @@ class CMB2_Type_Text_Datetime_Timestamp_Timezone extends CMB2_Type_Base {
 			$datetime_timestamp . "\n" . $select
 		);
 	}
+
 }
