@@ -139,6 +139,9 @@ class Generate_Excerpt extends Engine\Base {
         if ( !empty( $this->settings['excerpt_dots'] ) ) {
             $dots = '';
         }
+        if ( empty( $this->settings['excerpt_limit'] ) ) {
+            $this->settings['excerpt_limit'] = 0;
+        }
         $excerpt_limit = \absint( $this->settings['excerpt_limit'] );
         if ( 0 !== $excerpt_limit ) {
             if ( \strlen( $excerpt ) >= $excerpt_limit ) {

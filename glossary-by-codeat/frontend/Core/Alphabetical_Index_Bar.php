@@ -281,7 +281,11 @@ class Alphabetical_Index_Bar extends Engine\Base {
 		$text = '';
 
 		if ( 'true' === $this->atts[ 'excerpt' ] ) {
-			$text = '<span itemprop="description" class="glossary-list-term-excerpt">' . \get_the_excerpt( $post_id ) . '</span>';
+			$excerpt = new Generate_Excerpt;
+			$excerpt->initialize();
+
+			$atts = array( 'term_ID' => $post_id, 'noreadmore' => isset( $this->settings[ 'more_link' ] ), 'link' => \get_permalink( (int) $post_id ) );
+			$text = '<span itemprop="description" class="glossary-list-term-excerpt">' . $excerpt->get( $atts ) . '</span>';
 		}
 
 		if ( 'true' === $this->atts[ 'content' ] ) {
