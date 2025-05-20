@@ -19,10 +19,10 @@ if (!function_exists('get_the_site_ID')) {
      */
     function get_the_site_ID($post = null)
     {
-        $post = ($post !== null) ? $post : get_post();
+        $post = ($post !== null) ? $post : \get_post();
 
         if (empty($post) || !isset($post->site_ID)) {
-            return get_current_blog_id();
+            return \get_current_blog_id();
         }
 
         return (int) $post->site_ID;

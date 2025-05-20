@@ -86,7 +86,7 @@ class Initialize {
 
 		foreach ( $this->classes as $class ) {
 			try {
-				if (strpos($class, 'Widgets') !== false ) {
+				if ( strpos( $class, 'Widgets' ) !== false ) {
 					\add_action(
 						'widgets_init',
 						function() use ( $class ) {
@@ -98,7 +98,8 @@ class Initialize {
 									return $temp;
 								}
 							);
-						});
+						}
+					);
 				} else {
 					$temp = new $class;
 					$temp->initialize();

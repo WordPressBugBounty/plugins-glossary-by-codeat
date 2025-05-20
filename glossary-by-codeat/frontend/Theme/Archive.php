@@ -21,6 +21,7 @@ class Archive extends Engine\Base {
      * Initialize the class with all the hooks
      *
      * @since 1.0.0
+     * @return bool
      */
     public function initialize() {
         parent::initialize();
@@ -31,6 +32,7 @@ class Archive extends Engine\Base {
             \add_filter( 'get_the_archive_title', array($this, 'remove_archive_label') );
             \add_filter( 'pre_get_document_title', array($this, 'remove_archive_label'), 99999 );
         }
+        return true;
     }
 
     /**
@@ -58,21 +60,21 @@ class Archive extends Engine\Base {
     public function remove_archive_label( string $title ) {
         $object = \get_queried_object();
         if ( isset( $object->taxonomy ) ) {
-            $tax = \get_queried_object()->taxonomy;
+            $tax = $object->taxonomy;
             if ( 'glossary-cat' === $tax ) {
                 $title = \single_term_title( '', false );
             }
         }
         if ( isset( $object->name ) ) {
             if ( 'glossary' === $object->name ) {
-                $title = \str_replace( \__( 'Archives', GT_TEXTDOMAIN ) . ':', '', $title );
-                $title = \str_replace( \__( 'Archives', GT_TEXTDOMAIN ), '', $title );
+                $title = \str_replace( \__( 'Archives', GT_TEXTDOMAIN ) . ':', '', strval( $title ) );
+                $title = \str_replace( \__( 'Archives', GT_TEXTDOMAIN ), '', strval( $title ) );
             }
         }
-        if ( empty( $title ) || is_null( $title ) ) {
+        if ( empty( $title ) ) {
             $title = \post_type_archive_title( '', false );
         }
-        return \trim( $title );
+        return \trim( strval( $title ) );
     }
 
     /**

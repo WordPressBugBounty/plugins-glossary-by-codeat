@@ -41,14 +41,14 @@ class Subscriber
      */
     public function subscribe()
     {
-        add_filter('query_vars', [$this, 'onQueryVars']);
-        add_action('pre_get_posts', [$this, 'onPreGetPosts'], PHP_INT_MAX);
-        add_filter('posts_clauses', [$this, 'onPostsClauses'], 10, 2);
-        add_filter('posts_request', [$this, 'onPostsRequest'], 10, 2);
-        add_action('the_posts', [$this, 'onThePosts'], 10, 2);
-        add_action('loop_start', [$this, 'onLoopStart']);
-        add_action('the_post', [$this, 'onThePost'], 10, 2);
-        add_action('loop_end', [$this, 'onLoopEnd']);
+        \add_filter('query_vars', [$this, 'onQueryVars']);
+        \add_action('pre_get_posts', [$this, 'onPreGetPosts'], PHP_INT_MAX);
+        \add_filter('posts_clauses', [$this, 'onPostsClauses'], 10, 2);
+        \add_filter('posts_request', [$this, 'onPostsRequest'], 10, 2);
+        \add_action('the_posts', [$this, 'onThePosts'], 10, 2);
+        \add_action('loop_start', [$this, 'onLoopStart']);
+        \add_action('the_post', [$this, 'onThePost'], 10, 2);
+        \add_action('loop_end', [$this, 'onLoopEnd']);
     }
 
     /**
@@ -72,7 +72,7 @@ class Subscriber
      *
      * @param WP_Query $query The WP_Query instance.
      */
-    public function onPreGetPosts(WP_Query $query)
+    public function onPreGetPosts(\WP_Query $query)
     {
         $this->networkWpQuery->setUpQuery($query);
     }
@@ -85,7 +85,7 @@ class Subscriber
      *
      * @return string[] The array of clauses for the query.
      */
-    public function onPostsClauses($clauses, WP_Query $query)
+    public function onPostsClauses($clauses, \WP_Query $query)
     {
         return $this->networkWpQuery->modifyClauses($clauses, $query);
     }
@@ -98,7 +98,7 @@ class Subscriber
      *
      * @return string The complete SQL query.
      */
-    public function onPostsRequest($sql, WP_Query $query)
+    public function onPostsRequest($sql, \WP_Query $query)
     {
         return $this->networkWpQuery->modifyQuery($sql, $query);
     }
@@ -111,7 +111,7 @@ class Subscriber
      *
      * @return WP_Post[] The array of posts.
      */
-    public function onThePosts(array $posts, WP_Query $query)
+    public function onThePosts(array $posts, \WP_Query $query)
     {
         return $this->networkWpQuery->modifyPosts($posts, $query);
     }
@@ -121,7 +121,7 @@ class Subscriber
      *
      * @param WP_Query $query The WP_Query instance.
      */
-    public function onLoopStart(WP_Query $query)
+    public function onLoopStart(\WP_Query $query)
     {
         $this->networkWpQuery->setUpLoop($query);
     }
@@ -132,7 +132,7 @@ class Subscriber
      * @param WP_Post $post The WP_Post instance.
      * @param WP_Query $query The WP_Query instance.
      */
-    public function onThePost(WP_Post $post, WP_Query $query)
+    public function onThePost(\WP_Post $post, \WP_Query $query)
     {
         $this->networkWpQuery->setUpPost($post, $query);
     }
@@ -142,7 +142,7 @@ class Subscriber
      *
      * @param WP_Query $query The WP_Query instance.
      */
-    public function onLoopEnd(WP_Query $query)
+    public function onLoopEnd(\WP_Query $query)
     {
         $this->networkWpQuery->tearDownLoop($query);
     }

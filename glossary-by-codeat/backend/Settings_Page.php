@@ -29,7 +29,7 @@ class Settings_Page extends Engine\Base {
         \add_action( 'admin_menu', array($this, 'add_plugin_admin_menu') );
         // Add an action link pointing to the options page.
         if ( \realpath( __DIR__ ) !== false ) {
-            $plugin_basename = \plugin_basename( \plugin_dir_path( \realpath( __DIR__ ) ) . GT_SETTINGS . '.php' );
+            $plugin_basename = \plugin_basename( \plugin_dir_path( strval( \realpath( __DIR__ ) ) ) . GT_SETTINGS . '.php' );
             \add_filter( 'plugin_action_links_' . $plugin_basename, array($this, 'add_action_links') );
         }
         \add_action( 'admin_init', array($this, 'purge_transients') );

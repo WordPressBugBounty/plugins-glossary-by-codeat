@@ -48,8 +48,9 @@ class Search extends Engine\Base {
 		if ( $query->is_search && !\is_admin() ) {
 			$post_types   = array();
 			$post_types[] = $query->get( 'post_type' );
+
 			if ( empty( $post_types[0] ) ) {
-				$post_types[0] = "post";
+				$post_types[0] = 'post';
 			}
 
 			if ( 'post' === $post_types[0] ) {

@@ -243,16 +243,16 @@
         },
         {
             "name": "freemius/wordpress-sdk",
-            "version": "2.11.0",
+            "version": "2.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Freemius/wordpress-sdk.git",
-                "reference": "9ad5477e4f0a39999b96bb21d0327bc6841d4590"
+                "reference": "db6f35a2b3d318a53330409dbeab49156ee76dd8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Freemius/wordpress-sdk/zipball/9ad5477e4f0a39999b96bb21d0327bc6841d4590",
-                "reference": "9ad5477e4f0a39999b96bb21d0327bc6841d4590",
+                "url": "https://api.github.com/repos/Freemius/wordpress-sdk/zipball/db6f35a2b3d318a53330409dbeab49156ee76dd8",
+                "reference": "db6f35a2b3d318a53330409dbeab49156ee76dd8",
                 "shasum": ""
             },
             "require": {
@@ -290,9 +290,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Freemius/wordpress-sdk/issues",
-                "source": "https://github.com/Freemius/wordpress-sdk/tree/2.11.0"
+                "source": "https://github.com/Freemius/wordpress-sdk/tree/2.12.0"
             },
-            "time": "2025-02-09T07:06:24+00:00"
+            "time": "2025-05-11T07:07:09+00:00"
         },
         {
             "name": "johnbillion/extended-cpts",
@@ -781,23 +781,24 @@
         },
         {
             "name": "wpdesk/wp-notice",
-            "version": "3.2.5",
+            "version": "3.3.0",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.wpdesk.dev/wpdesk/wp-notice",
-                "reference": "a59008f6f5cdccc598cb7063f52da78c8199cb1d"
+                "reference": "06ba55d621da8c151836a14b4988bd8728e4e979"
             },
             "require": {
-                "php": ">=7.0.8",
+                "php": ">=7.4",
                 "wpdesk/wp-builder": "^1.0|^2.0"
             },
             "require-dev": {
                 "10up/wp_mock": "*",
                 "mockery/mockery": "*",
+                "phpunit/phpunit": "^8",
                 "squizlabs/php_codesniffer": "^3.0.2",
                 "wimg/php-compatibility": "^8",
                 "wp-coding-standards/wpcs": "^0.14.1",
-                "wpdesk/wp-codeception": "^2.7"
+                "wpdesk/wp-codeception": "^2"
             },
             "type": "library",
             "autoload": {
@@ -825,7 +826,7 @@
                 "notice",
                 "wordpress"
             ],
-            "time": "2024-07-23T13:33:41+00:00"
+            "time": "2025-05-16T14:19:12+00:00"
         }
     ],
     "packages-dev": [],

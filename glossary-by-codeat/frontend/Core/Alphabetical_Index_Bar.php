@@ -251,14 +251,15 @@ class Alphabetical_Index_Bar extends Engine\Base {
 		$anchor = $title;
 
 		if ( !empty( $anchor ) ) {
-			$title  = '<span itemprop="name">' . $title . '</span>';
-			$target = '';
-
-			if ( 'true' === $this->atts[ 'term-anchor-target' ] ) {
-				$target = ' target="_blank"';
-			}
+			$title = '<span itemprop="name">' . $title . '</span>';
 
 			if ( 'true' === $this->atts[ 'term-anchor' ] ) {
+				$target = '';
+
+				if ( 'true' === $this->atts[ 'term-anchor-target' ] ) {
+					$target = ' target="_blank"';
+				}
+
 				$anchor    = '<a itemprop="inDefinedTermSet" href="' . \get_permalink( (int) $post_id ) . '"' . $target . '>' . $title . '</a>';
 				$customurl = \get_glossary_term_url( $post_id );
 

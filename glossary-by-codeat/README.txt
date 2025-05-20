@@ -4,7 +4,7 @@ Tags: glossary, vocabulary, dictionary, tooltip, lexicon
 Requires at least: 6.2
 Requires PHP: 7.4
 Tested up to: 6.8.1
-Stable tag: 2.3.1
+Stable tag: 2.3.2
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -194,9 +194,14 @@ On the other hand, there are dozens of Visual Composer/Page Builders plugins in 
 
 == Changelog ==
 
+= 2.3.2 =
+
+* [PRO] Enhancement: `glossary-list` shortcode improved behavior or term links
+* [PRO] Fix: In some edge cases there was a crash with a library
+
 = 2.3.1 =
 
-* [PRO] `glossary-list` shortcode now use the internal system for the excerpt
+* [PRO] Enhancement: `glossary-list` shortcode now use the internal system for the excerpt
 
 = 2.3.0 =
 

@@ -65,9 +65,9 @@ class NetworkWpQuery
      *
      * @param WP_Query $query An instance of WP_Query.
      */
-    public function setUpQuery(WP_Query $query)
+    public function setUpQuery(\WP_Query $query)
     {
-        if (!$query->get('network')) {
+        if (!$query->get('network') || empty($this->wpdb->blogs)) {
             return;
         }
 
@@ -107,9 +107,9 @@ class NetworkWpQuery
      *
      * @return WP_Post[] The modified array of WP_Post.
      */
-    public function modifyPosts(array $posts, WP_Query $query)
+    public function modifyPosts(array $posts, \WP_Query $query)
     {
-        if (!$query->get('network')) {
+        if (!$query->get('network') || empty($this->wpdb->blogs)) {
             return $posts;
         }
 
@@ -129,9 +129,9 @@ class NetworkWpQuery
      *
      * @param WP_Query $query An instance of WP_Query.
      */
-    public function setUpLoop(WP_Query $query)
+    public function setUpLoop(\WP_Query $query)
     {
-        if (!$query->get('network')) {
+        if (!$query->get('network') || empty($this->wpdb->blogs)) {
             return;
         }
 
@@ -146,9 +146,9 @@ class NetworkWpQuery
      * @param WP_Post $post An instance of WP_Post.
      * @param WP_Query $query An instance of WP_Query.
      */
-    public function setUpPost(WP_Post $post, WP_Query $query)
+    public function setUpPost(\WP_Post $post, \WP_Query $query)
     {
-        if (!$query->get('network')) {
+        if (!$query->get('network') || empty($this->wpdb->blogs)) {
             return;
         }
 
@@ -156,17 +156,17 @@ class NetworkWpQuery
             return;
         }
 
-        $blogId = get_current_blog_id();
+        $blogId = \get_current_blog_id();
 
         if ($blogId === $post->site_ID) {
             return;
         }
 
         if ($this->isSwitched) {
-            restore_current_blog();
+            \restore_current_blog();
         }
 
-        switch_to_blog($post->site_ID);
+        \switch_to_blog($post->site_ID);
 
         $this->isSwitched = true;
     }
@@ -178,14 +178,14 @@ class NetworkWpQuery
      *
      * @param WP_Query $query An instance of WP_Query.
      */
-    public function tearDownLoop(WP_Query $query)
+    public function tearDownLoop(\WP_Query $query)
     {
-        if (!$query->get('network')) {
+        if (!$query->get('network') || empty($this->wpdb->blogs)) {
             return;
         }
 
         if ($this->isSwitched) {
-            restore_current_blog();
+            \restore_current_blog();
         }
 
         $this->isSwitched = false;
@@ -216,22 +216,22 @@ class NetworkWpQuery
      */
     public function modifyClauses($clauses, WP_Query $query)
     {
-        if (!$query->get('network')) {
+        if (!$query->get('network') || empty($this->wpdb->blogs)) {
             return $clauses;
         }
 
         $this->selectStatements = [];
         $rootSiteDbPrefix       = $this->wpdb->prefix;
-        $postsPerPage           = (int) $query->get('posts_per_page', get_option('posts_per_page'));
+        $postsPerPage           = (int) $query->get('posts_per_page', \get_option('posts_per_page'));
         $postsPerSite           = (int) $query->get('posts_per_site', $postsPerPage);
 
         foreach ($this->siteIds as $siteId) {
-            switch_to_blog($siteId);
+            \switch_to_blog($siteId);
 
             $postsPerSiteForTheSite = apply_filters('posts_per_site', $postsPerSite, $siteId, $query);
 
             if (!$postsPerSiteForTheSite) {
-                restore_current_blog();
+                \restore_current_blog();
 
                 continue;
             }
@@ -252,7 +252,7 @@ class NetworkWpQuery
 
             $this->selectStatements[] = $selectStatement;
 
-            restore_current_blog();
+            \restore_current_blog();
         }
 
         $clauses['join']    = '';
@@ -272,9 +272,9 @@ class NetworkWpQuery
      *
      * @return string The modified SQL query.
      */
-    public function modifyQuery($sql, WP_Query $query)
+    public function modifyQuery($sql, \WP_Query $query)
     {
-        if (!$query->get('network')) {
+        if (!$query->get('network') || empty($this->wpdb->blogs)) {
             return $sql;
         }
 

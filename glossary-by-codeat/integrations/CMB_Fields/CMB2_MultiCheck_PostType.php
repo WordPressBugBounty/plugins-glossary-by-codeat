@@ -114,6 +114,15 @@ class CMB2_MultiCheck_PostType extends Engine\Base {
 		unset( $cpts[ 'wpdiscuz_form' ] );
 		unset( $cpts[ 'wpcf7r_action' ] );
 		unset( $cpts[ 'wpcf7r_leads' ] );
+		unset( $cpts[ 'memberpresscoupon' ] );
+		unset( $cpts[ 'memberpressgroup' ] );
+		unset( $cpts[ 'mp-reminder' ] );
+		unset( $cpts[ 'memberpressrule' ] );
+		unset( $cpts[ 'grw_feed' ] );
+		unset( $cpts[ 'bwg_tag' ] );
+		unset( $cpts[ 'bwg_share' ] );
+		unset( $cpts[ 'bwg_album' ] );
+		unset( $cpts[ 'bwg_gallery' ] );
 
 		$cpts    = \apply_filters( 'multicheck_posttype_' . $field->args[ '_id' ], $cpts );
 		$options = '';

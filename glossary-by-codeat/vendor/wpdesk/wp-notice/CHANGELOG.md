@@ -1,3 +1,8 @@
+## [3.3.0] - 2025-05-16
+### Fixed
+- Removing JavaScript code from the page content, adding JavaScript files via admin_enqueue_scripts
+- Escaping
+
 ## [3.2.5] - 2024-07-23
 ### Fixed
 - Hide Gutenberg-targeted notices in classic editor
