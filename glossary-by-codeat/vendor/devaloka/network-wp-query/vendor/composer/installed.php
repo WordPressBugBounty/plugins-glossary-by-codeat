@@ -3,7 +3,7 @@
         'name' => 'devaloka/network-wp-query',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '840115df97d96aa7b70100253754617c23805e09',
+        'reference' => '248bd6bff06cc5a59aed41a2a1afbe7d823b9778',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'devaloka/network-wp-query' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '840115df97d96aa7b70100253754617c23805e09',
+            'reference' => '248bd6bff06cc5a59aed41a2a1afbe7d823b9778',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

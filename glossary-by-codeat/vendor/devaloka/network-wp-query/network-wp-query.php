@@ -16,6 +16,14 @@ if (!defined('ABSPATH')) {
     return;
 }
 
+if ( !defined( 'MULTISITE' ) || defined( 'MULTISITE' ) && MULTISITE == false ) {
+    return;
+}
+
+if ( !defined( 'SUBDOMAIN_INSTALL' ) && !defined( 'VHOST' ) && !defined( 'SUNRISE' ) ) {
+    return;
+}
+
 use Devaloka\Plugin\NetworkWpQuery\Plugin;
 
 require_once __DIR__ . '/src/NetworkWpQuery.php';

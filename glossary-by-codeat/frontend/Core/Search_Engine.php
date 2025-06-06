@@ -123,6 +123,13 @@ class Search_Engine extends Engine\Base {
         if ( (function_exists( 'wp_is_block_theme' ) && !wp_is_block_theme() || !function_exists( 'wp_is_block_theme' )) && !did_action( 'wp_print_styles' ) || defined( 'BRICKS_VERSION' ) && !did_action( 'bricks_body' ) ) {
             return $text;
         }
+        if ( \class_exists( 'ezTOC' ) && !did_action( 'ez_toc_before' ) ) {
+            $eztoc = \get_option( 'ez-toc-settings' );
+            if ( in_array( \get_post_type(), $eztoc['enabled_post_types'], true ) ) {
+                // @phpstan-ignore-line
+                return $text;
+            }
+        }
         if ( !$this->content->is_already_parsed( $text ) && \apply_filters( $this->default_parameters['filter_prefix'] . '_is_page_to_parse', $this->content->is_page_type_to_check() ) ) {
             return $this->auto_link( $text );
         }
