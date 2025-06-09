@@ -123,7 +123,7 @@ class Search_Engine extends Engine\Base {
         if ( (function_exists( 'wp_is_block_theme' ) && !wp_is_block_theme() || !function_exists( 'wp_is_block_theme' )) && !did_action( 'wp_print_styles' ) || defined( 'BRICKS_VERSION' ) && !did_action( 'bricks_body' ) ) {
             return $text;
         }
-        if ( \class_exists( 'ezTOC' ) && !did_action( 'ez_toc_before' ) ) {
+        if ( \class_exists( 'ezTOC' ) && !did_action( 'wp_head' ) && !did_action( 'ez_toc_before' ) ) {
             $eztoc = \get_option( 'ez-toc-settings' );
             if ( in_array( \get_post_type(), $eztoc['enabled_post_types'], true ) ) {
                 // @phpstan-ignore-line
