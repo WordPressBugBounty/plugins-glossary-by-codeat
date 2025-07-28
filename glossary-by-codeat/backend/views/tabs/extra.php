@@ -28,7 +28,7 @@ $cmb = new_cmb2_box( array(
 ) );
 $cmb->add_field( array(
     'name' => __( 'OpenAI ChatGPT', GT_TEXTDOMAIN ),
-    'id'   => 'text_opeai_chatgpt',
+    'id'   => 'text_openai_chatgpt',
     'desc' => __( 'A valid OpenAI key is needed. Please head over to <a href="https://docs.codeat.co/glossary/chatgpt/" target="_blank">the dedicated documentation page</a>.', GT_TEXTDOMAIN ),
     'type' => 'title',
 ) );
@@ -37,6 +37,13 @@ $cmb->add_field( array(
     'id'      => 'openai_key',
     'type'    => 'text',
     'default' => '',
+) );
+$cmb->add_field( array(
+    'name'    => __( 'Default Prompt', GT_TEXTDOMAIN ),
+    'id'      => 'openai_prompt',
+    'type'    => 'textarea',
+    'default' => 'Please provide a glossary term definition for \'[replaceme]\' and divide the text into paragraphs. Plain text only, do not use markdown or HTML. Ensure that the content consists of at least 350 words.',
+    'desc'    => '[replaceme] it will be replaced with the Glossary Term title',
 ) );
 $cmb->add_field( array(
     'name'    => __( 'Temperature', GT_TEXTDOMAIN ),

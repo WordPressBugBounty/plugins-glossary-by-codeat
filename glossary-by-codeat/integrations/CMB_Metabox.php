@@ -94,10 +94,10 @@ class CMB_Metabox extends Engine\Base {
 				array(
 					'name' => \__( 'Autogenerate the term content with ChatGPT', GT_TEXTDOMAIN ),
 					'id'   => GT_SETTINGS . '_openai_Prompt',
-					'type' => 'openai_prompt',
+					'type' => 'openai_prompt'
 				)
 			);
-	}
+		}
 		$cmb->add_field(
 			array(
 				'name' => \__( 'Additional key terms for this definition', GT_TEXTDOMAIN ),

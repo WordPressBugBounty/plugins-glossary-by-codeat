@@ -71,13 +71,18 @@ class Enqueue extends Engine\Base {
             GT_VERSION,
             false
         );
+        $settings = \gl_get_settings_extra();
+        $prompt = \__( 'Please provide a glossary term definition for \'[replaceme]\' and divide the text into paragraphs. Plain text only, do not use markdown or HTML. Ensure that the content consists of at least 350 words.', GT_TEXTDOMAIN );
+        if ( isset( $settings['openai_prompt'] ) ) {
+            $prompt = $settings['openai_prompt'];
+        }
         wp_localize_script( GT_SETTINGS . '-admin-script', 'glossaryAdmindata', array(
             'alert'   => \__( 'Error with the ChatGPT request!', GT_TEXTDOMAIN ),
             'warning' => \__( 'Please provide a title to automatically generate the content for the term.', GT_TEXTDOMAIN ),
             'waiting' => \__( 'Waiting for server response', GT_TEXTDOMAIN ),
             'nonce'   => \wp_create_nonce( 'generate_nonce' ),
             'wp_rest' => \wp_create_nonce( 'wp_rest' ),
-            'prompt'  => \__( 'Please provide a glossary term definition for \'[replaceme]\' and divide the text into paragraphs. Plain text only, do not use markdown or HTML. Ensure that the content consists of at least 350 words.', GT_TEXTDOMAIN ),
+            'prompt'  => $prompt,
         ) );
         $screen = \get_current_screen();
         if ( !\is_null( $screen ) && 'glossary_page_glossary' !== $screen->base ) {
