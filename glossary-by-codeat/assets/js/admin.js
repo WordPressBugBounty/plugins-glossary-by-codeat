@@ -175,12 +175,15 @@ function prompt_generator() {
 					});
 					wp.data.dispatch('core/editor').insertBlocks(insertedBlock);
 				} else {
+					data = data.split('\n').map(line => `<p>${line}</p>`).join('');
 					jQuery('#content').val(data);
+					tinyMCE.get('content').setContent(data);
 				}
 				if (typeof elementor !== 'undefined') {
 					tinyMCE.activeEditor.setContent(data);
 				}
 				jQuery(textarea).val(_prompt).prop('disabled', false);
+				window.alert("Glossary term content updated!");
 			} )
 			.fail( function (jqXHR) {
 				alert( window.glossaryAdmindata.alert + "\n" + jqXHR.responseText );

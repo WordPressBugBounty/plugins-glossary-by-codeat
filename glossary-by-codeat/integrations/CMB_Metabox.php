@@ -116,14 +116,14 @@ class CMB_Metabox extends Engine\Base {
 				'type'    => 'radio',
 				'default' => 'external',
 				'options' => array(
-					'external' => 'External URL',
+					'external' => 'Custom URL',
 					'internal' => 'Internal URL',
 				),
 			)
 		);
 		$cmb->add_field(
 			array(
-				'name'      => \__( 'Link to external URL', GT_TEXTDOMAIN ),
+				'name'      => \__( 'Link to custom URL', GT_TEXTDOMAIN ),
 				'desc'      => \__(
 					'If this is left blank, the previous options defaults back and key term is linked to internal definition page',
 					GT_TEXTDOMAIN

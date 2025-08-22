@@ -4,7 +4,7 @@ Tags: glossary, vocabulary, dictionary, tooltip, lexicon
 Requires at least: 6.2
 Requires PHP: 7.4
 Tested up to: 6.8.2
-Stable tag: 2.3.6
+Stable tag: 2.3.7
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -194,7 +194,11 @@ On the other hand, there are dozens of Visual Composer/Page Builders plugins in 
 
 == Changelog ==
 
-= 2.3.5 =
+= 2.3.7 =
+
+* [PRO]Fix: Glsosary ChatGPT prompt insert on Classic Editor in some cases wasn't working
+
+= 2.3.6 =
 
 * [PRO]Enhancement: Added a field to set a custom prompt for ChatGPT
 

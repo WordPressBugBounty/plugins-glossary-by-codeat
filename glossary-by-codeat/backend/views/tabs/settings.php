@@ -206,8 +206,8 @@ $cmb->add_field( array(
     'type' => 'checkbox',
 ) );
 $cmb->add_field( array(
-    'name' => __( 'Open external link in a new window', GT_TEXTDOMAIN ),
-    'desc' => __( 'Choose this option to enable globally the opening of external link in a new tab.<br>', GT_TEXTDOMAIN ),
+    'name' => __( 'Open link in a new window', GT_TEXTDOMAIN ),
+    'desc' => __( 'Choose this option to enable globally the opening of link in a new tab.<br>', GT_TEXTDOMAIN ),
     'id'   => 'open_new_window',
     'type' => 'checkbox',
 ) );
