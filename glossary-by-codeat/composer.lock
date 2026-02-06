@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dd04049e5a3462231f4349a12b41e874",
+    "content-hash": "2f69eb32d80597fcbf29b7e704a48f94",
     "packages": [
         {
             "name": "cmb2/cmb2",
@@ -243,16 +243,16 @@
         },
         {
             "name": "freemius/wordpress-sdk",
-            "version": "2.12.1",
+            "version": "2.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Freemius/wordpress-sdk.git",
-                "reference": "fedeba08eb3e62af5f84bd6d602f98636467cffc"
+                "reference": "3cbe98b5bd0b0fb5ca4df97b8088592737ea4375"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Freemius/wordpress-sdk/zipball/fedeba08eb3e62af5f84bd6d602f98636467cffc",
-                "reference": "fedeba08eb3e62af5f84bd6d602f98636467cffc",
+                "url": "https://api.github.com/repos/Freemius/wordpress-sdk/zipball/3cbe98b5bd0b0fb5ca4df97b8088592737ea4375",
+                "reference": "3cbe98b5bd0b0fb5ca4df97b8088592737ea4375",
                 "shasum": ""
             },
             "require": {
@@ -290,9 +290,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Freemius/wordpress-sdk/issues",
-                "source": "https://github.com/Freemius/wordpress-sdk/tree/2.12.1"
+                "source": "https://github.com/Freemius/wordpress-sdk/tree/2.13.0"
             },
-            "time": "2025-07-06T13:27:13+00:00"
+            "time": "2025-11-11T07:52:08+00:00"
         },
         {
             "name": "johnbillion/extended-cpts",
@@ -844,5 +844,5 @@
         "php": ">=7.4"
     },
     "platform-dev": {},
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.9.0"
 }

@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitdd04049e5a3462231f4349a12b41e874
+class ComposerStaticInit2f69eb32d80597fcbf29b7e704a48f94
 {
     public static $files = array (
         '578496d7ba8c55447964d725c8448309' => __DIR__ . '/..' . '/codeatcode/wp-review-me/review.php',
@@ -22,21 +22,21 @@ class ComposerStaticInitdd04049e5a3462231f4349a12b41e874
     );
 
     public static $prefixLengthsPsr4 = array (
-        'W' => 
+        'W' =>
         array (
             'WPDesk\\PluginBuilder\\' => 21,
             'WPDesk\\Notice\\' => 14,
         ),
-        'O' => 
+        'O' =>
         array (
             'Orhanerday\\OpenAi\\' => 18,
         ),
-        'M' => 
+        'M' =>
         array (
             'Micropackage\\Requirements\\' => 26,
             'Micropackage\\Internationalization\\' => 34,
         ),
-        'G' => 
+        'G' =>
         array (
             'Glossary\\Rest\\' => 14,
             'Glossary\\Internals\\' => 19,
@@ -46,70 +46,70 @@ class ComposerStaticInitdd04049e5a3462231f4349a12b41e874
             'Glossary\\Cli\\' => 13,
             'Glossary\\Backend\\' => 17,
         ),
-        'E' => 
+        'E' =>
         array (
             'ExtCPTs\\Tests\\' => 14,
         ),
-        'C' => 
+        'C' =>
         array (
             'Composer\\Installers\\' => 20,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'WPDesk\\PluginBuilder\\' => 
+        'WPDesk\\PluginBuilder\\' =>
         array (
             0 => __DIR__ . '/..' . '/wpdesk/wp-builder/src',
         ),
-        'WPDesk\\Notice\\' => 
+        'WPDesk\\Notice\\' =>
         array (
             0 => __DIR__ . '/..' . '/wpdesk/wp-notice/src/WPDesk/Notice',
         ),
-        'Orhanerday\\OpenAi\\' => 
+        'Orhanerday\\OpenAi\\' =>
         array (
             0 => __DIR__ . '/..' . '/orhanerday/open-ai/src',
         ),
-        'Micropackage\\Requirements\\' => 
+        'Micropackage\\Requirements\\' =>
         array (
             0 => __DIR__ . '/..' . '/micropackage/requirements/src',
         ),
-        'Micropackage\\Internationalization\\' => 
+        'Micropackage\\Internationalization\\' =>
         array (
             0 => __DIR__ . '/..' . '/micropackage/internationalization/src',
         ),
-        'Glossary\\Rest\\' => 
+        'Glossary\\Rest\\' =>
         array (
             0 => __DIR__ . '/../..' . '/rest',
         ),
-        'Glossary\\Internals\\' => 
+        'Glossary\\Internals\\' =>
         array (
             0 => __DIR__ . '/../..' . '/internals',
         ),
-        'Glossary\\Integrations\\' => 
+        'Glossary\\Integrations\\' =>
         array (
             0 => __DIR__ . '/../..' . '/integrations',
         ),
-        'Glossary\\Frontend\\' => 
+        'Glossary\\Frontend\\' =>
         array (
             0 => __DIR__ . '/../..' . '/frontend',
         ),
-        'Glossary\\Engine\\' => 
+        'Glossary\\Engine\\' =>
         array (
             0 => __DIR__ . '/../..' . '/engine',
         ),
-        'Glossary\\Cli\\' => 
+        'Glossary\\Cli\\' =>
         array (
             0 => __DIR__ . '/../..' . '/cli',
         ),
-        'Glossary\\Backend\\' => 
+        'Glossary\\Backend\\' =>
         array (
             0 => __DIR__ . '/../..' . '/backend',
         ),
-        'ExtCPTs\\Tests\\' => 
+        'ExtCPTs\\Tests\\' =>
         array (
             0 => __DIR__ . '/..' . '/johnbillion/extended-cpts/tests/phpunit',
         ),
-        'Composer\\Installers\\' => 
+        'Composer\\Installers\\' =>
         array (
             0 => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers',
         ),
@@ -305,9 +305,9 @@ class ComposerStaticInitdd04049e5a3462231f4349a12b41e874
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitdd04049e5a3462231f4349a12b41e874::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitdd04049e5a3462231f4349a12b41e874::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitdd04049e5a3462231f4349a12b41e874::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit2f69eb32d80597fcbf29b7e704a48f94::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit2f69eb32d80597fcbf29b7e704a48f94::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit2f69eb32d80597fcbf29b7e704a48f94::$classMap;
 
         }, null, ClassLoader::class);
     }
