@@ -10,7 +10,7 @@
  * Plugin Name:    Glossary
  * Plugin URI:     https://glossary.codeat.co/
  * Description:    Easily add and manage a glossary with auto-link, tooltips and more. Improve your internal link building for a better SEO.
- * Version:        2.3.10
+ * Version:        2.3.11
  * Author:         Codeat
  * Author URI:     https://docs.codeat.co/glossary/
  * Text Domain:    glossary-by-codeat
@@ -25,7 +25,7 @@ if ( !defined( 'ABSPATH' ) ) {
     die( 'We\'re sorry, but you can not directly access this file.' );
     //phpcs:ignore
 }
-define( 'GT_VERSION', '2.3.10' );
+define( 'GT_VERSION', '2.3.11' );
 define( 'GT_SETTINGS', 'glossary' );
 define( 'GT_TEXTDOMAIN', 'glossary-by-codeat' );
 define( 'GT_NAME', 'Glossary' );
@@ -60,22 +60,23 @@ if ( function_exists( 'gt_fs' ) ) {
             }
             require_once dirname( __FILE__ ) . '/vendor/freemius/wordpress-sdk/start.php';
             $gt_fs = fs_dynamic_init( array(
-                'id'             => '594',
-                'slug'           => 'glossary-by-codeat',
-                'type'           => 'plugin',
-                'public_key'     => 'pk_229177eead299a4c9212f5837675e',
-                'is_premium'     => false,
-                'has_addons'     => false,
-                'anonymous_mode' => defined( 'GLOSSARY_PLAYGROUND_PREVIEW' ),
-                'has_paid_plans' => true,
-                'menu'           => array(
+                'id'               => '594',
+                'slug'             => 'glossary-by-codeat',
+                'type'             => 'plugin',
+                'public_key'       => 'pk_229177eead299a4c9212f5837675e',
+                'is_premium'       => false,
+                'has_addons'       => false,
+                'anonymous_mode'   => defined( 'GLOSSARY_PLAYGROUND_PREVIEW' ),
+                'has_paid_plans'   => true,
+                'menu'             => array(
                     'slug'    => 'glossary',
                     'contact' => false,
                     'parent'  => array(
                         'slug' => 'edit.php?post_type=glossary',
                     ),
                 ),
-                'is_live'        => true,
+                'is_live'          => true,
+                'is_org_compliant' => true,
             ) );
             if ( $gt_fs->is_premium() ) {
                 load_plugin_textdomain( GT_TEXTDOMAIN, false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );

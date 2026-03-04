@@ -123,6 +123,8 @@ class PostTypes extends Engine\Base {
 					'taxonomy' => 'glossary-cat',
 				),
 			),
+			'publicly_queryable' => true,
+			'has_archive'        => true,
 		);
 
 		if ( isset( $this->settings[ 'post_type_hide' ] ) ) {
