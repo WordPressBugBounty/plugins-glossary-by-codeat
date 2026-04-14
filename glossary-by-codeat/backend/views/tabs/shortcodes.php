@@ -17,7 +17,7 @@
 		</h3>
 		<div class="inside"><p>
 			<?php _e( 'Glossary uses a <b>cache</b>, based on WordPress transients to improve the performance in shortcodes or widgets. Usually they last 24 hours but is possible to clean them manually pressing this button. [<a href="https://docs.codeat.co/glossary/faq/#how-can-i-clean-up-plugin-transients" target="_blank">Documentation</a>]', GT_TEXTDOMAIN ); ?>
-			<a href="<?php echo esc_html( add_query_arg( 'gl_purge_transient', true ) ); ?>#tabs-shortcodes" class="button button-primary" style="float:right"><?php _e( 'Purge plugin trasients', GT_TEXTDOMAIN ); ?></a>
+			<a href="<?php echo esc_html( add_query_arg( 'gl_purge_transient', true ) ); ?>#tabs-shortcodes" class="button button-primary" style="float:right"><?php _e( 'Purge plugin transients', GT_TEXTDOMAIN ); ?></a>
 		</p></div>
 	</div>
 	<div class="postbox">
