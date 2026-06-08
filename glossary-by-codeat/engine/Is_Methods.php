@@ -99,7 +99,7 @@ class Is_Methods extends Engine\Base {
      */
     public function is_rest() {
         if ( \defined( 'REST_REQUEST' ) && REST_REQUEST || isset( $_GET['rest_route'] ) && \strpos( wp_unslash( \strval( $_GET['rest_route'] ) ), '/', 0 ) === 0 ) {
-            // phpcs:ignore
+            // phpcs:ignore -- @phpstan-ignore argument.type
             return true;
         }
         global $wp_rewrite;

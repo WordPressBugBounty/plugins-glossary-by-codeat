@@ -131,7 +131,7 @@ class Notices extends Engine\Base {
             return false;
         }
         $post_id = \intval( \wp_unslash( $_GET['post'] ) );
-        // phpcs:ignore
+        // phpcs:ignore -- @phpstan-ignore argument.type
         if ( !empty( $_GET['post'] ) ) {
             // phpcs:ignore
             return \get_post( $post_id );

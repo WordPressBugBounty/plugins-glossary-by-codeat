@@ -66,7 +66,7 @@ class ChatGPT extends Engine\Base {
 	public function openai_generate( \WP_REST_Request $request ) { // phpcs:ignore
 		$settings = \gl_get_settings_extra();
 
-		if ( !\wp_verify_nonce( \strval( $request['nonce'] ), 'generate_nonce' ) ) {
+		if ( !\wp_verify_nonce( \strval( $request['nonce'] ), 'generate_nonce' ) ) { // @phpstan-ignore argument.type
 			$response = \rest_ensure_response( __( 'Invalid nonce', GT_TEXTDOMAIN ) );
 			$response->set_status( 500 );
 

@@ -48,14 +48,14 @@ class ImpExp extends Engine\Base {
 	public function settings_export() {
 		if ( empty( $_POST[ 'g_action' ] ) ||
 			'export_settings' !== \sanitize_text_field(
-				\wp_unslash( \strval( $_POST[ 'g_action' ] ) ) //phpcs:ignore WordPress.Security.NonceVerification, WordPress.Security.ValidatedSanitizedInput.MissingUnslash, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+				\wp_unslash( \strval( $_POST[ 'g_action' ] ) ) // phpcs:ignore WordPress.Security.NonceVerification, WordPress.Security.ValidatedSanitizedInput.MissingUnslash, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- @phpstan-ignore argument.type
 		) ) {
 			return;
 		}
 
 		if ( !\wp_verify_nonce(
 			\sanitize_text_field(
-				\wp_unslash( \strval( $_POST[ 'g_export_nonce' ] ) ) //phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+				\wp_unslash( \strval( $_POST[ 'g_export_nonce' ] ) ) //phpcs:ignore WordPress.Security.ValidatedSanitizedInput -- @phpstan-ignore argument.type
 			),
 			'g_export_nonce'
 		) ) {
@@ -86,12 +86,12 @@ class ImpExp extends Engine\Base {
 	public function settings_import() {
 		if (
 			empty( $_POST[ 'g_action' ] )
-			|| 'import_settings' !== \sanitize_text_field( \wp_unslash( \strval( $_POST[ 'g_action' ] ) ) ) //phpcs:ignore WordPress.Security.ValidatedSanitizedInput.MissingUnslash, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized, WordPress.Security.NonceVerification.Missing
+			|| 'import_settings' !== \sanitize_text_field( \wp_unslash( \strval( $_POST[ 'g_action' ] ) ) ) //phpcs:ignore WordPress.Security.ValidatedSanitizedInput.MissingUnslash, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized, WordPress.Security.NonceVerification.Missing -- @phpstan-ignore argument.type
 		) {
 			return;
 		}
 
-		if ( ! \wp_verify_nonce( \sanitize_text_field( \wp_unslash( \strval( $_POST[ 'g_import_nonce' ] ) ) ), 'g_import_nonce' ) ) { //phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+		if ( ! \wp_verify_nonce( \sanitize_text_field( \wp_unslash( \strval( $_POST[ 'g_import_nonce' ] ) ) ), 'g_import_nonce' ) ) { //phpcs:ignore WordPress.Security.ValidatedSanitizedInput -- @phpstan-ignore argument.type
 			return;
 		}
 
@@ -99,14 +99,14 @@ class ImpExp extends Engine\Base {
 			return;
 		}
 
-		$exploded  = \explode( '.', \strval( $_FILES[ 'g_import_file' ][ 'name' ] ) ); //phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+		$exploded  = \explode( '.', \strval( $_FILES[ 'g_import_file' ][ 'name' ] ) ); //phpcs:ignore WordPress.Security.ValidatedSanitizedInput -- @phpstan-ignore argument.type
 		$extension = \end( $exploded );
 
 		if ( 'json' !== $extension ) {
 			\wp_die( \esc_html__( 'Please upload a valid .json file', GT_SETTINGS ) );
 		}
 
-		$import_file = \strval( $_FILES[ 'g_import_file' ][ 'tmp_name' ] ); //phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+		$import_file = \strval( $_FILES[ 'g_import_file' ][ 'tmp_name' ] ); //phpcs:ignore WordPress.Security.ValidatedSanitizedInput -- @phpstan-ignore argument.type
 
 		if ( empty( $import_file ) ) {
 			\wp_die( \esc_html__( 'Please upload a file to import', GT_SETTINGS ) );

@@ -11,7 +11,7 @@
   ],
   "require": {
     "php": ">=7.4",
-    "cmb2/cmb2": "~2.11.0",
+    "cmb2/cmb2": "~2.12.0",
     "codeatcode/wp-review-me": "dev-develop",
     "composer/installers": "^2.3",
     "devaloka/network-wp-query": "^0.2.0",

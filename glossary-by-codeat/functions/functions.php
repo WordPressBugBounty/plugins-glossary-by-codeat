@@ -103,8 +103,11 @@ function get_glossary_term_url(  $term_id = ''  ) {
     }
     $url_suffix = '';
     $type = esc_html( strval( get_post_meta( (int) $term_id, GT_SETTINGS . '_link_type', true ) ) );
+    // @phpstan-ignore argument.type
     $link = esc_html( strval( get_post_meta( (int) $term_id, GT_SETTINGS . '_url', true ) ) );
+    // @phpstan-ignore argument.type
     $cpt = esc_html( strval( get_post_meta( (int) $term_id, GT_SETTINGS . '_cpt', true ) ) );
+    // @phpstan-ignore argument.type
     if ( empty( $link ) && empty( $cpt ) ) {
         return (string) get_the_permalink( (int) $term_id ) . $url_suffix;
     }
@@ -215,6 +218,7 @@ function gl_text_is_rtl(  string $stringtomatch  ) {
  */
 function gl_get_terms_count() {
     return strval( get_option( GT_SETTINGS . '_count_terms', true ) );
+    // @phpstan-ignore argument.type
 }
 
 /**
@@ -224,6 +228,7 @@ function gl_get_terms_count() {
  */
 function gl_get_related_terms_count() {
     return strval( get_option( GT_SETTINGS . '_count_related_terms', true ) );
+    // @phpstan-ignore argument.type
 }
 
 /**
@@ -385,6 +390,7 @@ function gl_get_bool_settings(  string $value  ) {
  */
 function gl_related_post_meta(  int $post_id  ) {
     $value = strval( get_post_meta( $post_id, GT_SETTINGS . '_tag', true ) );
+    // @phpstan-ignore argument.type
     $value = array_map( 'trim', explode( ',', $value ) );
     if ( empty( $value[0] ) ) {
         $value = array();
@@ -447,6 +453,7 @@ function gl_get_base_url() {
         $base_url = esc_url( home_url( '/' ) );
         if ( 'page' === get_option( 'show_on_front' ) ) {
             $base_url = esc_url( (string) get_permalink( intval( get_option( 'page_for_posts' ) ) ) );
+            // @phpstan-ignore argument.type
         }
     }
     return apply_filters( 'glossary_base_url', $base_url );

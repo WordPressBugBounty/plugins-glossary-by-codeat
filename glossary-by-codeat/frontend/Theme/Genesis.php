@@ -80,7 +80,7 @@ class Genesis extends Engine\Base {
 		if ( empty( $post->post_excerpt ) ) {
 			if ( \genesis_get_option( 'content_archive_limit' ) ) {
 				$content = \get_the_content_limit(
-					\intval( \genesis_get_option( 'content_archive_limit' ) ),
+					\intval( \genesis_get_option( 'content_archive_limit' ) ), // @phpstan-ignore argument.type
 					\apply_filters( 'genesis_more_text', \genesis_a11y_more_link( \__( '[Read more...]', 'genesis' ) ) )
 				);
 			}

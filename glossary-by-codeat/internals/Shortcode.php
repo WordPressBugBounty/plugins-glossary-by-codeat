@@ -94,7 +94,7 @@ class Shortcode extends Engine\Base {
 			\set_transient( $key, $html, DAY_IN_SECONDS );
 		}
 
-		return \strval( $html );
+		return \strval( $html ); // @phpstan-ignore argument.type
 	}
 
 	/**

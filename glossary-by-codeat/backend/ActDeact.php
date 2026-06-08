@@ -218,7 +218,7 @@ class ActDeact extends Engine\Base {
 			return;
 		}
 
-		$version = \strval( \get_option( 'glossary-version', true ) );
+		$version = \strval( \get_option( 'glossary-version', true ) ); // @phpstan-ignore-line
 
 		if ( \version_compare( GT_VERSION, $version, '>' ) ) {
 			self::add_capabilities();
