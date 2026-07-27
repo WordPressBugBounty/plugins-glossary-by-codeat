@@ -94,19 +94,19 @@ class HTML_Type_Injector extends Engine\Base {
 				$atts[ 'target' ] = ' target="_blank"';
 			}
 
-			$atts[ 'rel' ] = 'rel="';
+			$rel_parts = array();
 
 			if ( !empty( $atts[ 'nofollow' ] ) ) {
-				$atts[ 'rel' ] .= 'nofollow ';
+				$rel_parts[] = 'nofollow';
 			}
 
 			if ( !empty( $atts[ 'sponsored' ] ) ) {
-				$atts[ 'rel' ] .= 'sponsored';
+				$rel_parts[] = 'sponsored';
 			}
 
-			$atts[ 'rel' ] .= '"';
+			$atts[ 'rel' ] = ' rel="' . implode( ' ', $rel_parts ) . '"';
 
-			if ( $atts[ 'rel' ] === 'rel=""' ) {
+			if ( $atts[ 'rel' ] === ' rel=""' ) {
 				$atts[ 'rel' ] = '';
 			}
 		}

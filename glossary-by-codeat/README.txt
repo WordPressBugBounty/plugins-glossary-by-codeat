@@ -3,8 +3,8 @@ Contributors: codeat, iGenius, mte90
 Tags: glossary, vocabulary, dictionary, tooltip, lexicon
 Requires at least: 6.2
 Requires PHP: 7.4
-Tested up to: 7.0
-Stable tag: 2.3.13
+Tested up to: 7.0.2
+Stable tag: 2.3.15
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -193,6 +193,15 @@ On the other hand, there are dozens of Visual Composer/Page Builders plugins in 
 7. Glossary Index Block Editor (Pro)
 
 == Changelog ==
+
+= 2.3.15 =
+
+* Enhancement: Improved support for Hebrew and Asiatic languages
+* Bugfix: Added more tests and found more issues around
+
+= 2.3.14 =
+
+* Enhancement: Freemius SDK updated
 
 = 2.3.13 =
 

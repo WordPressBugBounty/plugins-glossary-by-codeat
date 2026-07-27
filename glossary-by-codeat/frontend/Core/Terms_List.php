@@ -73,13 +73,22 @@ class Terms_List extends Engine\Base {
             $span_open = '|<span class="glossary';
             $span_close = '|<\\/span';
         }
-        $symbols = '(?=[ \\.\\,\\:\\;\\*\\"\\)\\!\\?\\/\\%\\$\\€\\£\\|\\^\\<\\>\\“\\”])';
+        $symbols = '(?=[ \\.\\,\\:\\;\\*\\"\\)\\!\\?\\/\\%\\$\\€\\£\\|\\^\\<\\>\\"\\"]|$)';
         $unicode = 'u';
-        if ( \preg_match( '/[\\p{Han}]/simu', $term ) ) {
+        if ( \preg_match( '/[\\p{Han}\\p{Hangul}]/simu', $term ) ) {
             $symbols = '';
             $unicode = '';
         }
         // <\/tags use from the end of the string so avoid HTML attributes
+        // Negative lookahead skips text and non-protected tags to detect
+        // whether the term sits inside a protected element.
+        // Block-level tags are included so the attribute-scan stops at block
+        // boundaries instead of scanning across paragraphs, which would
+        // cause false negatives when a quote appears in a later paragraph.
+        $protected_tags = 'a|button|h[1-6]|pre|code|figcaption|textarea|p|div|blockquote|figure|li|td|th|table|tr|ul|ol|dl|section|article|header|footer|main|nav|aside';
+        if ( $span_close !== '' ) {
+            $protected_tags .= '|span';
+        }
         /**
          * The regex to do the first step of scanning
          *
@@ -88,7 +97,7 @@ class Terms_List extends Engine\Base {
          * @since 1.1.0
          * @return array $regex We need the regex.
          */
-        return \apply_filters( $this->default_parameters['filter_prefix'] . '_regex', '/(?<![\\w\\—\\-\\.\\/]|=")(' . $caseinsensitive . ')' . $symbols . '(?![^<]*(\\/>' . $span_open . '|<h|<\\/button|<\\/h|<\\/a|<\\/pre|<\\/figcaption|<\\/code' . $span_close . '|\\"))/' . $unicode, $term );
+        return \apply_filters( $this->default_parameters['filter_prefix'] . '_regex', '/(?<![\\w\\—\\-\\.\\/]|=")(' . $caseinsensitive . ')' . $symbols . '(?!(?:[^<\\"]++|<(?!\\/?(?:' . $protected_tags . ')\\b)[^>]*+>)*(\\/>' . $span_open . '|<h\\b|<\\/button\\b|<\\/h[1-6]\\b|<\\/a\\b|<\\/pre\\b|<\\/figcaption\\b|<\\/code\\b|<\\/textarea\\b' . $span_close . '|\\"))/' . $unicode, $term );
     }
 
     /**

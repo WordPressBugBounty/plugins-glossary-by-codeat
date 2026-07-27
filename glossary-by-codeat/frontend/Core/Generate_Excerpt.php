@@ -52,6 +52,9 @@ class Generate_Excerpt extends Engine\Base {
         $excerpt = \preg_replace( '@<(script|style|sup)[^>]*?>.*?</\\1>@si', '', $excerpt );
         $excerpt = \strip_tags( (string) $excerpt, '<br>' );
         $excerpt = \preg_replace( '/[\\r\\n\\t ]+/', ' ', \trim( $excerpt ) );
+        $excerpt = \wp_kses( (string) $excerpt, array(
+            'br' => array(),
+        ) );
         /**
          * Filter the excerpt before printing
          *
@@ -144,8 +147,8 @@ class Generate_Excerpt extends Engine\Base {
         }
         $excerpt_limit = \absint( $this->settings['excerpt_limit'] );
         if ( 0 !== $excerpt_limit ) {
-            if ( \strlen( $excerpt ) >= $excerpt_limit ) {
-                $excerpt_temp = \substr( $excerpt, 0, $excerpt_limit ) . $dots;
+            if ( \mb_strlen( $excerpt ) >= $excerpt_limit ) {
+                $excerpt_temp = \mb_substr( $excerpt, 0, $excerpt_limit ) . $dots;
             }
             // Strip the excerpt based on the words or char limit
             if ( !empty( $this->settings['excerpt_words'] ) ) {

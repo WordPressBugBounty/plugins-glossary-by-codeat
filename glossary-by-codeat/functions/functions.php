@@ -359,16 +359,19 @@ function gl_get_a2z_ids(  array $atts = array()  ) {
 }
 
 /**
- * Length of the string based on encode
+ * Length of the string in bytes
+ *
+ * Returns the byte length so it stays consistent with the byte offsets
+ * returned by preg_match() PREG_OFFSET_CAPTURE and consumed by
+ * substr_replace(). Mixing byte offsets with character counts broke
+ * replacement positions when multiple terms (some with ASCII characters
+ * such as the hyphen in "סטארט-אפ") appeared in the same content.
  *
  * @param string $stringtomatch The string to get the length.
  * @return int
  */
 function gl_get_len(  string $stringtomatch  ) {
-    if ( gl_text_is_rtl( $stringtomatch ) ) {
-        return mb_strlen( $stringtomatch );
-    }
-    return mb_strlen( $stringtomatch, 'latin1' );
+    return strlen( $stringtomatch );
 }
 
 /**

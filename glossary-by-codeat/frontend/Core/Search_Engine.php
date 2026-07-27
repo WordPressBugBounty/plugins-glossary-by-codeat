@@ -120,7 +120,7 @@ class Search_Engine extends Engine\Base {
         // phpcs:ignore
         $text = \strval( $text );
         // Don't execute glossary on header (with block theme support) and if Bricks didn't printed yet the body
-        if ( (function_exists( 'wp_is_block_theme' ) && !wp_is_block_theme() || !function_exists( 'wp_is_block_theme' )) && !did_action( 'wp_print_styles' ) || defined( 'BRICKS_VERSION' ) && !did_action( 'bricks_body' ) ) {
+        if ( (!function_exists( 'wp_is_block_theme' ) || !wp_is_block_theme()) && !did_action( 'wp_print_styles' ) || defined( 'BRICKS_VERSION' ) && !did_action( 'bricks_body' ) ) {
             return $text;
         }
         if ( \class_exists( 'ezTOC' ) && !did_action( 'wp_head' ) && !did_action( 'ez_toc_before' ) ) {

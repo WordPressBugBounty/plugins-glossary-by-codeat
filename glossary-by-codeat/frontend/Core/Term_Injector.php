@@ -246,22 +246,20 @@ class Term_Injector extends Engine\Base {
     }
 
     /**
-     * Check encoding to calculate the real length
+     * Return the length as-is
      *
-     * @param string $value  Text.
+     * The encoding-based doubling workaround that lived here is no longer
+     * needed since gl_get_len() now returns the byte length consistently.
+     * Kept as a passthrough for backward compatibility with external
+     * callers that may still invoke this public method.
+     *
+     * @param string $value  Text (unused, kept for signature compatibility).
      * @param int    $length Original length.
      * @return int
      */
     public function get_real_length( string $value, int $length ) {
-        $encode = \mb_detect_encoding( $value );
-        // With utf-8 character with multiple bits this is the workaround for the right value
-        if ( 'ASCII' === $encode ) {
-            return $length;
-        }
-        if ( !\gl_text_is_rtl( $this->text ) ) {
-            return $length;
-        }
-        return $length + $length;
+        // phpcs:ignore SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
+        return $length;
     }
 
     /**
