@@ -4,13 +4,13 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitd76aa51229eca65845f2c07ce5c1baf8
+class ComposerStaticInit8343073ae72347a7392fa856567d6637
 {
     public static $files = array (
         '578496d7ba8c55447964d725c8448309' => __DIR__ . '/..' . '/codeatcode/wp-review-me/review.php',
         '4fa459a9773e6677f4f6627f5ae32512' => __DIR__ . '/..' . '/devaloka/network-wp-query/network-wp-query.php',
         '8d50dc88e56bace65e1e72f6017983ed' => __DIR__ . '/..' . '/freemius/wordpress-sdk/start.php',
-        'a2c48002d05f7782d8b603bd2bcb5252' => __DIR__ . '/..' . '/johnbillion/extended-cpts/extended-cpts.php',
+        'ac773ca18bc86f9208de2ed8068423eb' => __DIR__ . '/..' . '/johnbillion/extended-cpts/functions.php',
         'c7a55a0e93fe86ca032cc0161206670a' => __DIR__ . '/..' . '/mte90/cmb2-field-ajax-search/cmb2-field-ajax-search.php',
         '13ffc7b37af3f0937efe725fbe5f8dbf' => __DIR__ . '/..' . '/mte90/wp-dismissible-notices-handler/handler.php',
         '90dcd0356b62f1100a1371ca344bdddc' => __DIR__ . '/..' . '/mte90/wp-dismissible-notices-handler/includes/helper-functions.php',
@@ -48,11 +48,15 @@ class ComposerStaticInitd76aa51229eca65845f2c07ce5c1baf8
         ),
         'E' =>
         array (
-            'ExtCPTs\\Tests\\' => 14,
+            'ExtCPTs\\' => 8,
         ),
         'C' =>
         array (
             'Composer\\Installers\\' => 20,
+        ),
+        'A' =>
+        array (
+            'Args\\' => 5,
         ),
     );
 
@@ -105,17 +109,88 @@ class ComposerStaticInitd76aa51229eca65845f2c07ce5c1baf8
         array (
             0 => __DIR__ . '/../..' . '/backend',
         ),
-        'ExtCPTs\\Tests\\' =>
+        'ExtCPTs\\' =>
         array (
-            0 => __DIR__ . '/..' . '/johnbillion/extended-cpts/tests/phpunit',
+            0 => __DIR__ . '/..' . '/johnbillion/extended-cpts/src',
         ),
         'Composer\\Installers\\' =>
         array (
             0 => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers',
         ),
+        'Args\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/johnbillion/args/src',
+        ),
     );
 
     public static $classMap = array (
+        'Args\\Arrayable\\Arrayable' => __DIR__ . '/..' . '/johnbillion/args/src/Arrayable/Arrayable.php',
+        'Args\\Arrayable\\ProvidesFromArray' => __DIR__ . '/..' . '/johnbillion/args/src/Arrayable/ProvidesFromArray.php',
+        'Args\\Arrayable\\ProvidesToArray' => __DIR__ . '/..' . '/johnbillion/args/src/Arrayable/ProvidesToArray.php',
+        'Args\\DateQuery\\Clause' => __DIR__ . '/..' . '/johnbillion/args/src/DateQuery/Clause.php',
+        'Args\\DateQuery\\ProvidesArgs' => __DIR__ . '/..' . '/johnbillion/args/src/DateQuery/ProvidesArgs.php',
+        'Args\\DateQuery\\Query' => __DIR__ . '/..' . '/johnbillion/args/src/DateQuery/Query.php',
+        'Args\\DateQuery\\Values' => __DIR__ . '/..' . '/johnbillion/args/src/DateQuery/Values.php',
+        'Args\\DateQuery\\WithArgs' => __DIR__ . '/..' . '/johnbillion/args/src/DateQuery/WithArgs.php',
+        'Args\\MetaQuery\\Clause' => __DIR__ . '/..' . '/johnbillion/args/src/MetaQuery/Clause.php',
+        'Args\\MetaQuery\\ProvidesArgs' => __DIR__ . '/..' . '/johnbillion/args/src/MetaQuery/ProvidesArgs.php',
+        'Args\\MetaQuery\\Query' => __DIR__ . '/..' . '/johnbillion/args/src/MetaQuery/Query.php',
+        'Args\\MetaQuery\\Values' => __DIR__ . '/..' . '/johnbillion/args/src/MetaQuery/Values.php',
+        'Args\\MetaQuery\\WithArgs' => __DIR__ . '/..' . '/johnbillion/args/src/MetaQuery/WithArgs.php',
+        'Args\\Shared\\Base' => __DIR__ . '/..' . '/johnbillion/args/src/Shared/Base.php',
+        'Args\\TaxQuery\\Clause' => __DIR__ . '/..' . '/johnbillion/args/src/TaxQuery/Clause.php',
+        'Args\\TaxQuery\\ProvidesArgs' => __DIR__ . '/..' . '/johnbillion/args/src/TaxQuery/ProvidesArgs.php',
+        'Args\\TaxQuery\\Query' => __DIR__ . '/..' . '/johnbillion/args/src/TaxQuery/Query.php',
+        'Args\\TaxQuery\\Values' => __DIR__ . '/..' . '/johnbillion/args/src/TaxQuery/Values.php',
+        'Args\\TaxQuery\\WithArgs' => __DIR__ . '/..' . '/johnbillion/args/src/TaxQuery/WithArgs.php',
+        'Args\\WP_Block_Type' => __DIR__ . '/..' . '/johnbillion/args/src/WP_Block_Type.php',
+        'Args\\WP_Comment_Query' => __DIR__ . '/..' . '/johnbillion/args/src/WP_Comment_Query.php',
+        'Args\\WP_Customize_Control' => __DIR__ . '/..' . '/johnbillion/args/src/WP_Customize_Control.php',
+        'Args\\WP_Customize_Manager' => __DIR__ . '/..' . '/johnbillion/args/src/WP_Customize_Manager.php',
+        'Args\\WP_Customize_Panel' => __DIR__ . '/..' . '/johnbillion/args/src/WP_Customize_Panel.php',
+        'Args\\WP_Customize_Section' => __DIR__ . '/..' . '/johnbillion/args/src/WP_Customize_Section.php',
+        'Args\\WP_Customize_Setting' => __DIR__ . '/..' . '/johnbillion/args/src/WP_Customize_Setting.php',
+        'Args\\WP_Http' => __DIR__ . '/..' . '/johnbillion/args/src/WP_Http.php',
+        'Args\\WP_Query' => __DIR__ . '/..' . '/johnbillion/args/src/WP_Query.php',
+        'Args\\WP_Term_Query' => __DIR__ . '/..' . '/johnbillion/args/src/WP_Term_Query.php',
+        'Args\\WP_User_Query' => __DIR__ . '/..' . '/johnbillion/args/src/WP_User_Query.php',
+        'Args\\get_categories' => __DIR__ . '/..' . '/johnbillion/args/src/get_categories.php',
+        'Args\\get_comments' => __DIR__ . '/..' . '/johnbillion/args/src/get_comments.php',
+        'Args\\get_posts' => __DIR__ . '/..' . '/johnbillion/args/src/get_posts.php',
+        'Args\\get_tags' => __DIR__ . '/..' . '/johnbillion/args/src/get_tags.php',
+        'Args\\get_terms' => __DIR__ . '/..' . '/johnbillion/args/src/get_terms.php',
+        'Args\\get_users' => __DIR__ . '/..' . '/johnbillion/args/src/get_users.php',
+        'Args\\paginate_links' => __DIR__ . '/..' . '/johnbillion/args/src/paginate_links.php',
+        'Args\\register_block_type' => __DIR__ . '/..' . '/johnbillion/args/src/register_block_type.php',
+        'Args\\register_meta' => __DIR__ . '/..' . '/johnbillion/args/src/register_meta.php',
+        'Args\\register_post_meta' => __DIR__ . '/..' . '/johnbillion/args/src/register_post_meta.php',
+        'Args\\register_post_status' => __DIR__ . '/..' . '/johnbillion/args/src/register_post_status.php',
+        'Args\\register_post_type' => __DIR__ . '/..' . '/johnbillion/args/src/register_post_type.php',
+        'Args\\register_rest_field' => __DIR__ . '/..' . '/johnbillion/args/src/register_rest_field.php',
+        'Args\\register_taxonomy' => __DIR__ . '/..' . '/johnbillion/args/src/register_taxonomy.php',
+        'Args\\register_term_meta' => __DIR__ . '/..' . '/johnbillion/args/src/register_term_meta.php',
+        'Args\\wp_count_terms' => __DIR__ . '/..' . '/johnbillion/args/src/wp_count_terms.php',
+        'Args\\wp_die' => __DIR__ . '/..' . '/johnbillion/args/src/wp_die.php',
+        'Args\\wp_dropdown_categories' => __DIR__ . '/..' . '/johnbillion/args/src/wp_dropdown_categories.php',
+        'Args\\wp_dropdown_languages' => __DIR__ . '/..' . '/johnbillion/args/src/wp_dropdown_languages.php',
+        'Args\\wp_generate_tag_cloud' => __DIR__ . '/..' . '/johnbillion/args/src/wp_generate_tag_cloud.php',
+        'Args\\wp_get_nav_menus' => __DIR__ . '/..' . '/johnbillion/args/src/wp_get_nav_menus.php',
+        'Args\\wp_get_object_terms' => __DIR__ . '/..' . '/johnbillion/args/src/wp_get_object_terms.php',
+        'Args\\wp_insert_post' => __DIR__ . '/..' . '/johnbillion/args/src/wp_insert_post.php',
+        'Args\\wp_insert_term' => __DIR__ . '/..' . '/johnbillion/args/src/wp_insert_term.php',
+        'Args\\wp_insert_user' => __DIR__ . '/..' . '/johnbillion/args/src/wp_insert_user.php',
+        'Args\\wp_nav_menu' => __DIR__ . '/..' . '/johnbillion/args/src/wp_nav_menu.php',
+        'Args\\wp_remote_get' => __DIR__ . '/..' . '/johnbillion/args/src/wp_remote_get.php',
+        'Args\\wp_remote_head' => __DIR__ . '/..' . '/johnbillion/args/src/wp_remote_head.php',
+        'Args\\wp_remote_post' => __DIR__ . '/..' . '/johnbillion/args/src/wp_remote_post.php',
+        'Args\\wp_remote_request' => __DIR__ . '/..' . '/johnbillion/args/src/wp_remote_request.php',
+        'Args\\wp_safe_remote_get' => __DIR__ . '/..' . '/johnbillion/args/src/wp_safe_remote_get.php',
+        'Args\\wp_safe_remote_head' => __DIR__ . '/..' . '/johnbillion/args/src/wp_safe_remote_head.php',
+        'Args\\wp_safe_remote_post' => __DIR__ . '/..' . '/johnbillion/args/src/wp_safe_remote_post.php',
+        'Args\\wp_safe_remote_request' => __DIR__ . '/..' . '/johnbillion/args/src/wp_safe_remote_request.php',
+        'Args\\wp_update_post' => __DIR__ . '/..' . '/johnbillion/args/src/wp_update_post.php',
+        'Args\\wp_update_term' => __DIR__ . '/..' . '/johnbillion/args/src/wp_update_term.php',
+        'Args\\wp_update_user' => __DIR__ . '/..' . '/johnbillion/args/src/wp_update_user.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Composer\\Installers\\AglInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/AglInstaller.php',
         'Composer\\Installers\\AkauntingInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/AkauntingInstaller.php',
@@ -216,6 +291,18 @@ class ComposerStaticInitd76aa51229eca65845f2c07ce5c1baf8
         'Composer\\Installers\\YawikInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/YawikInstaller.php',
         'Composer\\Installers\\ZendInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/ZendInstaller.php',
         'Composer\\Installers\\ZikulaInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/ZikulaInstaller.php',
+        'ExtCPTs\\Args\\PostType' => __DIR__ . '/..' . '/johnbillion/extended-cpts/src/Args/PostType.php',
+        'ExtCPTs\\Args\\Taxonomy' => __DIR__ . '/..' . '/johnbillion/extended-cpts/src/Args/Taxonomy.php',
+        'ExtCPTs\\ExtendedRewriteTesting' => __DIR__ . '/..' . '/johnbillion/extended-cpts/src/ExtendedRewriteTesting.php',
+        'ExtCPTs\\PostType' => __DIR__ . '/..' . '/johnbillion/extended-cpts/src/PostType.php',
+        'ExtCPTs\\PostTypeAdmin' => __DIR__ . '/..' . '/johnbillion/extended-cpts/src/PostTypeAdmin.php',
+        'ExtCPTs\\PostTypeRewriteTesting' => __DIR__ . '/..' . '/johnbillion/extended-cpts/src/PostTypeRewriteTesting.php',
+        'ExtCPTs\\Taxonomy' => __DIR__ . '/..' . '/johnbillion/extended-cpts/src/Taxonomy.php',
+        'ExtCPTs\\TaxonomyAdmin' => __DIR__ . '/..' . '/johnbillion/extended-cpts/src/TaxonomyAdmin.php',
+        'ExtCPTs\\TaxonomyRewriteTesting' => __DIR__ . '/..' . '/johnbillion/extended-cpts/src/TaxonomyRewriteTesting.php',
+        'ExtCPTs\\Walker\\Checkboxes' => __DIR__ . '/..' . '/johnbillion/extended-cpts/src/Walker/Checkboxes.php',
+        'ExtCPTs\\Walker\\Dropdown' => __DIR__ . '/..' . '/johnbillion/extended-cpts/src/Walker/Dropdown.php',
+        'ExtCPTs\\Walker\\Radios' => __DIR__ . '/..' . '/johnbillion/extended-cpts/src/Walker/Radios.php',
         'Glossary\\Backend\\ActDeact' => __DIR__ . '/../..' . '/backend/ActDeact.php',
         'Glossary\\Backend\\Enqueue' => __DIR__ . '/../..' . '/backend/Enqueue.php',
         'Glossary\\Backend\\ImpExp' => __DIR__ . '/../..' . '/backend/ImpExp.php',
@@ -305,9 +392,9 @@ class ComposerStaticInitd76aa51229eca65845f2c07ce5c1baf8
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitd76aa51229eca65845f2c07ce5c1baf8::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitd76aa51229eca65845f2c07ce5c1baf8::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitd76aa51229eca65845f2c07ce5c1baf8::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit8343073ae72347a7392fa856567d6637::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit8343073ae72347a7392fa856567d6637::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit8343073ae72347a7392fa856567d6637::$classMap;
 
         }, null, ClassLoader::class);
     }

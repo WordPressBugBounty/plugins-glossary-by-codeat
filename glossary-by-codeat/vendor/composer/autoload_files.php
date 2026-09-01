@@ -9,7 +9,7 @@ return array(
     '578496d7ba8c55447964d725c8448309' => $vendorDir . '/codeatcode/wp-review-me/review.php',
     '4fa459a9773e6677f4f6627f5ae32512' => $vendorDir . '/devaloka/network-wp-query/network-wp-query.php',
     '8d50dc88e56bace65e1e72f6017983ed' => $vendorDir . '/freemius/wordpress-sdk/start.php',
-    'a2c48002d05f7782d8b603bd2bcb5252' => $vendorDir . '/johnbillion/extended-cpts/extended-cpts.php',
+    'ac773ca18bc86f9208de2ed8068423eb' => $vendorDir . '/johnbillion/extended-cpts/functions.php',
     'c7a55a0e93fe86ca032cc0161206670a' => $vendorDir . '/mte90/cmb2-field-ajax-search/cmb2-field-ajax-search.php',
     '13ffc7b37af3f0937efe725fbe5f8dbf' => $vendorDir . '/mte90/wp-dismissible-notices-handler/handler.php',
     '90dcd0356b62f1100a1371ca344bdddc' => $vendorDir . '/mte90/wp-dismissible-notices-handler/includes/helper-functions.php',

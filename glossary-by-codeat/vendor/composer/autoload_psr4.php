@@ -18,6 +18,7 @@ return array(
     'Glossary\\Engine\\' => array($baseDir . '/engine'),
     'Glossary\\Cli\\' => array($baseDir . '/cli'),
     'Glossary\\Backend\\' => array($baseDir . '/backend'),
-    'ExtCPTs\\Tests\\' => array($vendorDir . '/johnbillion/extended-cpts/tests/phpunit'),
+    'ExtCPTs\\' => array($vendorDir . '/johnbillion/extended-cpts/src'),
     'Composer\\Installers\\' => array($vendorDir . '/composer/installers/src/Composer/Installers'),
+    'Args\\' => array($vendorDir . '/johnbillion/args/src'),
 );

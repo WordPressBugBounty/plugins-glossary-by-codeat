@@ -1,8 +1,8 @@
-[![Build Status](https://img.shields.io/github/workflow/status/johnbillion/extended-cpts/Test/develop?style=flat-square)](https://github.com/johnbillion/extended-cpts/actions)
-[![Stable Release](https://img.shields.io/packagist/v/johnbillion/extended-cpts.svg)](https://packagist.org/packages/johnbillion/extended-cpts)
-[![License](https://img.shields.io/badge/license-GPL_v2%2B-blue.svg)](https://github.com/johnbillion/extended-cpts/blob/master/LICENSE)
-[![PHP 7 and 8](https://img.shields.io/badge/php-7%20/%208-blue.svg)](https://wordpress.org/support/update-php/)
-[![Documentation](https://img.shields.io/badge/documentation-wiki-blue.svg)](https://github.com/johnbillion/extended-cpts/wiki)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/johnbillion/extended-cpts/integration-tests.yml?branch=develop&style=flat-square)](https://github.com/johnbillion/extended-cpts/actions)
+[![Stable Release](https://img.shields.io/packagist/v/johnbillion/extended-cpts.svg?style=flat-square)](https://packagist.org/packages/johnbillion/extended-cpts)
+[![License](https://img.shields.io/badge/license-GPL_v2%2B-blue.svg?style=flat-square)](https://github.com/johnbillion/extended-cpts/blob/trunk/LICENSE)
+[![PHP 7 and 8](https://img.shields.io/badge/php-7%20/%208-blue.svg?style=flat-square)](https://wordpress.org/support/update-php/)
+[![Documentation](https://img.shields.io/badge/documentation-wiki-blue.svg?style=flat-square)](https://github.com/johnbillion/extended-cpts/wiki)
 
 # Extended CPTs #
 
@@ -59,11 +59,10 @@ Not your first time here? See [Recent Changes for Developers](https://github.com
 
 ## Minimum Requirements ##
 
-* **PHP:** 7.0  
-  - PHP 7.4+ is recommended
-  - PHP 8 is supported
-* **WordPress:** 4.8  
-  - Tested up to WP 5.7
+* **PHP:** 7.4  
+  - Tested up to PHP 8.4
+* **WordPress:** 6.0  
+  - Tested up to WP 6.8
 
 ## Installation ##
 
@@ -74,8 +73,6 @@ composer require johnbillion/extended-cpts
 ```
 
 Other means of installation or usage, particularly bundling within a plugin, is not officially supported and done at your own risk.
-
-Note that *Extended Taxonomies* is part of this library since version 4.0, so there's no need to require that too.
 
 ## Usage ##
 
@@ -110,9 +107,6 @@ add_action( 'init', function() {
 		'archive' => [
 			'nopaging' => true,
 		],
-
-		# Add the post type to the 'Recently Published' section of the dashboard:
-		'dashboard_activity' => true,
 
 		# Add some custom columns to the admin screen:
 		'admin_cols' => [
@@ -177,6 +171,20 @@ Bam, we now have:
 The `register_extended_post_type()` and `register_extended_taxonomy()` functions are ultimately wrappers for the `register_post_type()` and `register_taxonomy()` functions in WordPress core, so any of the parameters from those functions can be used.
 
 There's quite a bit more you can do. [See the wiki for full documentation.](https://github.com/johnbillion/extended-cpts/wiki)
+
+## Sponsors
+
+<p align="center">The time that I spend maintaining this library and others is in part sponsored by:</p>
+
+<p align="center"><a href="https://automattic.com"><img src="https://cdn.jsdelivr.net/gh/johnbillion/johnbillion@latest/assets/sponsors/automattic.svg" alt="Automattic" width="50%"></a></p>
+
+<p align="center"><a href="https://servmask.com"><img src="https://cdn.jsdelivr.net/gh/johnbillion/johnbillion@latest/assets/sponsors/servmask.svg" alt="ServMask" width="25%"></a></p>
+
+<p align="center">Plus all my kind sponsors on GitHub:</p>
+
+<p align="center"><a href="https://github.com/sponsors/johnbillion"><img src="https://cdn.jsdelivr.net/gh/johnbillion/johnbillion@latest/sponsors.svg" alt="Sponsors"></p>
+
+<p align="center"><a href="https://github.com/sponsors/johnbillion">Click here to find out about supporting my open source tools and plugins</a>.</p>
 
 ## Contributing and Testing ##
 

@@ -16,7 +16,7 @@
     "composer/installers": "^2.3",
     "devaloka/network-wp-query": "^0.2.0",
     "freemius/wordpress-sdk": "^2.13.4",
-    "johnbillion/extended-cpts": "^4.5.2",
+    "johnbillion/extended-cpts": "^5.1.0",
     "micropackage/requirements": "^1.1",
     "mte90/cmb2-field-ajax-search": "dev-master",
     "mte90/wp-dismissible-notices-handler": "1.2.2",

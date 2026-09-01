@@ -3,8 +3,8 @@ Contributors: codeat, iGenius, mte90
 Tags: glossary, vocabulary, dictionary, tooltip, lexicon
 Requires at least: 6.2
 Requires PHP: 7.4
-Tested up to: 7.0.2
-Stable tag: 2.3.15
+Tested up to: 7.1
+Stable tag: 2.3.16
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -193,6 +193,10 @@ On the other hand, there are dozens of Visual Composer/Page Builders plugins in 
 7. Glossary Index Block Editor (Pro)
 
 == Changelog ==
+
+= 2.3.16 =
+
+* Enhancement: Updated dependences to work on PHP 8.5
 
 = 2.3.15 =
 
