@@ -145,15 +145,7 @@ class PostTypes extends Engine\Base {
 	 */
 	public function load_cpts() {
 		$glossary_cpt = $this->generate_cpt_parameters();
-		$posttype     = \register_extended_post_type( 'glossary', $glossary_cpt, $this->labels );
-
-		$posttype->add_taxonomy(
-			'glossary-cat',
-			array(
-				'hierarchical' => \apply_filters( $this->default_parameters[ 'filter_prefix' ] . '_tax_hierarchical', false ),
-				'show_ui'      => false,
-			)
-		);
+		\register_extended_post_type( 'glossary', $glossary_cpt, $this->labels );
 	}
 
 	/**
@@ -177,6 +169,7 @@ class PostTypes extends Engine\Base {
 				'dashboard_glance' => true,
 				'slug'             => 'glossary-cat',
 				'show_in_rest'     => true,
+				'hierarchical'     => \apply_filters( 'glossary_tax_hierarchical', true ),
 				'capabilities'     => array(
 					'manage_terms' => 'manage_glossaries',
 					'edit_terms'   => 'manage_glossaries',
