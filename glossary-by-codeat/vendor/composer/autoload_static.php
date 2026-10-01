@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit8343073ae72347a7392fa856567d6637
+class ComposerStaticInit18fdf7ff186e269e296fa1d95fbdf51d
 {
     public static $files = array (
         '578496d7ba8c55447964d725c8448309' => __DIR__ . '/..' . '/codeatcode/wp-review-me/review.php',
@@ -24,7 +24,6 @@ class ComposerStaticInit8343073ae72347a7392fa856567d6637
     public static $prefixLengthsPsr4 = array (
         'W' =>
         array (
-            'WPDesk\\PluginBuilder\\' => 21,
             'WPDesk\\Notice\\' => 14,
         ),
         'O' =>
@@ -61,10 +60,6 @@ class ComposerStaticInit8343073ae72347a7392fa856567d6637
     );
 
     public static $prefixDirsPsr4 = array (
-        'WPDesk\\PluginBuilder\\' =>
-        array (
-            0 => __DIR__ . '/..' . '/wpdesk/wp-builder/src',
-        ),
         'WPDesk\\Notice\\' =>
         array (
             0 => __DIR__ . '/..' . '/wpdesk/wp-notice/src/WPDesk/Notice',
@@ -359,42 +354,16 @@ class ComposerStaticInit8343073ae72347a7392fa856567d6637
         'WPDesk\\Notice\\Factory' => __DIR__ . '/..' . '/wpdesk/wp-notice/src/WPDesk/Notice/Factory.php',
         'WPDesk\\Notice\\Notice' => __DIR__ . '/..' . '/wpdesk/wp-notice/src/WPDesk/Notice/Notice.php',
         'WPDesk\\Notice\\PermanentDismissibleNotice' => __DIR__ . '/..' . '/wpdesk/wp-notice/src/WPDesk/Notice/PermanentDismissibleNotice.php',
-        'WPDesk\\PluginBuilder\\BuildDirector\\LegacyBuildDirector' => __DIR__ . '/..' . '/wpdesk/wp-builder/src/BuildDirector/LegacyBuildDirector.php',
-        'WPDesk\\PluginBuilder\\Builder\\AbstractBuilder' => __DIR__ . '/..' . '/wpdesk/wp-builder/src/Builder/AbstractBuilder.php',
-        'WPDesk\\PluginBuilder\\Builder\\InfoActivationBuilder' => __DIR__ . '/..' . '/wpdesk/wp-builder/src/Builder/InfoActivationBuilder.php',
-        'WPDesk\\PluginBuilder\\Builder\\InfoBuilder' => __DIR__ . '/..' . '/wpdesk/wp-builder/src/Builder/InfoBuilder.php',
-        'WPDesk\\PluginBuilder\\Plugin\\AbstractPlugin' => __DIR__ . '/..' . '/wpdesk/wp-builder/src/Plugin/AbstractPlugin.php',
-        'WPDesk\\PluginBuilder\\Plugin\\Activateable' => __DIR__ . '/..' . '/wpdesk/wp-builder/src/Plugin/Activateable.php',
-        'WPDesk\\PluginBuilder\\Plugin\\ActivationAware' => __DIR__ . '/..' . '/wpdesk/wp-builder/src/Plugin/ActivationAware.php',
-        'WPDesk\\PluginBuilder\\Plugin\\ActivationTracker' => __DIR__ . '/..' . '/wpdesk/wp-builder/src/Plugin/ActivationTracker.php',
-        'WPDesk\\PluginBuilder\\Plugin\\Conditional' => __DIR__ . '/..' . '/wpdesk/wp-builder/src/Plugin/Conditional.php',
-        'WPDesk\\PluginBuilder\\Plugin\\Deactivateable' => __DIR__ . '/..' . '/wpdesk/wp-builder/src/Plugin/Deactivateable.php',
-        'WPDesk\\PluginBuilder\\Plugin\\Hookable' => __DIR__ . '/..' . '/wpdesk/wp-builder/src/Plugin/Hookable.php',
-        'WPDesk\\PluginBuilder\\Plugin\\HookableCollection' => __DIR__ . '/..' . '/wpdesk/wp-builder/src/Plugin/HookableCollection.php',
-        'WPDesk\\PluginBuilder\\Plugin\\HookableParent' => __DIR__ . '/..' . '/wpdesk/wp-builder/src/Plugin/HookableParent.php',
-        'WPDesk\\PluginBuilder\\Plugin\\HookablePluginDependant' => __DIR__ . '/..' . '/wpdesk/wp-builder/src/Plugin/HookablePluginDependant.php',
-        'WPDesk\\PluginBuilder\\Plugin\\PluginAccess' => __DIR__ . '/..' . '/wpdesk/wp-builder/src/Plugin/PluginAccess.php',
-        'WPDesk\\PluginBuilder\\Plugin\\SlimPlugin' => __DIR__ . '/..' . '/wpdesk/wp-builder/src/Plugin/SlimPlugin.php',
-        'WPDesk\\PluginBuilder\\Plugin\\TemplateLoad' => __DIR__ . '/..' . '/wpdesk/wp-builder/src/Plugin/TemplateLoad.php',
-        'WPDesk\\PluginBuilder\\Storage\\Exception\\ClassAlreadyExists' => __DIR__ . '/..' . '/wpdesk/wp-builder/src/Storage/Exception/ClassAlreadyExists.php',
-        'WPDesk\\PluginBuilder\\Storage\\Exception\\ClassNotExists' => __DIR__ . '/..' . '/wpdesk/wp-builder/src/Storage/Exception/ClassNotExists.php',
-        'WPDesk\\PluginBuilder\\Storage\\PluginStorage' => __DIR__ . '/..' . '/wpdesk/wp-builder/src/Storage/PluginStorage.php',
-        'WPDesk\\PluginBuilder\\Storage\\StaticStorage' => __DIR__ . '/..' . '/wpdesk/wp-builder/src/Storage/StaticStorage.php',
-        'WPDesk\\PluginBuilder\\Storage\\StorageFactory' => __DIR__ . '/..' . '/wpdesk/wp-builder/src/Storage/StorageFactory.php',
-        'WPDesk\\PluginBuilder\\Storage\\WordpressFilterStorage' => __DIR__ . '/..' . '/wpdesk/wp-builder/src/Storage/WordpressFilterStorage.php',
-        'WPDesk_Buildable' => __DIR__ . '/..' . '/wpdesk/wp-builder/src/Plugin/WithoutNamespace/Buildable.php',
-        'WPDesk_Has_Plugin_Info' => __DIR__ . '/..' . '/wpdesk/wp-builder/src/Plugin/WithoutNamespace/Has_Plugin_Info.php',
-        'WPDesk_Plugin_Info' => __DIR__ . '/..' . '/wpdesk/wp-builder/src/Plugin/WithoutNamespace/Plugin_Info.php',
-        'WPDesk_Translable' => __DIR__ . '/..' . '/wpdesk/wp-builder/src/Plugin/WithoutNamespace/Translable.php',
-        'WPDesk_Translatable' => __DIR__ . '/..' . '/wpdesk/wp-builder/src/Plugin/WithoutNamespace/Translatable.php',
+        'WPDesk\\Notice\\Plugin\\HookablePluginDependant' => __DIR__ . '/..' . '/wpdesk/wp-notice/src/WPDesk/Notice/Plugin/HookablePluginDependant.php',
+        'WPDesk\\Notice\\Plugin\\PluginAccess' => __DIR__ . '/..' . '/wpdesk/wp-notice/src/WPDesk/Notice/Plugin/PluginAccess.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit8343073ae72347a7392fa856567d6637::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit8343073ae72347a7392fa856567d6637::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit8343073ae72347a7392fa856567d6637::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit18fdf7ff186e269e296fa1d95fbdf51d::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit18fdf7ff186e269e296fa1d95fbdf51d::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit18fdf7ff186e269e296fa1d95fbdf51d::$classMap;
 
         }, null, ClassLoader::class);
     }

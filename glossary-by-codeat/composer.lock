@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8343073ae72347a7392fa856567d6637",
+    "content-hash": "18fdf7ff186e269e296fa1d95fbdf51d",
     "packages": [
         {
             "name": "cmb2/cmb2",
-            "version": "v2.12.0",
+            "version": "v2.13.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CMB2/CMB2.git",
-                "reference": "9a3686d42539ee3c1113bd09623f4ffbbee94397"
+                "reference": "7b5eb968df05db393f5801ed1db3fa952e4afa07"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CMB2/CMB2/zipball/9a3686d42539ee3c1113bd09623f4ffbbee94397",
-                "reference": "9a3686d42539ee3c1113bd09623f4ffbbee94397",
+                "url": "https://api.github.com/repos/CMB2/CMB2/zipball/7b5eb968df05db393f5801ed1db3fa952e4afa07",
+                "reference": "7b5eb968df05db393f5801ed1db3fa952e4afa07",
                 "shasum": ""
             },
             "require": {
@@ -60,7 +60,7 @@
                 "issues": "https://github.com/CMB2/CMB2/issues",
                 "source": "http://wordpress.org/support/plugin/cmb2"
             },
-            "time": "2026-05-31T02:21:57+00:00"
+            "time": "2026-09-30T04:03:32+00:00"
         },
         {
             "name": "codeatcode/wp-review-me",
@@ -842,67 +842,32 @@
             "time": "2024-07-18T09:09:40+00:00"
         },
         {
-            "name": "wpdesk/wp-builder",
-            "version": "2.1.2",
+            "name": "wpdesk/wp-notice",
+            "version": "3.3.2",
             "source": {
                 "type": "git",
-                "url": "https://gitlab.wpdesk.dev/wpdesk/wp-builder",
-                "reference": "66c383153208b478e0fd9d80169001390914a064"
+                "url": "https://github.com/WP-Desk/wp-notice.git",
+                "reference": "71f00667fc65fa8442a0dc95166c72c53ca7cbaa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/WP-Desk/wp-notice/zipball/71f00667fc65fa8442a0dc95166c72c53ca7cbaa",
+                "reference": "71f00667fc65fa8442a0dc95166c72c53ca7cbaa",
+                "shasum": ""
             },
             "require": {
                 "php": ">=7.4 || ^8"
             },
             "require-dev": {
-                "10up/wp_mock": "^1",
-                "phpunit/phpunit": "^9",
-                "wpdesk/phpstan-rules": "^1",
-                "wpdesk/wp-code-sniffer": "^1"
-            },
-            "type": "library",
-            "extra": {
-                "po-files": {
-                    "pl_PL": "pl_PL.po"
-                },
-                "text-domain": "wpdesk-wp-builder",
-                "translations-folder": "lang"
-            },
-            "autoload": {
-                "psr-4": {
-                    "WPDesk\\PluginBuilder\\": "src/"
-                },
-                "classmap": [
-                    "src/Plugin/WithoutNamespace"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "authors": [
-                {
-                    "name": "Krzysiek",
-                    "email": "krzysiek@wpdesk.pl"
-                }
-            ],
-            "time": "2024-11-19T09:22:13+00:00"
-        },
-        {
-            "name": "wpdesk/wp-notice",
-            "version": "3.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://gitlab.wpdesk.dev/wpdesk/wp-notice",
-                "reference": "06ba55d621da8c151836a14b4988bd8728e4e979"
-            },
-            "require": {
-                "php": ">=7.4",
-                "wpdesk/wp-builder": "^1.0|^2.0"
-            },
-            "require-dev": {
                 "10up/wp_mock": "*",
                 "mockery/mockery": "*",
-                "phpunit/phpunit": "^8",
-                "squizlabs/php_codesniffer": "^3.0.2",
-                "wimg/php-compatibility": "^8",
-                "wp-coding-standards/wpcs": "^0.14.1",
+                "phpunit/phpunit": "^8 || ^9",
+                "wpdesk/wp-builder": "^1.0|^2.0",
+                "wpdesk/wp-code-sniffer": "^1",
                 "wpdesk/wp-codeception": "^2"
+            },
+            "suggest": {
+                "wpdesk/wp-builder": "Enables WP Builder integration."
             },
             "type": "library",
             "autoload": {
@@ -919,18 +884,25 @@
             ],
             "authors": [
                 {
-                    "name": "grola",
-                    "email": "grola@wpdesk.net"
+                    "name": "WP Desk",
+                    "homepage": "https://wpdesk.net"
+                },
+                {
+                    "name": "Octolize",
+                    "homepage": "https://octolize.com"
                 }
             ],
             "description": "Library for displaying Wordpress notices.",
-            "homepage": "https://gitlab.com/wpdesk/wp-notice",
             "keywords": [
                 "admin",
                 "notice",
                 "wordpress"
             ],
-            "time": "2025-05-16T14:19:12+00:00"
+            "support": {
+                "issues": "https://github.com/WP-Desk/wp-notice/issues",
+                "source": "https://github.com/WP-Desk/wp-notice/tree/3.3.2"
+            },
+            "time": "2026-09-09T10:53:50+00:00"
         }
     ],
     "packages-dev": [],

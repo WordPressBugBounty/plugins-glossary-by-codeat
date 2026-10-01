@@ -146,6 +146,12 @@ class PostTypes extends Engine\Base {
 	public function load_cpts() {
 		$glossary_cpt = $this->generate_cpt_parameters();
 		\register_extended_post_type( 'glossary', $glossary_cpt, $this->labels );
+
+		if ( ! \apply_filters( 'glossary_cpt_tags', false ) ) {
+			return;
+		}
+
+		\register_taxonomy_for_object_type( 'post_tag', 'glossary' );
 	}
 
 	/**

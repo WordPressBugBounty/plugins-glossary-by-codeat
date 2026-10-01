@@ -1,3 +1,7 @@
+## [3.3.1] - 2026-09-09
+### Changed
+- Removed strict wpdesk/wp-builder dependency.
+
 ## [3.3.0] - 2025-05-16
 ### Fixed
 - Removing JavaScript code from the page content, adding JavaScript files via admin_enqueue_scripts
