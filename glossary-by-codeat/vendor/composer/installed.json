@@ -2,17 +2,17 @@
     "packages": [
         {
             "name": "cmb2/cmb2",
-            "version": "v2.13.2",
-            "version_normalized": "2.13.2.0",
+            "version": "v2.13.3",
+            "version_normalized": "2.13.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CMB2/CMB2.git",
-                "reference": "7b5eb968df05db393f5801ed1db3fa952e4afa07"
+                "reference": "0f2498434d97876f6f141fa1de99c8ec87840a4a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CMB2/CMB2/zipball/7b5eb968df05db393f5801ed1db3fa952e4afa07",
-                "reference": "7b5eb968df05db393f5801ed1db3fa952e4afa07",
+                "url": "https://api.github.com/repos/CMB2/CMB2/zipball/0f2498434d97876f6f141fa1de99c8ec87840a4a",
+                "reference": "0f2498434d97876f6f141fa1de99c8ec87840a4a",
                 "shasum": ""
             },
             "require": {
@@ -25,7 +25,7 @@
             "suggest": {
                 "composer/installers": "~1.0"
             },
-            "time": "2026-09-30T04:03:32+00:00",
+            "time": "2026-10-03T19:02:06+00:00",
             "type": "wordpress-plugin",
             "installation-source": "dist",
             "notification-url": "https://packagist.org/downloads/",
@@ -246,18 +246,12 @@
         },
         {
             "name": "freemius/wordpress-sdk",
-            "version": "2.13.4",
-            "version_normalized": "2.13.4.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Freemius/wordpress-sdk.git",
-                "reference": "fa43eb92ae9dffa0d9f5ae11b5a1739bd7222308"
-            },
+            "version": "2.13.5",
+            "version_normalized": "2.13.5.0",
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Freemius/wordpress-sdk/zipball/fa43eb92ae9dffa0d9f5ae11b5a1739bd7222308",
-                "reference": "fa43eb92ae9dffa0d9f5ae11b5a1739bd7222308",
-                "shasum": ""
+                "type": "path",
+                "url": "lib/freemius-sdk",
+                "reference": "5a42f7a0f7d00266bf7d6c0e2a8408756a3e39ec"
             },
             "require": {
                 "php": ">=5.6"
@@ -269,9 +263,8 @@
                 "phpstan/extension-installer": "^1.3",
                 "squizlabs/php_codesniffer": "^3.7",
                 "szepeviktor/phpstan-wordpress": "^1.3",
-                "wp-coding-standards/wpcs": "^2.3"
+                "wp-coding-standards/wpcs": "^3.4.1"
             },
-            "time": "2026-07-09T08:50:52+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -279,7 +272,22 @@
                     "start.php"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "scripts": {
+                "phpcs": [
+                    "Composer\\Config::disableProcessTimeout",
+                    "phpcs -p -s --colors"
+                ],
+                "phpcs:ci": [
+                    "Composer\\Config::disableProcessTimeout",
+                    "phpcs --standard=phpcompat.xml -p -s --colors"
+                ],
+                "phpstan": [
+                    "./vendor/bin/phpstan analyse phpstan.neon --memory-limit 2G"
+                ],
+                "phpstan:log": [
+                    "./vendor/bin/phpstan analyse -c phpstan.neon --memory-limit 2G > error-phpstan.xml"
+                ]
+            },
             "license": [
                 "GPL-3.0-only"
             ],
@@ -294,9 +302,8 @@
                 "wordpress-plugin",
                 "wordpress-theme"
             ],
-            "support": {
-                "issues": "https://github.com/Freemius/wordpress-sdk/issues",
-                "source": "https://github.com/Freemius/wordpress-sdk/tree/2.13.4"
+            "transport-options": {
+                "relative": true
             },
             "install-path": "../freemius/wordpress-sdk"
         },

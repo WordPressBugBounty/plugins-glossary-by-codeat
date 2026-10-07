@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         'cmb2/cmb2' => array(
-            'pretty_version' => 'v2.13.2',
-            'version' => '2.13.2.0',
-            'reference' => '7b5eb968df05db393f5801ed1db3fa952e4afa07',
+            'pretty_version' => 'v2.13.3',
+            'version' => '2.13.3.0',
+            'reference' => '0f2498434d97876f6f141fa1de99c8ec87840a4a',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../cmb2',
             'aliases' => array(),
@@ -56,9 +56,9 @@
             'dev_requirement' => false,
         ),
         'freemius/wordpress-sdk' => array(
-            'pretty_version' => '2.13.4',
-            'version' => '2.13.4.0',
-            'reference' => 'fa43eb92ae9dffa0d9f5ae11b5a1739bd7222308',
+            'pretty_version' => '2.13.5',
+            'version' => '2.13.5.0',
+            'reference' => '5a42f7a0f7d00266bf7d6c0e2a8408756a3e39ec',
             'type' => 'library',
             'install_path' => __DIR__ . '/../freemius/wordpress-sdk',
             'aliases' => array(),

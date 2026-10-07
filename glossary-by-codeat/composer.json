@@ -15,7 +15,7 @@
     "codeatcode/wp-review-me": "dev-develop",
     "composer/installers": "^2.3",
     "devaloka/network-wp-query": "^0.2.0",
-    "freemius/wordpress-sdk": "^2.13.4",
+    "freemius/wordpress-sdk": "^2.13.5",
     "johnbillion/extended-cpts": "^5.1.0",
     "micropackage/requirements": "^1.1",
     "mte90/cmb2-field-ajax-search": "dev-master",
@@ -29,6 +29,10 @@
     "wpdesk/wp-notice": "^3.2"
   },
   "repositories": [
+    {
+      "type": "path",
+      "url": "lib/freemius-sdk"
+    },
     {
       "type": "package",
       "package": {
