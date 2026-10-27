@@ -3,11 +3,11 @@
 /**
  * Glossary
  *
- * @package   Glossary
- * @author    Codeat <support@codeat.co>
+ * @package Glossary
+ * @author Codeat <support@codeat.co>
  * @copyright 2020
- * @license   GPL 3.0+
- * @link      https://codeat.co
+ * @license GPL 3.0+
+ * @link https://codeat.co
  */
 
 namespace Glossary\Internals;
@@ -45,7 +45,7 @@ class PostTypes extends Engine\Base {
 	/**
 	 * Change the orderby for the glossary auto link system to add priority based on number of the spaces
 	 *
-	 * @param string $orderby   How to oder the query.
+	 * @param string $orderby How to oder the query.
 	 * @param object $wp_object The object.
 	 * @global object $wpdb
 	 * @return string

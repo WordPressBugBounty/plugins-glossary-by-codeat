@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         'cmb2/cmb2' => array(
-            'pretty_version' => 'v2.13.3',
-            'version' => '2.13.3.0',
-            'reference' => '0f2498434d97876f6f141fa1de99c8ec87840a4a',
+            'pretty_version' => 'v2.13.5',
+            'version' => '2.13.5.0',
+            'reference' => 'c4d9cfa1a1a8707b22140a5bec1749b74f9829f0',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../cmb2',
             'aliases' => array(),
@@ -58,7 +58,7 @@
         'freemius/wordpress-sdk' => array(
             'pretty_version' => '2.13.5',
             'version' => '2.13.5.0',
-            'reference' => '5a42f7a0f7d00266bf7d6c0e2a8408756a3e39ec',
+            'reference' => '0875c4ee3c941572f44d60cb2a687c54295db3d7',
             'type' => 'library',
             'install_path' => __DIR__ . '/../freemius/wordpress-sdk',
             'aliases' => array(),
@@ -128,9 +128,9 @@
             'dev_requirement' => false,
         ),
         'orhanerday/open-ai' => array(
-            'pretty_version' => '4.9.1',
-            'version' => '4.9.1.0',
-            'reference' => '2ccdf2f6b4287b9e570a1ddcf33083b7ad9f7e9c',
+            'pretty_version' => '6.3.1',
+            'version' => '6.3.1.0',
+            'reference' => '24ef763272c9e4e61a74d40f1131b0e82e5d61ca',
             'type' => 'library',
             'install_path' => __DIR__ . '/../orhanerday/open-ai',
             'aliases' => array(),

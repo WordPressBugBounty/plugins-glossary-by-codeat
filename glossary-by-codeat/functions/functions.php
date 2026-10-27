@@ -3,18 +3,18 @@
 /**
  * Glossary
  *
- * @package   Glossary
- * @author    Codeat <support@codeat.co>
+ * @package Glossary
+ * @author Codeat <support@codeat.co>
  * @copyright 2020
- * @license   GPL 3.0+
- * @link      https://codeat.co
+ * @license GPL 3.0+
+ * @link https://codeat.co
  */
 /**
  * Generate the list of terms
  *
  * @param string $order Order.
- * @param int    $num   Amount.
- * @param string $tax   Taxonomy name.
+ * @param int    $num Amount.
+ * @param string $tax Taxonomy name.
  * @param string $theme Theme.
  * @return string
  */
@@ -124,7 +124,7 @@ function get_glossary_term_url(  $term_id = ''  ) {
  * Generate a list of category terms
  *
  * @param string $order Order.
- * @param string $num   Amount.
+ * @param string $num Amount.
  * @param string $theme Theme.
  * @return string
  */
@@ -176,7 +176,7 @@ function get_glossary_cats_list_li(  WP_Term $tax, array $taxs  ) {
     $tax_link = get_term_link( $tax );
     $out = '';
     $subout = '';
-    if ( !is_wp_error( $tax_link ) && $tax->parent === 0 ) {
+    if ( !is_wp_error( $tax_link ) && 0 === $tax->parent ) {
         $out = '<li><a href="' . $tax_link . '">' . $tax->name . '</a>';
     }
     foreach ( $taxs as &$subcategory ) {
@@ -285,7 +285,7 @@ function prepare_get_a2z_queries(  array $atts = array()  ) {
     if ( $atts['show_counts'] ) {
         $sql['count_query'] = ", COUNT( substring( TRIM( UPPER( {$wpdb->posts}.post_title ) ), 1, 1) ) as counts";
     }
-    if ( !empty( $atts['taxonomy'] ) && $atts['taxonomy'] !== 'any' ) {
+    if ( !empty( $atts['taxonomy'] ) && 'any' !== $atts['taxonomy'] ) {
         $sql['tax_slug'] = $wpdb->prepare( " AND {$wpdb->terms}.slug = %s AND {$wpdb->term_taxonomy}.taxonomy = 'glossary-cat'", $atts['taxonomy'] );
         $sql['join_tables'] = " LEFT JOIN {$wpdb->term_relationships} ON ({$wpdb->posts}.ID = {$wpdb->term_relationships}.object_id) LEFT JOIN {$wpdb->term_taxonomy} ON ({$wpdb->term_relationships}.term_taxonomy_id = {$wpdb->term_taxonomy}.term_taxonomy_id) LEFT JOIN {$wpdb->terms} ON ({$wpdb->term_taxonomy}.term_id = {$wpdb->terms}.term_id)";
     }
@@ -465,7 +465,7 @@ function gl_get_base_url() {
 /**
  * Return the tooltip type
  *
- * @param string $type    The type of tooltip.
+ * @param string $type The type of tooltip.
  * @param bool   $as_true As inverse.
  * @return bool
  */

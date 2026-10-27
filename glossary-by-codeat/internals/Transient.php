@@ -3,11 +3,11 @@
 /**
  * Plugin name
  *
- * @package   Plugin_name
- * @author    Codeat <support@codeat.co>
+ * @package Plugin_name
+ * @author Codeat <support@codeat.co>
  * @copyright 2020
- * @license   GPL 3.0+
- * @link      https://codeat.co
+ * @license GPL 3.0+
+ * @link https://codeat.co
  */
 namespace Glossary\Internals;
 

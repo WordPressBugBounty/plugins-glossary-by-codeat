@@ -3,11 +3,11 @@
 /**
  * Glossary
  *
- * @package   Glossary
- * @author    Codeat <support@codeat.co>
+ * @package Glossary
+ * @author Codeat <support@codeat.co>
  * @copyright 2020
- * @license   GPL 3.0+
- * @link      https://codeat.co
+ * @license GPL 3.0+
+ * @link https://codeat.co
  */
 namespace Glossary\Frontend\Core;
 
@@ -84,7 +84,7 @@ class Term_Injector extends Engine\Base {
     /**
      * Wrap the string with a tooltip/link.
      *
-     * @param string $text  The string to find.
+     * @param string $text The string to find.
      * @param array  $terms The list of links.
      * @return string
      */
@@ -186,7 +186,7 @@ class Term_Injector extends Engine\Base {
      * Is already find
      *
      * @param int   $text_found Found.
-     * @param array $term       Term data.
+     * @param array $term Term data.
      * @return bool
      */
     public function is_already_found( int $text_found, array $term ) {
@@ -222,13 +222,13 @@ class Term_Injector extends Engine\Base {
             // If first word but not at the top keep going
             $insert_position = $original_position;
             // If not first word
-            if ( $new_end_position_previous_term !== 0 ) {
+            if ( 0 !== $new_end_position_previous_term ) {
                 $difference_between_old_words = $original_position - $old_end_position_previous_term;
                 $insert_position = $new_end_position_previous_term + $difference_between_old_words;
             }
             $new_end_position_previous_term = $insert_position + $new_term_length;
             // If first word is at the top set X axis
-            if ( $original_position === 0 ) {
+            if ( 0 === $original_position ) {
                 $new_end_position_previous_term = $new_term_length;
                 $insert_position = $original_position;
             }
@@ -253,7 +253,7 @@ class Term_Injector extends Engine\Base {
      * Kept as a passthrough for backward compatibility with external
      * callers that may still invoke this public method.
      *
-     * @param string $value  Text (unused, kept for signature compatibility).
+     * @param string $value Text (unused, kept for signature compatibility).
      * @param int    $length Original length.
      * @return int
      */

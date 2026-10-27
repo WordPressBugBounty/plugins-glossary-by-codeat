@@ -6,11 +6,11 @@
  * This includes the header, options, and other information that should provide
  * The User Interface to the end user.
  *
- * @package   Glossary
- * @author    Codeat <support@codeat.co>
+ * @package Glossary
+ * @author Codeat <support@codeat.co>
  * @copyright 2016 GPL 3.0+
- * @license   GPL-2.0+
- * @link      http://codeat.co
+ * @license GPL-2.0+
+ * @link http://codeat.co
  *
  * @phpcs:disable WordPress.Security.EscapeOutput
  */
@@ -55,11 +55,8 @@ $cmb->add_field( array(
     'name'    => __( 'OpenAI Model', GT_TEXTDOMAIN ),
     'id'      => 'openai_model',
     'type'    => 'select',
-    'default' => 'gpt-3.5-turbo',
-    'options' => array(
-        'gpt-3.5-turbo' => 'gpt-3.5-turbo',
-        'gpt-4'         => 'gpt-4',
-    ),
+    'default' => \Glossary\Rest\ChatGPT::default_model(),
+    'options' => \Glossary\Rest\ChatGPT::models(),
 ) );
 cmb2_metabox_form( GT_SETTINGS . '_options3', GT_SETTINGS . '-extra' );
 ?>

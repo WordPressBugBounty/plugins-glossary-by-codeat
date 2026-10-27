@@ -3,11 +3,11 @@
 /**
  * Glossary
  *
- * @package   Glossary
- * @author    Codeat <support@codeat.co>
+ * @package Glossary
+ * @author Codeat <support@codeat.co>
  * @copyright 2020
- * @license   GPL 3.0+
- * @link      https://codeat.co
+ * @license GPL 3.0+
+ * @link https://codeat.co
  */
 namespace Glossary\Engine;
 
@@ -38,7 +38,7 @@ class Is_Methods extends Engine\Base {
      * What type of request is this?
      *
      * @since 2.0
-     * @param  string $type admin, ajax, cron, cli, amp or frontend.
+     * @param string $type admin, ajax, cron, cli, amp or frontend.
      * @return bool
      */
     public function request( string $type ) {
@@ -103,7 +103,7 @@ class Is_Methods extends Engine\Base {
             return true;
         }
         global $wp_rewrite;
-        if ( $wp_rewrite === null ) {
+        if ( null === $wp_rewrite ) {
             $wp_rewrite = new \WP_Rewrite();
             // phpcs:ignore
         }

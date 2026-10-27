@@ -3,11 +3,11 @@
 /**
  * Plugin_name
  *
- * @package   Plugin_name
- * @author  Codeat <support@codeat.co>
+ * @package Plugin_name
+ * @author Codeat <support@codeat.co>
  * @copyright 2020
- * @license   GPL 3.0+
- * @link      https://codeat.co
+ * @license GPL 3.0+
+ * @link https://codeat.co
  */
 namespace Glossary\Backend;
 
@@ -149,7 +149,7 @@ class Notices extends Engine\Base {
         if ( !\is_object( $post ) ) {
             return false;
         }
-        if ( $post->post_type !== 'glossary' || !empty( \trim( $post->post_content ) ) || !empty( \trim( $post->post_excerpt ) ) ) {
+        if ( 'glossary' !== $post->post_type || !empty( \trim( $post->post_content ) ) || !empty( \trim( $post->post_excerpt ) ) ) {
             return false;
         }
         new Notice(
@@ -173,7 +173,7 @@ class Notices extends Engine\Base {
         if ( !\is_object( $post ) ) {
             return false;
         }
-        if ( $post->post_type !== 'page' || !\has_shortcode( $post->post_content, 'glossary-list' ) ) {
+        if ( 'page' !== $post->post_type || !\has_shortcode( $post->post_content, 'glossary-list' ) ) {
             return false;
         }
         new Notice(

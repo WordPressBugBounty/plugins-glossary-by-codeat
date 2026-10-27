@@ -3,11 +3,11 @@
 /**
  * Glossary
  *
- * @package   Glossary
- * @author    Codeat <support@codeat.co>
+ * @package Glossary
+ * @author Codeat <support@codeat.co>
  * @copyright 2020
- * @license   GPL 3.0+
- * @link      https://codeat.co
+ * @license GPL 3.0+
+ * @link https://codeat.co
  */
 
 namespace Glossary\Backend;
@@ -115,7 +115,7 @@ class ImpExp extends Engine\Base {
 		// Retrieve the settings from the file and convert the json object to an array.
 		$settings_file = file_get_contents( $import_file );// phpcs:ignore
 
-		if ( $settings_file !== false ) {
+		if ( false !== $settings_file ) {
 			$settings = \json_decode( (string) $settings_file );
 
 			if ( \is_array( $settings ) && is_object( $settings[ 0 ] ) ) {

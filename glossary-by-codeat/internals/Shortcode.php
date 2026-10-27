@@ -3,11 +3,11 @@
 /**
  * Glossary
  *
- * @package   Glossary
- * @author    Codeat <support@codeat.co>
+ * @package Glossary
+ * @author Codeat <support@codeat.co>
  * @copyright 2020
- * @license   GPL 3.0+
- * @link      https://codeat.co
+ * @license GPL 3.0+
+ * @link https://codeat.co
  */
 
 namespace Glossary\Internals;
@@ -37,11 +37,11 @@ class Shortcode extends Engine\Base {
 	/**
 	 * Remap old shortcode proprierty on new
 	 *
-	 * @param array  $atts    An array with all the parameters.
+	 * @param array  $atts An array with all the parameters.
 	 * @param array  $attributes An array with all the new parameters.
 	 * @param string $old_key The old parameter.
 	 * @param string $new_key The new parameter.
-	 * @param bool   $revert  Revert the bool parameter.
+	 * @param bool   $revert Revert the bool parameter.
 	 * @return array
 	 */
 	public function remap_old_proprierty(
@@ -57,7 +57,7 @@ class Shortcode extends Engine\Base {
 			if ( $revert ) {
 				$attributes[ $new_key ] = 'true';
 
-				if ( $atts[ $old_key ] === 'true' ) {
+				if ( 'true' === $atts[ $old_key ] ) {
 					$attributes[ $new_key ] = 'false';
 				}
 			}

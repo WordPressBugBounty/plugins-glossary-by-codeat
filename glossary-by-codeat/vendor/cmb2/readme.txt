@@ -5,7 +5,7 @@ Tags:              metaboxes, forms, fields, options, settings
 Requires at least: 3.8.0
 Requires PHP:      7.4
 Tested up to:      7.1
-Stable tag:        2.13.3
+Stable tag:        2.13.5
 License:           GPLv2 or later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -139,10 +139,36 @@ FAQ's usually end up in the [github wiki](https://github.com/CMB2/CMB2/wiki).
 
 == Changelog ==
 
+### 2.13.5
+
+#### Enhancements
+* [Development] Fixed the PHPUnit CI legs that test against the latest WordPress: they now use the test suite tagged for the latest stable release instead of wordpress-develop trunk, which can require core APIs a stable release does not have yet.
+
+#### Bug Fixes
+* Fixed `multicheck` and `multicheck_inline` fields (including inside a group) not saving when the only checked option has the value `0`. Non-repeatable array values that hold only `0` or `'0'`, such as from custom field types, are no longer treated as empty and deleted on save. Such a field now stores `array( '0' )`, so `metadata_exists()` returns true, `cmb2_save_field` reports `updated` instead of `removed`, and a field with a `default` no longer falls back to that default when only `0` is checked. Props [@faisalahammad](https://github.com/faisalahammad). Fixes [#1535](https://github.com/CMB2/CMB2/issues/1535) ([#1572](https://github.com/CMB2/CMB2/pull/1572)).
+* Fixed repeatable fields (including repeatable fields in a group) dropping a `0` or `'0'` entry on save and not showing a saved `0` row on the edit screen, so the next save removed it. A `0` entry is now kept and passed to the field type's sanitizer like any other entry: repeatable `text_url` stores the field `default` (or `false`), `text_email` stores `''`, `text_date_timestamp` stores timestamp `0`, and a `text_datetime_timestamp` row that parses to epoch `0` is kept (the edit screen still shows a `0` timestamp as empty, so re-saving the form removes that row). Custom `sanitization_cb` callbacks and `cmb2_sanitize_{$type}` filters now receive `'0'` entries in repeatable arrays, and `sanitization_cb => false` stores them. A repeatable `text_money` entry of `0` now saves as `0.00` instead of being removed. Props [@faisalahammad](https://github.com/faisalahammad) ([#1574](https://github.com/CMB2/CMB2/pull/1574)).
+* Fixed a repeatable field saving its hidden "empty row" template as an extra row on every save. This happened when the template had a value, such as a repeatable `select` without `show_option_none` (its first option was saved) or a field with a `default`. The template row's inputs are now rendered with `disabled` and a `data-cmb2-template` attribute, so the browser does not submit them, and the Add Row button enables them. Custom JavaScript that copies `.empty-row` itself, instead of using the Add Row button, must remove `disabled` from inputs that have `data-cmb2-template`. Props [@faisalahammad](https://github.com/faisalahammad) ([#1574](https://github.com/CMB2/CMB2/pull/1574)).
+* Fixed `wysiwyg` fields inside a group not escaping their saved value in the editor. The editor now loads the content exactly as saved: entities such as `&amp;` are no longer decoded on load (and then saved decoded), and saved markup such as a `</textarea>` tag stays inside the editor. Props Jakub Herman (via Wordfence).
+* Fixed removing the only row of a repeatable field inside a group adding an empty row to the other repeatable fields in that group and its other entries. The reset now fires `cmb2_add_row` once, on the clicked field's table, instead of once per repeatable table in the group, and removing the last row while the field's Add Row button is `disabled` now does nothing instead of throwing `Maximum call stack size exceeded`. Props [@faisalahammad](https://github.com/faisalahammad). Fixes [#1515](https://github.com/CMB2/CMB2/issues/1515) ([#1573](https://github.com/CMB2/CMB2/pull/1573)).
+
+### 2.13.4
+
+#### Enhancements
+* Added the `rest_enforce_user_read_permissions` box property and the `cmb2_rest_enforce_user_read_permissions` filter (off by default). When enabled, REST field reads of a user that core does not show (a user with no published posts, read by someone other than that user or a holder of `edit_user`/`list_users`) are denied. While neither declares an explicit `true` or `false` (the filter defaults to `null`), such a read stays allowed and emits a deprecation notice (an `X-WP-DeprecatedParam` header and a debug-log line when `WP_DEBUG` / `WP_DEBUG_LOG` are on), since the default will change in a future version. Set the property or filter to `false` to keep the current behavior.
+* Updated the alpha color picker script (`wp-color-picker-alpha`) to 3.0.4. Alpha `colorpicker` fields now output `data-alpha-enabled` instead of `data-alpha`; if you set `data-alpha` yourself through a field's `attributes`, rename it to `data-alpha-enabled`. Props [Sajib Talukder (@stalukder03)](https://github.com/stalukder03) ([#1542](https://github.com/CMB2/CMB2/pull/1542)).
+* [Development] Added Dependabot version updates for npm and GitHub Actions (monthly, one grouped PR per ecosystem), and applied its first round of dev-tooling and workflow action updates ([#1567](https://github.com/CMB2/CMB2/pull/1567), [#1568](https://github.com/CMB2/CMB2/pull/1568)).
+* [Development] Restricted the GitHub Actions `GITHUB_TOKEN` to read-only in all workflows, and moved the Playwright workflow to Node 22.
+* [Development] Expanded `SECURITY.md` with an email fallback for reports, CVE handling and scope.
+
+#### Bug Fixes
+* Object IDs that CMB2 reads from the request (`user_id`, `c`, `tag_ID` and `post`, used when a box has no object ID set) are now cast to integers, the way WordPress reads them on its own edit screens, and the `oembed` field escapes its `data-objectid` and `data-objecttype` attributes. Core save hooks pass explicit IDs and are unaffected. A front-end `save_fields()` call with no ID now resolves a non-numeric `user_id` to the current user, as core's profile screen does, rather than to a string ID that matched no user. `cmb2_set_object_id` filter callbacks and custom `cmb2_override_meta_*` storage now receive an integer for these keys. Props [T3pp31 (@T3pp31)](https://github.com/T3pp31) (via GitHub security advisory).
+* The CMB2 REST field endpoints (`/cmb2/v1/boxes/{box}/fields` and `/fields/{field}`) now follow WordPress core's REST read permissions for the requested object. Reads of a post in a non-public status (draft, pending, private, future, trash); of a post, or an attachment's parent, whose type is not shown in REST and is not one of the box's own post types; or of a comment core does not show (unapproved, on a post the requester cannot read, or on a password-protected post the requester cannot edit) return a 401/403 unless the requester can read that object. For anonymous requests this matches core's own routes. Published and password-protected posts, terms, options pages and custom object types are unchanged, and the `cmb2_api_get_field_permissions_check` / `cmb2_api_get_fields_permissions_check` filters (and box `*_permissions_check_cb` properties) still have the final say. The fields collection now returns a 401/403 for such an object. Props [T3pp31 (@T3pp31)](https://github.com/T3pp31).
+* A REST field read in the same PHP process as an earlier read of a different object now returns the requested object's value rather than the earlier object's.
+
 ### 2.13.3
 
 #### Bug Fixes
-* The CMB2 REST boxes/fields endpoints now validate the `object_type` and `object_id` parameters against the box's registered object types. A request naming an object type the box is not registered for (a post-type box stores as `post`), or, for an options-page box, an option key other than the box's own, returns a 400 error instead of reading or writing that object. Stored data is unchanged. Props [@ahanwate](https://github.com/ahanwate) (via GitHub security advisory).
+* The CMB2 REST boxes/fields endpoints now validate the `object_type` and `object_id` parameters against the box's registered object types. A request naming an object type the box is not registered for (a post-type box stores as `post`), or, for an options-page box, an option key other than the box's own, returns a 400 error instead of reading or writing that object. Stored data is unchanged. Props [Avinash Hanwate (@ahanwate)](https://github.com/ahanwate) (via GitHub security advisory).
 
 ### 2.13.2
 
@@ -413,8 +439,9 @@ For the changelog of versions prior to 2.3.0, see [CHANGELOG.md](https://github.
 
 == Upgrade Notice ==
 
-= 2.13.3 =
-Security update: CMB2 REST endpoints now reject requests that target an object type or option key a box is not registered for. Update recommended for all sites.
+= 2.13.5 =
+Security release: fixes stored cross-site scripting in grouped wysiwyg fields. On sites that render a front-end CMB2 form (`cmb2_get_metabox_form()`) with such a field, an unauthenticated visitor could save markup that runs for anyone viewing that form or the post's edit screen. Update recommended.
 
-= 2.13.2 =
-Security update: stored values are safely displayed in default field views, including admin columns. Update recommended for all sites.
+= 2.13.4 =
+Security release: escapes the oEmbed field's object ID and object type attributes, which could be abused through a crafted link on admin user and term screens. Update recommended.
+

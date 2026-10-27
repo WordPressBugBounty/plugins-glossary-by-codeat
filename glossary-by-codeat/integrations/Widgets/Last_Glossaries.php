@@ -2,11 +2,11 @@
 /**
  * Glossary
  *
- * @package   Glossary
- * @author    Codeat <support@codeat.co>
+ * @package Glossary
+ * @author Codeat <support@codeat.co>
  * @copyright 2020
- * @license   GPL 3.0+
- * @link      https://codeat.co
+ * @license GPL 3.0+
+ * @link https://codeat.co
  */
 
 namespace Glossary\Integrations\Widgets;
@@ -88,7 +88,7 @@ class Last_Glossaries extends \WPH_Widget {
 	/**
 	 * Print the widget
 	 *
-	 * @param array $args     Parameters.
+	 * @param array $args Parameters.
 	 * @param array $instance Values.
 	 * @return void
 	 */

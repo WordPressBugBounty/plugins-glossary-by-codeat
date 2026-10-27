@@ -2,6 +2,47 @@
 
 All notable changes to `open-ai` will be documented in this file.
 
+## 6.3.1 - 2026-10-21
+
+- Documentation: add a notice for the PHP runtime security advisory of 21 Oct 2026 (CVE-2026-109618, CVE-2026-109619). These are PHP engine vulnerabilities; no library code changes are required. Update PHP to 8.5.12, 8.4.27, 8.3.36 or 8.2.35 (or a vendor-patched package). See the [advisory](https://www.php.net/archive/2026.php#2026-10-21-5).
+- CI: add PHP 8.5 to the test matrix.
+- CI: bump `actions/checkout` to v7, `stefanzweifel/git-auto-commit-action` to v7, and `dependabot/fetch-metadata` to v3.1.0 (#172, #173, #174).
+
+## 6.3.0 - 2026-10-11
+
+- Add `setThrowOnError(bool $throw = true)` and `OpenAiException` to cleanly throw and catch API error responses (status 400+) with error type, code, and status.
+- Add `getLastResponse()` returning a `Response` object with `->status()`, `->ok()`, `->headers()`, `->header($name)`, `->body()`, and `->json()`.
+- Add `setRetries(int $maxRetries, int $baseDelayMs = 500)` with exponential backoff, jitter, and numeric/HTTP-date `Retry-After` support. Retry rate limits except billing/quota errors, and server errors only for effective GET/PUT/DELETE requests; exclude streaming, body/upload callbacks, custom output files, and non-returning transfers, and leave waits above 60 seconds to the application.
+- Add organization Decisions usage reporting with `getDecisionsUsage()`.
+- Add static analysis with PHPStan (level 5) and PHPDoc option annotations on core methods while retaining PHP 7.4 support and no third-party runtime dependencies.
+- Preserve custom response-header callbacks while collecting final-response metadata, and retain HTTP error bodies for streaming calls. Remove local echo-server tests and clarify Agents streaming and prewarming examples.
+
+## 6.2.0 - 2026-10-11
+
+- Add the Agents API (beta): sessions (create, list, retrieve, update, delete), event streaming and input events, items, turns, trace export, and environments. Methods send `OpenAI-Beta: agents=v1` for that request only and restore your headers afterwards.
+
+## 6.1.0 - 2026-10-11
+
+- Add `request($method, $path, $opts, $stream, $multipart)` for compatible REST operations without dedicated methods (Containers, Evals, Administration, Vaults, Agents, and future routes). Paths must be relative; absolute URLs are rejected.
+
+## 6.0.1 - 2026-10-11
+
+- Documentation: finalize the changelog for the 6.0 line. No code changes since 6.0.
+
+## 6.0 - 2026-10-07
+
+- Remove the legacy Completions integration, sunset Assistants APIs, retired image variations, and obsolete endpoint wrappers and URL helpers.
+- Add Responses, Conversations, Vector Stores, Batches, Uploads, Realtime client secrets, and fine-tuning checkpoint operations.
+- Use current chat and embedding defaults; update examples and package metadata.
+- Add stored chat completion CRUD, Decisions, webhook management and signature verification, Audio voices and consents, fine-tuning graders and pause/resume, and Realtime REST call control and translation client secrets.
+- Support per-request streaming callbacks for Chat, Responses, Images, and transcription; multipart Upload Parts; GET query arrays and pagination; and background Response stream resumption.
+- Preserve cURL connection errors and valid empty response bodies; reject malformed JSON request data.
+- Allow construction without an API key; add `setApiKey()` for deferred configuration and key replacement, and reject requests without configured authentication (#156).
+- Add the ten organization Usage endpoints available in the original audit and Costs, with query filters and cursor pagination (#155).
+- Add custom cURL options and configurable API path prefixes for compatible providers (#149, #152).
+- Remove cURL mocks; run real API tests when a key is available, with test-owned resource cleanup and explicit skips for missing credentials or fixtures.
+- See [MIGRATING.md](MIGRATING.md) for breaking changes.
+
 ## 3.5 - 2023-02-10
 
 ### What's Changed

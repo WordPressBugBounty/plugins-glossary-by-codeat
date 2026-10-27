@@ -3,11 +3,11 @@
 /**
  * Glossary
  *
- * @package   Glossary
- * @author    Codeat <support@codeat.co>
+ * @package Glossary
+ * @author Codeat <support@codeat.co>
  * @copyright 2020
- * @license   GPL 3.0+
- * @link      https://codeat.co
+ * @license GPL 3.0+
+ * @link https://codeat.co
  */
 namespace Glossary\Frontend\Core;
 
@@ -89,7 +89,7 @@ class Search_Engine extends Engine\Base {
             \add_filter( 'the_excerpt', array($this, 'check_auto_link'), $priority );
         }
         $theme = wp_get_theme( get_template() );
-        if ( $theme->name === 'Bricks' ) {
+        if ( 'Bricks' === $theme->name ) {
             \add_filter(
                 'bricks/element/settings',
                 array($this, 'bricks_settings'),
@@ -173,7 +173,7 @@ class Search_Engine extends Engine\Base {
      * @return string
      */
     public function check_divi_block( $output, $tag, $attr ) {
-        if ( (isset( $attr['theme_builder_area'] ) && $attr['theme_builder_area'] === 'post_content' || isset( $attr['_builder_version'] )) && \in_array( $tag, array('et_pb_text', 'et_pb_wc_description'), true ) ) {
+        if ( (isset( $attr['theme_builder_area'] ) && 'post_content' === $attr['theme_builder_area'] || isset( $attr['_builder_version'] )) && \in_array( $tag, array('et_pb_text', 'et_pb_wc_description'), true ) ) {
             if ( \apply_filters( $this->default_parameters['filter_prefix'] . '_is_page_to_parse', $this->content->is_page_type_to_check() ) ) {
                 $output = $this->auto_link( $output );
             }

@@ -3,11 +3,11 @@
 /**
  * Glossary
  *
- * @package   Glossary
- * @author    Codeat <support@codeat.co>
+ * @package Glossary
+ * @author Codeat <support@codeat.co>
  * @copyright 2020
- * @license   GPL 3.0+
- * @link      https://codeat.co
+ * @license GPL 3.0+
+ * @link https://codeat.co
  */
 
 namespace Glossary\Frontend\Theme;
@@ -37,7 +37,7 @@ class Genesis extends Engine\Base {
 
 		$this->search_engine = \apply_filters( 'glossary_instance_Glossary\Frontend\Core\Search_Engine', '' );
 
-		if ( $this->search_engine === '' ) {
+		if ( '' === $this->search_engine ) {
 			$this->search_engine = new \Glossary\Frontend\Core\Search_Engine;
 		}
 
@@ -98,9 +98,9 @@ class Genesis extends Engine\Base {
 	/**
 	 * Print the archive alphabetical bar
 	 *
-	 * @param string $heading    The title.
+	 * @param string $heading The title.
 	 * @param string $intro_text Genesis.
-	 * @param string $context    The context.
+	 * @param string $context The context.
 	 * @return void
 	 */
 	public function print_archive_bar( string $heading = '', string $intro_text = '', string $context = '' ) { // phpcs:ignore

@@ -3,11 +3,11 @@
 /**
  * Glossary
  *
- * @package   Glossary
- * @author    Codeat <support@codeat.co>
+ * @package Glossary
+ * @author Codeat <support@codeat.co>
  * @copyright 2020
- * @license   GPL 2.0+
- * @link      https://codeat.co
+ * @license GPL 2.0+
+ * @link https://codeat.co
  */
 namespace Glossary\Frontend\Core\Type;
 
@@ -82,8 +82,8 @@ class Tooltip extends Engine\Base {
          *
          * @param string $tooltip The tooltip.
          * @param string $excerpt The excerpt.
-         * @param string $photo   Photo.
-         * @param string $post    The post object.
+         * @param string $photo Photo.
+         * @param string $post The post object.
          * @param string $noreadmore The internal html link.
          * @param string $tooltip_html The tooltip's HTML content wrapper.
          * @since 1.2.0

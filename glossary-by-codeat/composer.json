@@ -21,7 +21,7 @@
     "mte90/cmb2-field-ajax-search": "dev-master",
     "mte90/wp-dismissible-notices-handler": "1.2.2",
     "mte90/wp-super-duper": "dev-fork",
-    "orhanerday/open-ai": "^4.7",
+    "orhanerday/open-ai": "^6.3",
     "wpbp/cronplus": "~1.0.0",
     "wpbp/i18n-notice": "dev-main",
     "wpbp/page-madness-detector": "~1.0.0",
@@ -29,10 +29,6 @@
     "wpdesk/wp-notice": "^3.2"
   },
   "repositories": [
-    {
-      "type": "path",
-      "url": "lib/freemius-sdk"
-    },
     {
       "type": "package",
       "package": {

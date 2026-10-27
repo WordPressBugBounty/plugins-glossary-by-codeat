@@ -3,11 +3,11 @@
 /**
  * Glossary
  *
- * @package   Glossary
- * @author    Codeat <support@codeat.co>
+ * @package Glossary
+ * @author Codeat <support@codeat.co>
  * @copyright 2020
- * @license   GPL 3.0+
- * @link      https://codeat.co
+ * @license GPL 3.0+
+ * @link https://codeat.co
  */
 namespace Glossary\Frontend\Core;
 
@@ -86,14 +86,14 @@ class Terms_List extends Engine\Base {
         // boundaries instead of scanning across paragraphs, which would
         // cause false negatives when a quote appears in a later paragraph.
         $protected_tags = 'a|button|h[1-6]|pre|code|figcaption|textarea|p|div|blockquote|figure|li|td|th|table|tr|ul|ol|dl|section|article|header|footer|main|nav|aside';
-        if ( $span_close !== '' ) {
+        if ( '' !== $span_close ) {
             $protected_tags .= '|span';
         }
         /**
          * The regex to do the first step of scanning
          *
          * @param string $regex The regex.
-         * @param string $term  The term of the regex.
+         * @param string $term The term of the regex.
          * @since 1.1.0
          * @return array $regex We need the regex.
          */
@@ -213,7 +213,7 @@ class Terms_List extends Engine\Base {
     /**
      * Enqueue the term
      *
-     * @param string $value   The text.
+     * @param string $value The text.
      * @return void
      */
     public function enqueue_term( string $value ) {

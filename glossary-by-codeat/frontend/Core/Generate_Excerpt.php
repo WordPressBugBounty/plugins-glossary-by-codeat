@@ -3,11 +3,11 @@
 /**
  * Glossary
  *
- * @package   Glossary
- * @author    Codeat <support@codeat.co>
+ * @package Glossary
+ * @author Codeat <support@codeat.co>
  * @copyright 2020
- * @license   GPL 3.0+
- * @link      https://codeat.co
+ * @license GPL 3.0+
+ * @link https://codeat.co
  */
 namespace Glossary\Frontend\Core;
 
@@ -36,7 +36,7 @@ class Generate_Excerpt extends Engine\Base {
     /**
      * Get the excerpt by our limit
      *
-     * @param array $atts      Various attributes.
+     * @param array $atts Various attributes.
      * @return string
      */
     public function get( array $atts ) {
@@ -59,7 +59,7 @@ class Generate_Excerpt extends Engine\Base {
          * Filter the excerpt before printing
          *
          * @param string $excerpt The excerpt.
-         * @param string $theid   The ID.
+         * @param string $theid The ID.
          * @since 1.2.0
          * @return string $excerpt The excerpt filtered.
          */
@@ -97,7 +97,7 @@ class Generate_Excerpt extends Engine\Base {
     /**
      * Elaborate the excerpt based on the settings
      *
-     * @param string $excerpt  The excerpt.
+     * @param string $excerpt The excerpt.
      * @return string
      */
     public function elaborate_the_excerpt( string $excerpt ) {
@@ -133,7 +133,7 @@ class Generate_Excerpt extends Engine\Base {
     /**
      * Limit excerpt based on the settings
      *
-     * @param string $excerpt  The excerpt.
+     * @param string $excerpt The excerpt.
      * @return string
      */
     public function limit_excerpt( string $excerpt ) {

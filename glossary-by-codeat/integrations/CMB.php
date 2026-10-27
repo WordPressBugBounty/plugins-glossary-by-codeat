@@ -3,11 +3,11 @@
 /**
  * Glossary
  *
- * @package   Glossary
- * @author    Codeat <support@codeat.co>
+ * @package Glossary
+ * @author Codeat <support@codeat.co>
  * @copyright 2020
- * @license   GPL 3.0+
- * @link      https://codeat.co
+ * @license GPL 3.0+
+ * @link https://codeat.co
  */
 namespace Glossary\Integrations;
 
@@ -50,9 +50,9 @@ class CMB extends Engine\Base {
      * Prompt a reminder to flush the pernalink
      *
      * @param string $object_id CMB Object ID.
-     * @param string $cmb_id    CMB ID.
-     * @param string $updated   Status.
-     * @param array  $object    The CMB object.
+     * @param string $cmb_id CMB ID.
+     * @param string $updated Status.
+     * @param array  $object The CMB object.
      * @return void
      */
     public function permalink_alert(
@@ -62,7 +62,7 @@ class CMB extends Engine\Base {
         $object
     ) {
         //phpcs:ignore
-        if ( $cmb_id !== GT_SETTINGS . '_options' ) {
+        if ( GT_SETTINGS . '_options' !== $cmb_id ) {
             return;
         }
         \wpdesk_wp_notice( \__( 'You must flush the permalink if you changed the slug, go on Settings->Permalink and press Save changes!', GT_TEXTDOMAIN ), 'updated' );

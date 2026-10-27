@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit88ea0932493ada385f8f4311e6b4980a
+class ComposerStaticInitd4ecf9d2cc6f62e34660a94fa7e7e727
 {
     public static $files = array (
         '578496d7ba8c55447964d725c8448309' => __DIR__ . '/..' . '/codeatcode/wp-review-me/review.php',
@@ -349,7 +349,10 @@ class ComposerStaticInit88ea0932493ada385f8f4311e6b4980a
         'Micropackage\\Requirements\\Interfaces\\Checkable' => __DIR__ . '/..' . '/micropackage/requirements/src/Interfaces/Checkable.php',
         'Micropackage\\Requirements\\Requirements' => __DIR__ . '/..' . '/micropackage/requirements/src/Requirements.php',
         'Orhanerday\\OpenAi\\OpenAi' => __DIR__ . '/..' . '/orhanerday/open-ai/src/OpenAi.php',
+        'Orhanerday\\OpenAi\\OpenAiException' => __DIR__ . '/..' . '/orhanerday/open-ai/src/OpenAiException.php',
+        'Orhanerday\\OpenAi\\Response' => __DIR__ . '/..' . '/orhanerday/open-ai/src/Response.php',
         'Orhanerday\\OpenAi\\Url' => __DIR__ . '/..' . '/orhanerday/open-ai/src/Url.php',
+        'Orhanerday\\OpenAi\\Webhook' => __DIR__ . '/..' . '/orhanerday/open-ai/src/Webhook.php',
         'WPDesk\\Notice\\AjaxHandler' => __DIR__ . '/..' . '/wpdesk/wp-notice/src/WPDesk/Notice/AjaxHandler.php',
         'WPDesk\\Notice\\Factory' => __DIR__ . '/..' . '/wpdesk/wp-notice/src/WPDesk/Notice/Factory.php',
         'WPDesk\\Notice\\Notice' => __DIR__ . '/..' . '/wpdesk/wp-notice/src/WPDesk/Notice/Notice.php',
@@ -361,9 +364,9 @@ class ComposerStaticInit88ea0932493ada385f8f4311e6b4980a
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit88ea0932493ada385f8f4311e6b4980a::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit88ea0932493ada385f8f4311e6b4980a::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit88ea0932493ada385f8f4311e6b4980a::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitd4ecf9d2cc6f62e34660a94fa7e7e727::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitd4ecf9d2cc6f62e34660a94fa7e7e727::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitd4ecf9d2cc6f62e34660a94fa7e7e727::$classMap;
 
         }, null, ClassLoader::class);
     }

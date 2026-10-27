@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "88ea0932493ada385f8f4311e6b4980a",
+    "content-hash": "d4ecf9d2cc6f62e34660a94fa7e7e727",
     "packages": [
         {
             "name": "cmb2/cmb2",
-            "version": "v2.13.3",
+            "version": "v2.13.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CMB2/CMB2.git",
-                "reference": "0f2498434d97876f6f141fa1de99c8ec87840a4a"
+                "reference": "c4d9cfa1a1a8707b22140a5bec1749b74f9829f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CMB2/CMB2/zipball/0f2498434d97876f6f141fa1de99c8ec87840a4a",
-                "reference": "0f2498434d97876f6f141fa1de99c8ec87840a4a",
+                "url": "https://api.github.com/repos/CMB2/CMB2/zipball/c4d9cfa1a1a8707b22140a5bec1749b74f9829f0",
+                "reference": "c4d9cfa1a1a8707b22140a5bec1749b74f9829f0",
                 "shasum": ""
             },
             "require": {
@@ -60,7 +60,7 @@
                 "issues": "https://github.com/CMB2/CMB2/issues",
                 "source": "http://wordpress.org/support/plugin/cmb2"
             },
-            "time": "2026-10-03T19:02:06+00:00"
+            "time": "2026-10-26T23:16:04+00:00"
         },
         {
             "name": "codeatcode/wp-review-me",
@@ -241,10 +241,16 @@
         {
             "name": "freemius/wordpress-sdk",
             "version": "2.13.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Freemius/wordpress-sdk.git",
+                "reference": "0875c4ee3c941572f44d60cb2a687c54295db3d7"
+            },
             "dist": {
-                "type": "path",
-                "url": "lib/freemius-sdk",
-                "reference": "5a42f7a0f7d00266bf7d6c0e2a8408756a3e39ec"
+                "type": "zip",
+                "url": "https://api.github.com/repos/Freemius/wordpress-sdk/zipball/0875c4ee3c941572f44d60cb2a687c54295db3d7",
+                "reference": "0875c4ee3c941572f44d60cb2a687c54295db3d7",
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.6"
@@ -264,22 +270,7 @@
                     "start.php"
                 ]
             },
-            "scripts": {
-                "phpcs": [
-                    "Composer\\Config::disableProcessTimeout",
-                    "phpcs -p -s --colors"
-                ],
-                "phpcs:ci": [
-                    "Composer\\Config::disableProcessTimeout",
-                    "phpcs --standard=phpcompat.xml -p -s --colors"
-                ],
-                "phpstan": [
-                    "./vendor/bin/phpstan analyse phpstan.neon --memory-limit 2G"
-                ],
-                "phpstan:log": [
-                    "./vendor/bin/phpstan analyse -c phpstan.neon --memory-limit 2G > error-phpstan.xml"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-only"
             ],
@@ -294,9 +285,11 @@
                 "wordpress-plugin",
                 "wordpress-theme"
             ],
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/Freemius/wordpress-sdk/issues",
+                "source": "https://github.com/Freemius/wordpress-sdk/tree/2.13.5"
+            },
+            "time": "2026-10-22T12:00:44+00:00"
         },
         {
             "name": "johnbillion/args",
@@ -615,16 +608,16 @@
         },
         {
             "name": "orhanerday/open-ai",
-            "version": "4.9.1",
+            "version": "6.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/orhanerday/open-ai.git",
-                "reference": "2ccdf2f6b4287b9e570a1ddcf33083b7ad9f7e9c"
+                "reference": "24ef763272c9e4e61a74d40f1131b0e82e5d61ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orhanerday/open-ai/zipball/2ccdf2f6b4287b9e570a1ddcf33083b7ad9f7e9c",
-                "reference": "2ccdf2f6b4287b9e570a1ddcf33083b7ad9f7e9c",
+                "url": "https://api.github.com/repos/orhanerday/open-ai/zipball/24ef763272c9e4e61a74d40f1131b0e82e5d61ca",
+                "reference": "24ef763272c9e4e61a74d40f1131b0e82e5d61ca",
                 "shasum": ""
             },
             "require": {
@@ -634,8 +627,8 @@
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^3.0",
-                "pestphp/pest": "^1.20",
-                "spatie/ray": "^1.28"
+                "pestphp/pest": "^1.23.1 || ^2.0 || ^3.0 || ^4.0",
+                "phpstan/phpstan": "^1.10 || ^2.0"
             },
             "type": "library",
             "autoload": {
@@ -654,7 +647,7 @@
                     "role": "Developer"
                 }
             ],
-            "description": "OpenAI GPT-3 Api Client in PHP",
+            "description": "OpenAI API client for PHP, with Responses, Chat, Images, and more",
             "homepage": "https://github.com/orhanerday/open-ai",
             "keywords": [
                 "open-ai",
@@ -662,7 +655,7 @@
             ],
             "support": {
                 "issues": "https://github.com/orhanerday/open-ai/issues",
-                "source": "https://github.com/orhanerday/open-ai/tree/4.9.1"
+                "source": "https://github.com/orhanerday/open-ai/tree/6.3.1"
             },
             "funding": [
                 {
@@ -670,7 +663,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-11-13T04:03:05+00:00"
+            "time": "2026-10-21T16:09:01+00:00"
         },
         {
             "name": "wpbp/cronplus",

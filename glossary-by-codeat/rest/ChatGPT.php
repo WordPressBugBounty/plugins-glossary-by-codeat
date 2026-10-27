@@ -2,11 +2,11 @@
 /**
  * Glossary
  *
- * @package   Glossary
- * @author    Codeat <support@codeat.co>
+ * @package Glossary
+ * @author Codeat <support@codeat.co>
  * @copyright 2020
- * @license   GPL 3.0+
- * @link      https://codeat.co
+ * @license GPL 3.0+
+ * @link https://codeat.co
  */
 
 namespace Glossary\Rest;
@@ -77,19 +77,18 @@ class ChatGPT extends Engine\Base {
 
 		if ( isset( $settings['openai_key'] ) && !empty( $request[ 'prompt' ] ) ) {
 			$open_ai = new OpenAi( $settings['openai_key'] );
+
+			// Current-generation models reject max_tokens, temperature and penalty parameters.
 			$message = $open_ai->chat(
 				array(
-					'model'             => $settings['openai_model'],
-					'messages'          => array(
+					'model'                 => self::resolve_model( \strval( $settings['openai_model'] ?? '' ) ),
+					'messages'              => array(
 						array(
 							'role'    => 'user',
 							'content' => $request[ 'prompt' ],
 						),
 					),
-					'temperature'       => \intval( $settings['openai_temperature'] ),
-					'max_tokens'        => 4000,
-					'frequency_penalty' => 0,
-					'presence_penalty'  => 0,
+					'max_completion_tokens' => 16000,
 				)
 			);
 			$message = json_decode( \strval( $message ) );
@@ -110,6 +109,40 @@ class ChatGPT extends Engine\Base {
 		$response->set_status( 500 );
 
 		return $response;
+	}
+
+	/**
+	 * Fallback model used when the saved one is no longer offered.
+	 */
+	public static function default_model(): string {
+		return 'gpt-6.1-sol';
+	}
+
+	/**
+	 * OpenAI text models offered in the settings.
+	 *
+	 * @return array<string, string>
+	 */
+	public static function models(): array {
+		return array(
+			'gpt-6-astra'   => 'gpt-6-astra',
+			'gpt-6.1-sol'   => 'gpt-6.1-sol',
+			'gpt-6.1-terra' => 'gpt-6.1-terra',
+			'gpt-6-luna'    => 'gpt-6-luna',
+		);
+	}
+
+	/**
+	 * Resolve a saved model, falling back to the default when it is no longer offered.
+	 *
+	 * @param string $model Saved model id.
+	 */
+	public static function resolve_model( string $model ): string {
+		if ( \array_key_exists( $model, self::models() ) ) {
+			return $model;
+		}
+
+		return self::default_model();
 	}
 
 }

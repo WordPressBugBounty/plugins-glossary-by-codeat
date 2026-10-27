@@ -1,23 +1,23 @@
 <?php
 
 /**
- * @package      Glossary
- * @author        Codeat <support@codeat.co>
- * @copyright      2020
- * @license      GPL 3.0+
- * @link            https://codeat.co
+ * @package Glossary
+ * @author Codeat <support@codeat.co>
+ * @copyright 2020
+ * @license GPL 3.0+
+ * @link https://codeat.co
  *
- * Plugin Name:    Glossary
- * Plugin URI:     https://glossary.codeat.co/
- * Description:    Easily add and manage a glossary with auto-link, tooltips and more. Improve your internal link building for a better SEO.
- * Version:        2.3.19
- * Author:         Codeat
- * Author URI:     https://docs.codeat.co/glossary/
- * Text Domain:    glossary-by-codeat
- * License:        GPL-3.0+
- * License URI:    http://www.gnu.org/licenses/gpl-3.0.txt
- * Domain Path:    /languages
- * Requires PHP:   7.4
+ * Plugin Name: Glossary
+ * Plugin URI: https://glossary.codeat.co/
+ * Description: Easily add and manage a glossary with auto-link, tooltips and more. Improve your internal link building for a better SEO.
+ * Version: 2.3.20
+ * Author: Codeat
+ * Author URI: https://docs.codeat.co/glossary/
+ * Text Domain: glossary-by-codeat
+ * License: GPL-3.0+
+ * License URI: http://www.gnu.org/licenses/gpl-3.0.txt
+ * Domain Path: /languages
+ * Requires PHP: 7.4
  * WordPress-Plugin-Boilerplate-Powered: v3.2.0
  */
 // If this file is called directly, abort.
@@ -25,7 +25,7 @@ if ( !defined( 'ABSPATH' ) ) {
     die( 'We\'re sorry, but you can not directly access this file.' );
     //phpcs:ignore
 }
-define( 'GT_VERSION', '2.3.19' );
+define( 'GT_VERSION', '2.3.20' );
 define( 'GT_SETTINGS', 'glossary' );
 define( 'GT_TEXTDOMAIN', 'glossary-by-codeat' );
 define( 'GT_NAME', 'Glossary' );

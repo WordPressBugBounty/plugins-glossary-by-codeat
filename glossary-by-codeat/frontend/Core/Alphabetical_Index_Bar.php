@@ -3,11 +3,11 @@
 /**
  * Glossary
  *
- * @package   Glossary
- * @author  Codeat <support@codeat.co>
+ * @package Glossary
+ * @author Codeat <support@codeat.co>
  * @copyright 2020
- * @license   GPL 3.0+
- * @link      https://codeat.co
+ * @license GPL 3.0+
+ * @link https://codeat.co
  */
 
 namespace Glossary\Frontend\Core;
@@ -310,7 +310,7 @@ class Alphabetical_Index_Bar extends Engine\Base {
 	public function get_featured_image( int $post_id ) {
 		$html = '';
 
-		if ( $this->atts['featured-image'] !== 'false' ) {
+		if ( 'false' !== $this->atts['featured-image'] ) {
 			$thumb = \get_the_post_thumbnail( $post_id, $this->atts['featured-image'] );
 
 			if ( !empty( $thumb ) ) {
